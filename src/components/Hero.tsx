@@ -1,9 +1,12 @@
+import { motion } from "framer-motion";
 import { Phone, MessageCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 import carPicture from "@/assets/car-picture.jpg";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const whatsappLink = "https://wa.me/491711670001?text=Hallo,%20ich%20möchte%20ein%20Taxi%20bestellen.";
   const phoneNumber = "tel:+491711670001";
 
@@ -22,37 +25,67 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
         {/* Logo */}
-        <div className="mb-8 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 flex justify-center"
+        >
           <img
             src={logo}
             alt="MiniTAXI Royal Logo"
             className="h-24 md:h-32 w-auto object-contain"
           />
-        </div>
+        </motion.div>
 
         {/* Headline */}
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
+        >
           <span className="gold-text">Mini</span>
           <span className="text-foreground">TAXI </span>
           <span className="gold-text">Royal</span>
-        </h1>
+        </motion.h1>
 
-        <p className="text-xl md:text-2xl text-foreground/90 font-serif mb-2">
-          Ihr exklusiver Taxi-Service
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-xl md:text-2xl text-foreground/90 font-serif mb-2"
+        >
+          {t("hero.tagline")}
+        </motion.p>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8">
-          Schnell • Zuverlässig • 24/7 erreichbar
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg md:text-xl text-muted-foreground mb-8"
+        >
+          {t("hero.subtitle")}
+        </motion.p>
 
         {/* ETA Badge */}
-        <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 mb-10 glow-gold">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 mb-10 glow-gold"
+        >
           <Clock className="w-5 h-5 text-primary" />
-          <span className="text-foreground font-medium">In wenigen Minuten bei Ihnen</span>
-        </div>
+          <span className="text-foreground font-medium">{t("hero.eta")}</span>
+        </motion.div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
           <Button
             asChild
             size="lg"
@@ -60,7 +93,7 @@ const Hero = () => {
           >
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-6 h-6 mr-2" />
-              Jetzt per WhatsApp buchen
+              {t("hero.whatsapp")}
             </a>
           </Button>
 
@@ -75,12 +108,17 @@ const Hero = () => {
               0171 1670001
             </a>
           </Button>
-        </div>
+        </motion.div>
 
         {/* Service Area */}
-        <p className="mt-10 text-muted-foreground">
-          📍 Friedberg & Umgebung
-        </p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-10 text-muted-foreground"
+        >
+          📍 {t("hero.location")}
+        </motion.p>
       </div>
 
       {/* Decorative Gold Line */}
