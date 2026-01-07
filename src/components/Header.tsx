@@ -1,17 +1,24 @@
 import { useState } from "react";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpg";
-
-const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Fahrzeuge" },
-  { href: "#reviews", label: "Bewertungen" },
-  { href: "#contact", label: "Kontakt" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { href: "#services", label: t("nav.services") },
+    { href: "#gallery", label: t("nav.vehicles") },
+    { href: "#reviews", label: t("nav.reviews") },
+    { href: "#booking", label: t("nav.booking") },
+    { href: "#contact", label: t("nav.contact") },
+  ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === "de" ? "en" : "de");
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -30,7 +37,7 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -42,8 +49,17 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Toggle & CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleLanguage}
+              className="text-muted-foreground hover:text-primary"
+            >
+              <Globe className="w-4 h-4 mr-1" />
+              {language === "de" ? "EN" : "DE"}
+            </Button>
             <Button
               asChild
               className="gold-gradient text-primary-foreground hover:opacity-90"
@@ -58,7 +74,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground"
             aria-label="Menü öffnen"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -67,7 +83,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
@@ -79,13 +95,24 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <div className="flex items-center gap-3 pt-4 border-t border-border">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={toggleLanguage}
+                  className="text-foreground"
+                >
+                  <Globe className="w-4 h-4 mr-1" />
+                  {language === "de" ? "English" : "Deutsch"}
+                </Button>
+              </div>
               <Button
                 asChild
                 className="gold-gradient text-primary-foreground hover:opacity-90 w-full mt-2"
               >
                 <a href="tel:+491711670001">
                   <Phone className="w-4 h-4 mr-2" />
-                  Jetzt anrufen
+                  {t("nav.callNow")}
                 </a>
               </Button>
             </nav>
