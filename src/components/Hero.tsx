@@ -1,0 +1,92 @@
+import { Phone, MessageCircle, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpg";
+import carPicture from "@/assets/car-picture.jpg";
+
+const Hero = () => {
+  const whatsappLink = "https://wa.me/491711670001?text=Hallo,%20ich%20möchte%20ein%20Taxi%20bestellen.";
+  const phoneNumber = "tel:+491711670001";
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src={carPicture}
+          alt="MiniTAXI Royal Fahrzeug"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 py-20 text-center">
+        {/* Logo */}
+        <div className="mb-8 flex justify-center">
+          <img
+            src={logo}
+            alt="MiniTAXI Royal Logo"
+            className="h-24 md:h-32 w-auto object-contain"
+          />
+        </div>
+
+        {/* Headline */}
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+          <span className="gold-text">Mini</span>
+          <span className="text-foreground">TAXI </span>
+          <span className="gold-text">Royal</span>
+        </h1>
+
+        <p className="text-xl md:text-2xl text-foreground/90 font-serif mb-2">
+          Ihr exklusiver Taxi-Service
+        </p>
+
+        <p className="text-lg md:text-xl text-muted-foreground mb-8">
+          Schnell • Zuverlässig • 24/7 erreichbar
+        </p>
+
+        {/* ETA Badge */}
+        <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 mb-10 glow-gold">
+          <Clock className="w-5 h-5 text-primary" />
+          <span className="text-foreground font-medium">In wenigen Minuten bei Ihnen</span>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Button
+            asChild
+            size="lg"
+            className="bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground text-lg px-8 py-6 rounded-full animate-pulse-glow"
+          >
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-6 h-6 mr-2" />
+              Jetzt per WhatsApp buchen
+            </a>
+          </Button>
+
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 rounded-full"
+          >
+            <a href={phoneNumber}>
+              <Phone className="w-6 h-6 mr-2" />
+              0171 1670001
+            </a>
+          </Button>
+        </div>
+
+        {/* Service Area */}
+        <p className="mt-10 text-muted-foreground">
+          📍 Friedberg & Umgebung
+        </p>
+      </div>
+
+      {/* Decorative Gold Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 gold-gradient" />
+    </section>
+  );
+};
+
+export default Hero;
