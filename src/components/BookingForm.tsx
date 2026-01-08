@@ -40,36 +40,23 @@ const BookingForm = () => {
     
     const formattedDate = date ? format(date, "dd.MM.yyyy") : "";
     
-    const EMOJI = {
-      note: "\u{1F4DD}",      // 📝
-      phone: "\u{1F4DE}",     // 📞
-      pin: "\u{1F4CD}",       // 📍
-      target: "\u{1F3C1}",    // 🏁 (or use "\u{1F3AF}" for 🎯)
-      date: "\u{1F4C5}",      // 📅
-      time: "\u{23F0}",       // ⏰
-      people: "\u{1F465}",    // 👥
-      bag: "\u{1F9F3}",       // 🧳
-      msg: "\u{1F4AC}",       // 💬
-      };
-  
-      const message = `Hallo, ich möchte ein Taxi buchen:
-      
-      ${EMOJI.note} Name: ${name.trim()}
-      ${EMOJI.phone} Telefon: ${phone.trim()}
-      ${EMOJI.pin} Abholort: ${pickup.trim()}
-      ${EMOJI.target} Ziel: ${destination.trim()}
-      ${EMOJI.date} Datum: ${formattedDate}
-      ${EMOJI.time} Uhrzeit: ${time}
-      ${EMOJI.people} Personen: ${persons}
-      ${EMOJI.bag} Gepäck: ${bags}
-      ${notes.trim() ? `${EMOJI.msg} Anmerkungen: ${notes.trim()}` : ""}
-      
-      Vielen Dank!`;
+    const message = `Hallo, ich möchte ein Taxi buchen:
 
-
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/491711670001?text=${encodedMessage}`;
+    *Name:* ${name.trim()}
+    *Telefon:* ${phone.trim()}
+    *Abholort:* ${pickup.trim()}
+    *Ziel:* ${destination.trim()}
+    *Datum:* ${formattedDate}
+    *Uhrzeit:* ${time}
+    *Personen:* ${persons}
+    *Gepäck:* ${bags}
+    ${notes.trim() ? `*Anmerkungen:* ${notes.trim()}` : ""}
+    
+    Vielen Dank!`;
+    
+    const whatsappUrl = `https://wa.me/491711670001?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
+
   };
 
   return (
