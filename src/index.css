@@ -1,55 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* MiniTAXI Royal Design System - Premium Black & Gold */
+/* MiniTAXI Royal Design System - Modern Luxury Black & Gold */
 
 @layer base {
   :root {
-    /* Dark luxury theme */
-    --background: 0 0% 5%;
-    --foreground: 45 30% 96%;
+    /* Deep charcoal luxury theme */
+    --background: 220 15% 6%;
+    --foreground: 45 20% 95%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 45 30% 96%;
+    --card: 220 15% 9%;
+    --card-foreground: 45 20% 95%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 45 30% 96%;
+    --popover: 220 15% 9%;
+    --popover-foreground: 45 20% 95%;
 
-    /* Gold primary - luxurious warm gold */
-    --primary: 43 74% 49%;
-    --primary-foreground: 0 0% 5%;
+    /* Refined gold primary */
+    --primary: 45 85% 55%;
+    --primary-foreground: 220 15% 6%;
 
-    /* Darker gold for secondary */
-    --secondary: 43 60% 35%;
-    --secondary-foreground: 45 30% 96%;
+    /* Deep amber secondary */
+    --secondary: 38 70% 38%;
+    --secondary-foreground: 45 20% 95%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 220 10% 14%;
+    --muted-foreground: 220 5% 55%;
 
     /* Gold accent */
-    --accent: 43 74% 49%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 220 15% 6%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 45 30% 96%;
+    --destructive-foreground: 45 20% 95%;
 
-    --border: 43 30% 20%;
-    --input: 0 0% 15%;
-    --ring: 43 74% 49%;
+    --border: 45 25% 18%;
+    --input: 220 15% 12%;
+    --ring: 45 85% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     /* WhatsApp green */
     --whatsapp: 142 70% 45%;
     --whatsapp-foreground: 0 0% 100%;
 
     /* Gold gradient tokens */
-    --gold-light: 43 80% 65%;
-    --gold-main: 43 74% 49%;
-    --gold-dark: 43 60% 35%;
+    --gold-light: 48 90% 68%;
+    --gold-main: 45 85% 55%;
+    --gold-dark: 38 70% 38%;
   }
 }
 
@@ -64,51 +64,67 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.02em;
   }
 }
 
 @layer components {
   .gold-gradient {
-    background: linear-gradient(135deg, hsl(43 80% 65%) 0%, hsl(43 74% 49%) 50%, hsl(43 60% 35%) 100%);
+    background: linear-gradient(135deg, hsl(48 90% 68%) 0%, hsl(45 85% 55%) 50%, hsl(38 70% 38%) 100%);
   }
 
   .gold-text {
-    background: linear-gradient(135deg, hsl(43 80% 70%) 0%, hsl(43 74% 55%) 50%, hsl(43 60% 45%) 100%);
+    background: linear-gradient(135deg, hsl(48 95% 72%) 0%, hsl(45 90% 60%) 50%, hsl(40 75% 48%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gold-border {
-    border-image: linear-gradient(135deg, hsl(43 80% 65%), hsl(43 60% 35%)) 1;
+    border-image: linear-gradient(135deg, hsl(48 90% 68%), hsl(38 70% 38%)) 1;
   }
 
   .shimmer {
     background: linear-gradient(
       110deg,
-      hsl(43 74% 49% / 0) 0%,
-      hsl(43 74% 49% / 0.1) 20%,
-      hsl(43 74% 49% / 0.3) 50%,
-      hsl(43 74% 49% / 0.1) 80%,
-      hsl(43 74% 49% / 0) 100%
+      hsl(45 85% 55% / 0) 0%,
+      hsl(45 85% 55% / 0.1) 20%,
+      hsl(45 85% 55% / 0.3) 50%,
+      hsl(45 85% 55% / 0.1) 80%,
+      hsl(45 85% 55% / 0) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
   }
 
   .glow-gold {
-    box-shadow: 0 0 20px hsl(43 74% 49% / 0.3), 0 0 40px hsl(43 74% 49% / 0.1);
+    box-shadow: 0 0 25px hsl(45 85% 55% / 0.25), 0 0 50px hsl(45 85% 55% / 0.1);
   }
 
   .floating-shadow {
     box-shadow: 
-      0 10px 30px -10px hsl(0 0% 0% / 0.5),
-      0 0 20px hsl(43 74% 49% / 0.15);
+      0 15px 40px -15px hsl(0 0% 0% / 0.6),
+      0 0 25px hsl(45 85% 55% / 0.12);
+  }
+
+  .glass-card {
+    background: hsl(220 15% 9% / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(45 25% 18% / 0.5);
+  }
+
+  .modern-border {
+    border: 1px solid hsl(45 25% 18%);
+    transition: border-color 0.3s ease;
+  }
+
+  .modern-border:hover {
+    border-color: hsl(45 85% 55% / 0.5);
   }
 }
 
@@ -119,13 +135,18 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 15px hsl(142 70% 45% / 0.5); }
-    50% { box-shadow: 0 0 30px hsl(142 70% 45% / 0.8); }
+    0%, 100% { box-shadow: 0 0 20px hsl(142 70% 45% / 0.5); }
+    50% { box-shadow: 0 0 35px hsl(142 70% 45% / 0.8); }
   }
 
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes fade-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   .animate-pulse-glow {
@@ -133,6 +154,10 @@
   }
 
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
   }
 }

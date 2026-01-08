@@ -7,6 +7,7 @@ import BookingForm from "@/components/BookingForm";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <CookieConsent />
     </div>
   );
 };

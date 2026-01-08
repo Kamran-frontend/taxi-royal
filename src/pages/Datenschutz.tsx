@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Datenschutz = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -14,92 +17,86 @@ const Datenschutz = () => {
           <Button asChild variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
             <Link to="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Zurück zur Startseite
+              {t("legal.back")}
             </Link>
           </Button>
 
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-serif text-4xl font-bold gold-text mb-8">Datenschutzerklärung</h1>
+            <h1 className="font-serif text-4xl font-bold gold-text mb-8 tracking-wide">
+              {t("datenschutz.title")}
+            </h1>
 
-            <div className="prose prose-invert max-w-none space-y-8 text-foreground">
-              <section>
+            <div className="prose prose-invert max-w-none space-y-6 text-foreground">
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  1. Datenschutz auf einen Blick
+                  {t("datenschutz.overview")}
                 </h2>
-                <h3 className="font-semibold text-foreground mb-2">Allgemeine Hinweise</h3>
+                <h3 className="font-semibold text-foreground mb-2">{t("datenschutz.general")}</h3>
                 <p className="text-muted-foreground">
-                  Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren 
-                  personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene 
-                  Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+                  {t("datenschutz.generalText")}
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  2. Datenerfassung auf dieser Website
+                  {t("datenschutz.collection")}
                 </h2>
                 <h3 className="font-semibold text-foreground mb-2">
-                  Wer ist verantwortlich für die Datenerfassung?
+                  {t("datenschutz.responsible")}
                 </h3>
                 <p className="text-muted-foreground">
-                  Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. 
-                  Die Kontaktdaten finden Sie im Impressum dieser Website.
+                  {t("datenschutz.responsibleText")}
                 </p>
 
                 <h3 className="font-semibold text-foreground mb-2 mt-4">
-                  Wie erfassen wir Ihre Daten?
+                  {t("datenschutz.how")}
                 </h3>
                 <p className="text-muted-foreground">
-                  Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen, 
-                  z.B. durch eine Buchungsanfrage per WhatsApp oder Telefon.
+                  {t("datenschutz.howText")}
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  3. WhatsApp-Kommunikation
+                  {t("datenschutz.whatsapp")}
                 </h2>
                 <p className="text-muted-foreground">
-                  Wenn Sie uns über WhatsApp kontaktieren, werden Ihre Daten gemäß den 
-                  Datenschutzbestimmungen von WhatsApp (Meta) verarbeitet. Wir speichern 
-                  Ihre Telefonnummer und Nachrichteninhalte ausschließlich zur Bearbeitung 
-                  Ihrer Buchungsanfrage.
+                  {t("datenschutz.whatsappText")}
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  4. Ihre Rechte
+                  {t("datenschutz.rights")}
                 </h2>
                 <p className="text-muted-foreground">
-                  Sie haben jederzeit das Recht auf:
+                  {t("datenschutz.rightsIntro")}
                 </p>
                 <ul className="list-disc list-inside text-muted-foreground mt-2 space-y-1">
-                  <li>Auskunft über Ihre gespeicherten personenbezogenen Daten</li>
-                  <li>Berichtigung unrichtiger Daten</li>
-                  <li>Löschung Ihrer Daten</li>
-                  <li>Einschränkung der Datenverarbeitung</li>
-                  <li>Widerspruch gegen die Verarbeitung</li>
-                  <li>Datenübertragbarkeit</li>
+                  <li>{t("datenschutz.right1")}</li>
+                  <li>{t("datenschutz.right2")}</li>
+                  <li>{t("datenschutz.right3")}</li>
+                  <li>{t("datenschutz.right4")}</li>
+                  <li>{t("datenschutz.right5")}</li>
+                  <li>{t("datenschutz.right6")}</li>
                 </ul>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  5. Hosting
+                  {t("datenschutz.hosting")}
                 </h2>
                 <p className="text-muted-foreground">
-                  Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf 
-                  dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.
+                  {t("datenschutz.hostingText")}
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  6. Kontakt
+                  {t("datenschutz.contactTitle")}
                 </h2>
                 <p className="text-muted-foreground">
-                  Bei Fragen zum Datenschutz erreichen Sie uns unter:<br />
+                  {t("datenschutz.contactText")}<br />
                   Telefon: 0171 1670001
                 </p>
               </section>

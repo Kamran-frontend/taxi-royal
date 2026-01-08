@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import { de, enUS } from "date-fns/locale";
-import { CalendarIcon, Clock, MessageCircle } from "lucide-react";
+import { CalendarIcon, Clock, MessageCircle, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,6 +20,8 @@ const BookingForm = () => {
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState<Date>();
   const [time, setTime] = useState("");
+  const [persons, setPersons] = useState("");
+  const [bags, setBags] = useState("");
   const [notes, setNotes] = useState("");
 
   const timeSlots = [
@@ -29,6 +31,9 @@ const BookingForm = () => {
     "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30",
     "22:00", "22:30", "23:00", "23:30", "00:00",
   ];
+
+  const personOptions = ["1", "2", "3", "4", "5", "6", "7", "8"];
+  const bagOptions = ["0", "1", "2", "3", "4", "5", "6+"];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,6 +48,8 @@ const BookingForm = () => {
 🎯 Ziel: ${destination.trim()}
 📅 Datum: ${formattedDate}
 🕐 Uhrzeit: ${time}
+👥 Personen: ${persons}
+🧳 Gepäck: ${bags}
 ${notes.trim() ? `💬 Anmerkungen: ${notes.trim()}` : ""}
 
 Vielen Dank!`;
@@ -53,10 +60,12 @@ Vielen Dank!`;
   };
 
   return (
-    <section id="booking" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="booking" className="py-24 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-card/50 to-background pointer-events-none" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 tracking-wide">
             <span className="gold-text">{t("booking.title")}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -66,7 +75,7 @@ Vielen Dank!`;
 
         <AnimatedSection delay={0.2}>
           <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-6 md:p-10 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">
@@ -80,7 +89,8 @@ Vielen Dank!`;
                     placeholder={t("booking.namePlaceholder")}
                     required
                     maxLength={100}
-                    className="bg-background border-border"
+                    autoComplete="name"
+                    className="bg-input border-border rounded-xl h-12"
                   />
                 </div>
 
@@ -96,7 +106,8 @@ Vielen Dank!`;
                     placeholder={t("booking.phonePlaceholder")}
                     required
                     maxLength={20}
-                    className="bg-background border-border"
+                    autoComplete="tel"
+                    className="bg-input border-border rounded-xl h-12"
                   />
                 </div>
               </div>
@@ -113,7 +124,8 @@ Vielen Dank!`;
                   placeholder={t("booking.pickupPlaceholder")}
                   required
                   maxLength={200}
-                  className="bg-background border-border"
+                  autoComplete="street-address"
+                  className="bg-input border-border rounded-xl h-12"
                 />
               </div>
 
@@ -129,7 +141,8 @@ Vielen Dank!`;
                   placeholder={t("booking.destinationPlaceholder")}
                   required
                   maxLength={200}
-                  className="bg-background border-border"
+                  autoComplete="off"
+                  className="bg-input border-border rounded-xl h-12"
                 />
               </div>
 
@@ -144,7 +157,7 @@ Vielen Dank!`;
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal bg-background border-border",
+                          "w-full justify-start text-left font-normal bg-input border-border rounded-xl h-12",
                           !date && "text-muted-foreground"
                         )}
                       >
@@ -171,7 +184,7 @@ Vielen Dank!`;
                     {t("booking.time")} <span className="text-primary">*</span>
                   </label>
                   <Select value={time} onValueChange={setTime} required>
-                    <SelectTrigger className="bg-background border-border">
+                    <SelectTrigger className="bg-input border-border rounded-xl h-12">
                       <Clock className="mr-2 h-4 w-4 text-muted-foreground" />
                       <SelectValue placeholder={t("booking.timePlaceholder")} />
                     </SelectTrigger>
@@ -179,6 +192,48 @@ Vielen Dank!`;
                       {timeSlots.map((slot) => (
                         <SelectItem key={slot} value={slot}>
                           {slot} Uhr
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Persons */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">
+                    {t("booking.persons")} <span className="text-primary">*</span>
+                  </label>
+                  <Select value={persons} onValueChange={setPersons} required>
+                    <SelectTrigger className="bg-input border-border rounded-xl h-12">
+                      <Users className="mr-2 h-4 w-4 text-muted-foreground" />
+                      <SelectValue placeholder={t("booking.personsPlaceholder")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {personOptions.map((num) => (
+                        <SelectItem key={num} value={num}>
+                          {num} {language === "de" ? (num === "1" ? "Person" : "Personen") : (num === "1" ? "Person" : "Persons")}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Bags */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">
+                    {t("booking.bags")}
+                  </label>
+                  <Select value={bags} onValueChange={setBags}>
+                    <SelectTrigger className="bg-input border-border rounded-xl h-12">
+                      <Briefcase className="mr-2 h-4 w-4 text-muted-foreground" />
+                      <SelectValue placeholder={t("booking.bagsPlaceholder")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {bagOptions.map((num) => (
+                        <SelectItem key={num} value={num}>
+                          {num} {language === "de" ? "Gepäckstück(e)" : "Bag(s)"}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -196,7 +251,7 @@ Vielen Dank!`;
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder={t("booking.notesPlaceholder")}
                   maxLength={500}
-                  className="bg-background border-border min-h-[100px]"
+                  className="bg-input border-border min-h-[100px] rounded-xl"
                 />
               </div>
 
@@ -204,8 +259,8 @@ Vielen Dank!`;
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground text-lg py-6 rounded-xl"
-                disabled={!name || !phone || !pickup || !destination || !date || !time}
+                className="w-full bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground text-lg py-7 rounded-xl transition-all duration-300 hover:scale-[1.02]"
+                disabled={!name || !phone || !pickup || !destination || !date || !time || !persons}
               >
                 <MessageCircle className="w-6 h-6 mr-3" />
                 {t("booking.submit")}

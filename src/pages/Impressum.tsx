@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Impressum = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -14,17 +17,19 @@ const Impressum = () => {
           <Button asChild variant="ghost" className="mb-8 text-muted-foreground hover:text-foreground">
             <Link to="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Zurück zur Startseite
+              {t("legal.back")}
             </Link>
           </Button>
 
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-serif text-4xl font-bold gold-text mb-8">Impressum</h1>
+            <h1 className="font-serif text-4xl font-bold gold-text mb-8 tracking-wide">
+              {t("impressum.title")}
+            </h1>
 
-            <div className="prose prose-invert max-w-none space-y-6 text-foreground">
-              <section>
+            <div className="prose prose-invert max-w-none space-y-8 text-foreground">
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  Angaben gemäß § 5 TMG
+                  {t("impressum.according")}
                 </h2>
                 <p className="text-muted-foreground">
                   MiniTAXI Royal<br />
@@ -32,9 +37,9 @@ const Impressum = () => {
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  Kontakt
+                  {t("impressum.contact")}
                 </h2>
                 <p className="text-muted-foreground">
                   Telefon: 0171 1670001<br />
@@ -42,9 +47,9 @@ const Impressum = () => {
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  Einsatzgebiet
+                  {t("impressum.area")}
                 </h2>
                 <p className="text-muted-foreground">
                   Friedberg & Umgebung<br />
@@ -52,12 +57,12 @@ const Impressum = () => {
                 </p>
               </section>
 
-              <section>
+              <section className="glass-card rounded-2xl p-6">
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                  Streitschlichtung
+                  {t("impressum.dispute")}
                 </h2>
                 <p className="text-muted-foreground">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                  {t("impressum.disputeText1")} 
                   <a 
                     href="https://ec.europa.eu/consumers/odr/" 
                     target="_blank" 
@@ -68,8 +73,7 @@ const Impressum = () => {
                   </a>
                 </p>
                 <p className="text-muted-foreground mt-2">
-                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
-                  Verbraucherschlichtungsstelle teilzunehmen.
+                  {t("impressum.disputeText2")}
                 </p>
               </section>
             </div>
