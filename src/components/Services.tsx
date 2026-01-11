@@ -1,4 +1,4 @@
-import { Plane, HeartPulse, Route, CreditCard, Baby, Clock } from "lucide-react";
+import { Plane, HeartPulse, Route, CreditCard, Baby, Clock, TestTube, Stethoscope, Activity, Ambulance, Accessibility, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection, { AnimatedItem } from "@/components/AnimatedSection";
 import wheelchairAccessible from "@/assets/wheelchair-accessible.jpg";
@@ -39,6 +39,39 @@ const Services = () => {
     },
   ];
 
+  const medicalServices = [
+    {
+      icon: TestTube,
+      titleKey: "services.lab",
+      descKey: "services.labDesc",
+    },
+    {
+      icon: Activity,
+      titleKey: "services.dialysis",
+      descKey: "services.dialysisDesc",
+    },
+    {
+      icon: Stethoscope,
+      titleKey: "services.reha",
+      descKey: "services.rehaDesc",
+    },
+    {
+      icon: Ambulance,
+      titleKey: "services.hospital",
+      descKey: "services.hospitalDesc",
+    },
+    {
+      icon: HeartPulse,
+      titleKey: "services.chemo",
+      descKey: "services.chemoDesc",
+    },
+    {
+      icon: Users,
+      titleKey: "services.companion",
+      descKey: "services.companionDesc",
+    },
+  ];
+
   return (
     <section id="services" className="py-20 bg-card">
       <div className="container mx-auto px-4">
@@ -59,6 +92,35 @@ const Services = () => {
               <div className="group bg-background border border-border hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:floating-shadow h-full">
                 <div className="w-14 h-14 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:glow-gold transition-all duration-300">
                   <service.icon className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                  {t(service.titleKey)}
+                </h3>
+                <p className="text-muted-foreground">
+                  {t(service.descKey)}
+                </p>
+              </div>
+            </AnimatedItem>
+          ))}
+        </div>
+
+        {/* Medical Services Section */}
+        <AnimatedSection className="text-center mb-10 mt-20">
+          <h3 className="font-serif text-2xl md:text-4xl font-bold mb-4">
+            <span className="gold-text">{t("services.medicalTitle")}</span>
+          </h3>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {t("services.medicalSubtitle")}
+          </p>
+        </AnimatedSection>
+
+        {/* Medical Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {medicalServices.map((service, index) => (
+            <AnimatedItem key={`medical-${index}`} delay={index * 0.1}>
+              <div className="group bg-background border border-primary/20 hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:floating-shadow h-full">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                  <service.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                   {t(service.titleKey)}
