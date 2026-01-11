@@ -10,6 +10,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "@/components/AnimatedSection";
+import AddressAutocomplete from "@/components/AddressAutocomplete";
 import { cn } from "@/lib/utils";
 
 const BookingForm = () => {
@@ -117,15 +118,11 @@ const BookingForm = () => {
                 <label className="text-sm font-medium text-foreground">
                   {t("booking.pickup")} <span className="text-primary">*</span>
                 </label>
-                <Input
-                  type="text"
+                <AddressAutocomplete
                   value={pickup}
-                  onChange={(e) => setPickup(e.target.value)}
+                  onChange={setPickup}
                   placeholder={t("booking.pickupPlaceholder")}
                   required
-                  maxLength={200}
-                  autoComplete="street-address"
-                  className="bg-input border-border rounded-xl h-12"
                 />
               </div>
 
@@ -134,15 +131,11 @@ const BookingForm = () => {
                 <label className="text-sm font-medium text-foreground">
                   {t("booking.destination")} <span className="text-primary">*</span>
                 </label>
-                <Input
-                  type="text"
+                <AddressAutocomplete
                   value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
+                  onChange={setDestination}
                   placeholder={t("booking.destinationPlaceholder")}
                   required
-                  maxLength={200}
-                  autoComplete="off"
-                  className="bg-input border-border rounded-xl h-12"
                 />
               </div>
 
