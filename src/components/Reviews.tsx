@@ -305,12 +305,16 @@ const Reviews = () => {
 };
 
 const ReviewCard = ({ review }: { review: Review }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const avatarDisplay = typeof review.avatar === 'string' && review.avatar.startsWith('http') 
     ? null 
     : review.avatar || review.name.charAt(0);
   const avatarImage = typeof review.avatar === 'string' && review.avatar.startsWith('http') 
     ? review.avatar 
     : null;
+
+  const MAX_LINES = 4;
+  const shouldTruncate = review.text.length > 150;
 
   return (
     <div className="glass-card rounded-2xl p-6 hover:glow-gold transition-all duration-500 h-full flex flex-col">
@@ -341,7 +345,23 @@ const ReviewCard = ({ review }: { review: Review }) => {
         ))}
       </div>
       
-      <p className="text-foreground/90 flex-1 leading-relaxed">"{review.text}"</p>
+      <div className="flex-1">
+        <p 
+          className={`text-foreground/90 leading-relaxed ${
+            !isExpanded && shouldTruncate ? 'line-clamp-4' : ''
+          }`}
+        >
+          "{review.text}"
+        </p>
+        {shouldTruncate && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-primary text-sm font-medium mt-2 hover:underline"
+          >
+            {isExpanded ? 'Show less' : 'Read more'}
+          </button>
+        )}
+      </div>
     </div>
   );
 };

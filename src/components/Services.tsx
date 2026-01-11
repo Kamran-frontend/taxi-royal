@@ -1,4 +1,4 @@
-import { Plane, HeartPulse, Route, CreditCard, Baby, Clock, TestTube, Stethoscope, Activity, Ambulance, Accessibility, Users } from "lucide-react";
+import { Plane, HeartPulse, Route, CreditCard, Baby, Clock, TestTube, Stethoscope, Activity, Ambulance, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection, { AnimatedItem } from "@/components/AnimatedSection";
 import wheelchairAccessible from "@/assets/wheelchair-accessible.jpg";
@@ -73,10 +73,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-card">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">
             <span className="gold-text">{t("services.title")}</span>
           </h2>
@@ -85,74 +85,70 @@ const Services = () => {
           </p>
         </AnimatedSection>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* Main Services - Compact Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
           {services.map((service, index) => (
-            <AnimatedItem key={index} delay={index * 0.1}>
-              <div className="group bg-background border border-border hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:floating-shadow h-full">
-                <div className="w-14 h-14 rounded-full gold-gradient flex items-center justify-center mb-4 group-hover:glow-gold transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary-foreground" />
+            <AnimatedItem key={index} delay={index * 0.05}>
+              <div className="group glass-card hover:border-primary/50 rounded-xl p-4 transition-all duration-300 hover:glow-gold text-center h-full">
+                <div className="w-12 h-12 mx-auto rounded-full gold-gradient flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                <h3 className="font-serif text-sm font-semibold text-foreground leading-tight">
                   {t(service.titleKey)}
                 </h3>
-                <p className="text-muted-foreground">
-                  {t(service.descKey)}
-                </p>
               </div>
             </AnimatedItem>
           ))}
         </div>
 
         {/* Medical Services Section */}
-        <AnimatedSection className="text-center mb-10 mt-20">
-          <h3 className="font-serif text-2xl md:text-4xl font-bold mb-4">
-            <span className="gold-text">{t("services.medicalTitle")}</span>
-          </h3>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {t("services.medicalSubtitle")}
-          </p>
-        </AnimatedSection>
+        <div className="glass-card rounded-3xl p-6 md:p-10 mb-10">
+          <AnimatedSection className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2 text-sm font-medium mb-4">
+              <HeartPulse className="w-4 h-4" />
+              {t("services.medicalTitle")}
+            </div>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              {t("services.medicalSubtitle")}
+            </p>
+          </AnimatedSection>
 
-        {/* Medical Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {medicalServices.map((service, index) => (
-            <AnimatedItem key={`medical-${index}`} delay={index * 0.1}>
-              <div className="group bg-background border border-primary/20 hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:floating-shadow h-full">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary" />
+          {/* Medical Services Grid - Compact */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {medicalServices.map((service, index) => (
+              <AnimatedItem key={`medical-${index}`} delay={index * 0.05}>
+                <div className="group flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-border hover:border-primary/30 transition-all duration-300">
+                  <div className="w-10 h-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="font-medium text-sm text-foreground">
+                    {t(service.titleKey)}
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                  {t(service.titleKey)}
-                </h3>
-                <p className="text-muted-foreground">
-                  {t(service.descKey)}
-                </p>
-              </div>
-            </AnimatedItem>
-          ))}
+              </AnimatedItem>
+            ))}
+          </div>
         </div>
 
-        {/* Wheelchair Accessible Feature */}
-        <AnimatedSection delay={0.3}>
-          <div className="bg-background border border-primary/30 rounded-2xl overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative h-64 md:h-auto">
+        {/* Wheelchair Accessible Feature - Compact */}
+        <AnimatedSection delay={0.2}>
+          <div className="glass-card rounded-2xl overflow-hidden">
+            <div className="grid md:grid-cols-5 gap-0">
+              <div className="relative h-48 md:h-auto md:col-span-2">
                 <img
                   src={wheelchairAccessible}
                   alt="Rollstuhlgerechtes Taxi"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/50 md:hidden" />
               </div>
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2 text-sm font-medium mb-4 w-fit">
+              <div className="p-6 md:p-8 flex flex-col justify-center md:col-span-3">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-3 py-1.5 text-sm font-medium mb-3 w-fit">
                   ♿ {t("services.accessible")}
                 </div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground mb-2">
                   {t("services.wheelchair")}
                 </h3>
-                <p className="text-muted-foreground text-lg">
+                <p className="text-muted-foreground text-sm">
                   {t("services.wheelchairDesc")}
                 </p>
               </div>

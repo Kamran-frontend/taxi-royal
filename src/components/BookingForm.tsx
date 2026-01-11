@@ -20,6 +20,7 @@ const BookingForm = () => {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState<Date>();
+  const [dateOpen, setDateOpen] = useState(false);
   const [time, setTime] = useState("");
   const [persons, setPersons] = useState("");
   const [bags, setBags] = useState("");
@@ -145,7 +146,7 @@ const BookingForm = () => {
                   <label className="text-sm font-medium text-foreground">
                     {t("booking.date")} <span className="text-primary">*</span>
                   </label>
-                  <Popover>
+                  <Popover open={dateOpen} onOpenChange={setDateOpen}>
                     <PopoverTrigger asChild>
                       <Button
                         variant="outline"
@@ -162,7 +163,10 @@ const BookingForm = () => {
                       <Calendar
                         mode="single"
                         selected={date}
-                        onSelect={setDate}
+                        onSelect={(selectedDate) => {
+                          setDate(selectedDate);
+                          setDateOpen(false);
+                        }}
                         disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                         initialFocus
                         className="pointer-events-auto"
