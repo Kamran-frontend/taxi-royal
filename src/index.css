@@ -103,7 +103,7 @@
   }
 
   .glow-gold {
-    box-shadow: 0 0 25px hsl(45 85% 55% / 0.25), 0 0 50px hsl(45 85% 55% / 0.1);
+    box-shadow: 0 4px 15px hsl(0 0% 0% / 0.3);
   }
 
   .floating-shadow {
@@ -135,8 +135,8 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px hsl(142 70% 45% / 0.5); }
-    50% { box-shadow: 0 0 35px hsl(142 70% 45% / 0.8); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
   }
 
   @keyframes float {

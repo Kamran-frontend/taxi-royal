@@ -100,7 +100,7 @@ const Hero = () => {
           <Button
             onClick={scrollToBooking}
             size="lg"
-            className="bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground text-lg px-10 py-7 rounded-full animate-pulse-glow transition-all duration-300 hover:scale-105"
+            className="bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground text-lg px-10 py-7 rounded-full transition-all duration-300 hover:scale-105"
           >
             <MessageCircle className="w-6 h-6 mr-2" />
             {t("hero.whatsapp")}

@@ -38,8 +38,7 @@ const BookingForm = () => {
   const [kvApproval, setKvApproval] = useState("");
   const [paymentExempt, setPaymentExempt] = useState("");
   
-  // Flughafen vehicle type
-  const [vehicleType, setVehicleType] = useState<"L" | "XXL">("L");
+  // Removed XXL vehicle type - only L available
 
   const timeSlots = [
     "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30",
@@ -65,7 +64,7 @@ const BookingForm = () => {
   ];
 
   // Calculate airport price if applicable
-  const airportPrice = taxiCategory === "flughafen" ? getAirportPrice(pickup, vehicleType) : null;
+  const airportPrice = taxiCategory === "flughafen" ? getAirportPrice(pickup) : null;
 
   const generateMapsLink = (address: string) => {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -87,7 +86,6 @@ const BookingForm = () => {
     } else if (taxiCategory === "flughafen" && airportPrice) {
       categoryInfo = `
 *Flughafen-Details:*
-- Fahrzeug: ${vehicleType === "L" ? "L (Auto)" : "XXL (Auto)"}
 - Festpreis: ${airportPrice},- €`;
     }
 
@@ -231,31 +229,15 @@ Vielen Dank!`;
                 </div>
               )}
 
-              {/* Flughafen Vehicle Type */}
-              {taxiCategory === "flughafen" && (
-                <div className="space-y-4 p-4 rounded-xl bg-muted/30 border border-border">
-                  <h4 className="font-medium text-foreground">{t("booking.vehicleType")}</h4>
-                  <RadioGroup value={vehicleType} onValueChange={(v) => setVehicleType(v as "L" | "XXL")} className="flex gap-6">
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="L" id="vehicle-l" />
-                      <Label htmlFor="vehicle-l" className="cursor-pointer">L (Auto) - {t("booking.upTo4")}</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="XXL" id="vehicle-xxl" />
-                      <Label htmlFor="vehicle-xxl" className="cursor-pointer">XXL (Auto) - {t("booking.upTo8")}</Label>
-                    </div>
-                  </RadioGroup>
-                  
-                  {airportPrice && (
-                    <div className="mt-3 p-3 rounded-lg bg-primary/10 border border-primary/30">
-                      <div className="flex items-center gap-2">
-                        <Plane className="w-5 h-5 text-primary" />
-                        <span className="font-semibold text-foreground">
-                          {t("booking.fixedPrice")}: <span className="text-primary text-lg">{airportPrice},- €</span>
-                        </span>
-                      </div>
-                    </div>
-                  )}
+              {/* Flughafen Price Display */}
+              {taxiCategory === "flughafen" && airportPrice && (
+                <div className="p-4 rounded-xl bg-primary/10 border border-primary/30">
+                  <div className="flex items-center gap-3">
+                    <Plane className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-foreground">
+                      {t("booking.fixedPrice")}: <span className="text-primary text-lg">{airportPrice},- €</span>
+                    </span>
+                  </div>
                 </div>
               )}
 
