@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import { de, enUS } from "date-fns/locale";
-import { CalendarIcon, Clock, MessageCircle, Users, Briefcase } from "lucide-react";
+import { CalendarIcon, Clock, MessageCircle, Users, Briefcase, Car, Plane, GraduationCap, Accessibility, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "@/components/AnimatedSection";
 import AddressAutocomplete from "@/components/AddressAutocomplete";
+import { getAirportPrice } from "@/components/AirportPricing";
 import { cn } from "@/lib/utils";
 
 const BookingForm = () => {
@@ -25,6 +28,18 @@ const BookingForm = () => {
   const [persons, setPersons] = useState("");
   const [bags, setBags] = useState("");
   const [notes, setNotes] = useState("");
+  
+  // New fields
+  const [taxiCategory, setTaxiCategory] = useState("");
+  const [bookingMethod, setBookingMethod] = useState<"whatsapp" | "email">("whatsapp");
+  
+  // Rollstuhl sub-options
+  const [rollstuhlType, setRollstuhlType] = useState("");
+  const [kvApproval, setKvApproval] = useState("");
+  const [paymentExempt, setPaymentExempt] = useState("");
+  
+  // Flughafen vehicle type
+  const [vehicleType, setVehicleType] = useState<"L" | "XXL">("L");
 
   const timeSlots = [
     "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30",
@@ -37,28 +52,76 @@ const BookingForm = () => {
   const personOptions = ["1", "2", "3", "4", "5", "6", "7", "8"];
   const bagOptions = ["0", "1", "2", "3", "4", "5", "6+"];
 
+  const taxiCategories = [
+    { value: "normal", label: t("booking.categoryNormal"), icon: Car },
+    { value: "rollstuhl", label: t("booking.categoryRollstuhl"), icon: Accessibility },
+    { value: "flughafen", label: t("booking.categoryFlughafen"), icon: Plane },
+    { value: "schulfahrt", label: t("booking.categorySchulfahrt"), icon: GraduationCap },
+  ];
+
+  const rollstuhlTypes = [
+    { value: "sitzend", label: t("booking.rollstuhlSitzend") },
+    { value: "tragestuhl", label: t("booking.rollstuhlTragestuhl") },
+  ];
+
+  // Calculate airport price if applicable
+  const airportPrice = taxiCategory === "flughafen" ? getAirportPrice(pickup, vehicleType) : null;
+
+  const generateMapsLink = (address: string) => {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     const formattedDate = date ? format(date, "dd.MM.yyyy") : "";
     
+    // Build category-specific info
+    let categoryInfo = "";
+    if (taxiCategory === "rollstuhl") {
+      categoryInfo = `
+*Rollstuhl-Details:*
+- Typ: ${rollstuhlType === "sitzend" ? "Sitzend" : "Mit Tragestuhl"}
+- KV-Genehmigung: ${kvApproval === "ja" ? "Ja" : "Nein"}
+- Zuzahlungsbefreit: ${paymentExempt === "ja" ? "Ja" : "Nein"}`;
+    } else if (taxiCategory === "flughafen" && airportPrice) {
+      categoryInfo = `
+*Flughafen-Details:*
+- Fahrzeug: ${vehicleType === "L" ? "L (Auto)" : "XXL (Auto)"}
+- Festpreis: ${airportPrice},- €`;
+    }
+
+    const pickupMapsLink = generateMapsLink(pickup.trim());
+    const destinationMapsLink = generateMapsLink(destination.trim());
+    
     const message = `Hallo, ich möchte ein Taxi buchen:
 
-    *Name:* ${name.trim()}
-    *Telefon:* ${phone.trim()}
-    *Abholort:* ${pickup.trim()}
-    *Ziel:* ${destination.trim()}
-    *Datum:* ${formattedDate}
-    *Uhrzeit:* ${time}
-    *Personen:* ${persons}
-    *Gepäck:* ${bags}
-    ${notes.trim() ? `*Anmerkungen:* ${notes.trim()}` : ""}
-    
-    Vielen Dank!`;
-    
-    const whatsappUrl = `https://wa.me/491711670001?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+*Kategorie:* ${taxiCategories.find(c => c.value === taxiCategory)?.label || "Normal"}
+${categoryInfo}
 
+*Name:* ${name.trim()}
+*Telefon:* ${phone.trim()}
+*Abholort:* ${pickup.trim()}
+📍 Maps: ${pickupMapsLink}
+*Ziel:* ${destination.trim()}
+📍 Maps: ${destinationMapsLink}
+*Datum:* ${formattedDate}
+*Uhrzeit:* ${time}
+*Personen:* ${persons}
+*Gepäck:* ${bags}
+${notes.trim() ? `*Anmerkungen:* ${notes.trim()}` : ""}
+
+Vielen Dank!`;
+    
+    if (bookingMethod === "whatsapp") {
+      const whatsappUrl = `https://wa.me/491711670001?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    } else {
+      const emailSubject = encodeURIComponent("Taxi Buchungsanfrage - MiniTAXI Royal");
+      const emailBody = encodeURIComponent(message);
+      const emailUrl = `mailto:kamranalifrmrbw@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+      window.location.href = emailUrl;
+    }
   };
 
   return (
@@ -78,6 +141,124 @@ const BookingForm = () => {
         <AnimatedSection delay={0.2}>
           <div className="max-w-2xl mx-auto">
             <form onSubmit={handleSubmit} className="glass-card rounded-3xl p-6 md:p-10 space-y-6">
+              
+              {/* Taxi Category */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-foreground">
+                  {t("booking.category")} <span className="text-primary">*</span>
+                </label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {taxiCategories.map((category) => {
+                    const Icon = category.icon;
+                    return (
+                      <button
+                        key={category.value}
+                        type="button"
+                        onClick={() => setTaxiCategory(category.value)}
+                        className={cn(
+                          "flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200",
+                          taxiCategory === category.value
+                            ? "border-primary bg-primary/10"
+                            : "border-border bg-input hover:border-primary/50"
+                        )}
+                      >
+                        <Icon className={cn(
+                          "w-6 h-6",
+                          taxiCategory === category.value ? "text-primary" : "text-muted-foreground"
+                        )} />
+                        <span className={cn(
+                          "text-xs font-medium text-center",
+                          taxiCategory === category.value ? "text-primary" : "text-foreground"
+                        )}>
+                          {category.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Rollstuhl Sub-options */}
+              {taxiCategory === "rollstuhl" && (
+                <div className="space-y-4 p-4 rounded-xl bg-muted/30 border border-border">
+                  <h4 className="font-medium text-foreground">{t("booking.rollstuhlDetails")}</h4>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm text-muted-foreground">{t("booking.rollstuhlTyp")}</label>
+                    <Select value={rollstuhlType} onValueChange={setRollstuhlType}>
+                      <SelectTrigger className="bg-input border-border rounded-xl h-12">
+                        <SelectValue placeholder={t("booking.selectOption")} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {rollstuhlTypes.map((type) => (
+                          <SelectItem key={type.value} value={type.value}>
+                            {type.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm text-muted-foreground">{t("booking.kvApproval")}</label>
+                      <RadioGroup value={kvApproval} onValueChange={setKvApproval} className="flex gap-4">
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="ja" id="kv-ja" />
+                          <Label htmlFor="kv-ja">{t("booking.yes")}</Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="nein" id="kv-nein" />
+                          <Label htmlFor="kv-nein">{t("booking.no")}</Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm text-muted-foreground">{t("booking.paymentExempt")}</label>
+                      <RadioGroup value={paymentExempt} onValueChange={setPaymentExempt} className="flex gap-4">
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="ja" id="exempt-ja" />
+                          <Label htmlFor="exempt-ja">{t("booking.yes")}</Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="nein" id="exempt-nein" />
+                          <Label htmlFor="exempt-nein">{t("booking.no")}</Label>
+                        </div>
+                      </RadioGroup>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Flughafen Vehicle Type */}
+              {taxiCategory === "flughafen" && (
+                <div className="space-y-4 p-4 rounded-xl bg-muted/30 border border-border">
+                  <h4 className="font-medium text-foreground">{t("booking.vehicleType")}</h4>
+                  <RadioGroup value={vehicleType} onValueChange={(v) => setVehicleType(v as "L" | "XXL")} className="flex gap-6">
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="L" id="vehicle-l" />
+                      <Label htmlFor="vehicle-l" className="cursor-pointer">L (Auto) - {t("booking.upTo4")}</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="XXL" id="vehicle-xxl" />
+                      <Label htmlFor="vehicle-xxl" className="cursor-pointer">XXL (Auto) - {t("booking.upTo8")}</Label>
+                    </div>
+                  </RadioGroup>
+                  
+                  {airportPrice && (
+                    <div className="mt-3 p-3 rounded-lg bg-primary/10 border border-primary/30">
+                      <div className="flex items-center gap-2">
+                        <Plane className="w-5 h-5 text-primary" />
+                        <span className="font-semibold text-foreground">
+                          {t("booking.fixedPrice")}: <span className="text-primary text-lg">{airportPrice},- €</span>
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">
@@ -252,15 +433,75 @@ const BookingForm = () => {
                 />
               </div>
 
+              {/* Booking Method Selection */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-foreground">
+                  {t("booking.bookingMethod")} <span className="text-primary">*</span>
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setBookingMethod("whatsapp")}
+                    className={cn(
+                      "flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all duration-200",
+                      bookingMethod === "whatsapp"
+                        ? "border-whatsapp bg-whatsapp/10"
+                        : "border-border bg-input hover:border-whatsapp/50"
+                    )}
+                  >
+                    <MessageCircle className={cn(
+                      "w-5 h-5",
+                      bookingMethod === "whatsapp" ? "text-whatsapp" : "text-muted-foreground"
+                    )} />
+                    <span className={cn(
+                      "font-medium",
+                      bookingMethod === "whatsapp" ? "text-whatsapp" : "text-foreground"
+                    )}>
+                      WhatsApp
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setBookingMethod("email")}
+                    className={cn(
+                      "flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all duration-200",
+                      bookingMethod === "email"
+                        ? "border-primary bg-primary/10"
+                        : "border-border bg-input hover:border-primary/50"
+                    )}
+                  >
+                    <Mail className={cn(
+                      "w-5 h-5",
+                      bookingMethod === "email" ? "text-primary" : "text-muted-foreground"
+                    )} />
+                    <span className={cn(
+                      "font-medium",
+                      bookingMethod === "email" ? "text-primary" : "text-foreground"
+                    )}>
+                      E-Mail
+                    </span>
+                  </button>
+                </div>
+              </div>
+
               {/* Submit */}
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground text-lg py-7 rounded-xl transition-all duration-300 hover:scale-[1.02]"
-                disabled={!name || !phone || !pickup || !destination || !date || !time || !persons}
+                className={cn(
+                  "w-full text-lg py-7 rounded-xl transition-all duration-300 hover:scale-[1.02]",
+                  bookingMethod === "whatsapp"
+                    ? "bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground"
+                    : "gold-gradient text-primary-foreground hover:opacity-90"
+                )}
+                disabled={!name || !phone || !pickup || !destination || !date || !time || !persons || !taxiCategory}
               >
-                <MessageCircle className="w-6 h-6 mr-3" />
-                {t("booking.submit")}
+                {bookingMethod === "whatsapp" ? (
+                  <MessageCircle className="w-6 h-6 mr-3" />
+                ) : (
+                  <Mail className="w-6 h-6 mr-3" />
+                )}
+                {bookingMethod === "whatsapp" ? t("booking.submitWhatsApp") : t("booking.submitEmail")}
               </Button>
 
               <p className="text-center text-sm text-muted-foreground">

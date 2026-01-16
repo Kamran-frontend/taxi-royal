@@ -24,8 +24,8 @@ const Services = () => {
     },
     {
       icon: CreditCard,
-      titleKey: "services.card",
-      descKey: "services.cardDesc",
+      titleKey: "services.payment",
+      descKey: "services.paymentDesc",
     },
     {
       icon: Baby,
