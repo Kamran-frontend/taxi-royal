@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -32,8 +32,10 @@ const Impressum = () => {
                   {t("impressum.according")}
                 </h2>
                 <p className="text-muted-foreground">
-                  MiniTAXI Royal<br />
-                  Taxiunternehmen
+                  Kamran Ahmad<br />
+                  Mietwagenunternehmen<br />
+                  Mühlweg 52<br />
+                  61169 Friedberg
                 </p>
               </section>
 
@@ -41,9 +43,30 @@ const Impressum = () => {
                 <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
                   {t("impressum.contact")}
                 </h2>
+                <div className="space-y-3 text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-primary" />
+                    <span>06031/16 183 16</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-primary" />
+                    <span>0171 1670001</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-primary" />
+                    <a href="mailto:info@minitaxiroyalfb.de" className="hover:text-primary transition-colors">
+                      info@minitaxiroyalfb.de
+                    </a>
+                  </div>
+                </div>
+              </section>
+
+              <section className="glass-card rounded-2xl p-6">
+                <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
+                  {t("impressum.taxId")}
+                </h2>
                 <p className="text-muted-foreground">
-                  Telefon: 0171 1670001<br />
-                  E-Mail: info@minitaxi-royal.de
+                  DE361843792
                 </p>
               </section>
 

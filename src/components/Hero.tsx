@@ -3,7 +3,7 @@ import { Phone, MessageCircle, Clock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.png";
-import carPicture from "@/assets/car-picture.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -18,13 +18,17 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src={carPicture}
-          alt="MiniTAXI Royal Fahrzeug"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-        />
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
       </div>
