@@ -72,13 +72,15 @@ const Gallery = () => {
                   />
                 ) : (
                   <div 
-                    className="relative cursor-pointer"
+                    className="relative cursor-pointer h-64 md:h-80"
                     onClick={() => setActiveVideo(item.src)}
                   >
-                    <img
-                      src={item.thumbnail}
-                      alt={item.altKey}
-                      className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                    <video
+                      src={item.src}
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-background/30 group-hover:bg-background/40 transition-colors">
                       <div className="w-16 h-16 rounded-full gold-gradient flex items-center justify-center transition-transform group-hover:scale-110">

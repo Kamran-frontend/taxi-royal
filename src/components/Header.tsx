@@ -55,7 +55,7 @@ const Header = () => {
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
-              className="text-muted-foreground hover:text-primary"
+              className="text-muted-foreground hover:text-foreground hover:bg-muted"
             >
               <Globe className="w-4 h-4 mr-1" />
               {language === "de" ? "EN" : "DE"}

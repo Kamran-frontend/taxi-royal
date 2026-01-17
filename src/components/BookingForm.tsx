@@ -80,13 +80,13 @@ const BookingForm = () => {
     if (taxiCategory === "rollstuhl") {
       categoryInfo = `
 *Rollstuhl-Details:*
-- Typ: ${rollstuhlType === "sitzend" ? "Sitzend" : "Mit Tragestuhl"}
-- KV-Genehmigung: ${kvApproval === "ja" ? "Ja" : "Nein"}
-- Zuzahlungsbefreit: ${paymentExempt === "ja" ? "Ja" : "Nein"}`;
+→ Typ: ${rollstuhlType === "sitzend" ? "Sitzend" : "Mit Tragestuhl"}
+→ KV-Genehmigung: ${kvApproval === "ja" ? "Ja" : "Nein"}
+→ Zuzahlungsbefreit: ${paymentExempt === "ja" ? "Ja" : "Nein"}`;
     } else if (taxiCategory === "flughafen" && airportPrice) {
       categoryInfo = `
 *Flughafen-Details:*
-- Festpreis: ${airportPrice},- €`;
+→ Festpreis: ${airportPrice},- €`;
     }
 
     const pickupMapsLink = generateMapsLink(pickup.trim());
@@ -94,20 +94,20 @@ const BookingForm = () => {
     
     const message = `Hallo, ich möchte ein Taxi buchen:
 
-*Kategorie:* ${taxiCategories.find(c => c.value === taxiCategory)?.label || "Normal"}
+→ *Kategorie:* ${taxiCategories.find(c => c.value === taxiCategory)?.label || "Normal"}
 ${categoryInfo}
 
-*Name:* ${name.trim()}
-*Telefon:* ${phone.trim()}
-*Abholort:* ${pickup.trim()}
-📍 Maps: ${pickupMapsLink}
-*Ziel:* ${destination.trim()}
-📍 Maps: ${destinationMapsLink}
-*Datum:* ${formattedDate}
-*Uhrzeit:* ${time}
-*Personen:* ${persons}
-*Gepäck:* ${bags}
-${notes.trim() ? `*Anmerkungen:* ${notes.trim()}` : ""}
+→ *Name:* ${name.trim()}
+→ *Telefon:* ${phone.trim()}
+→ *Abholort:* ${pickup.trim()}
+   📍 Maps: ${pickupMapsLink}
+→ *Ziel:* ${destination.trim()}
+   📍 Maps: ${destinationMapsLink}
+→ *Datum:* ${formattedDate}
+→ *Uhrzeit:* ${time}
+→ *Personen:* ${persons}
+→ *Gepäck:* ${bags}
+${notes.trim() ? `→ *Anmerkungen:* ${notes.trim()}` : ""}
 
 Vielen Dank!`;
     
