@@ -40,7 +40,7 @@ const galleryItems: GalleryItem[] = [
 
 const Gallery = () => {
   const { t } = useLanguage();
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
 
   return (
     <section id="gallery" className="py-20 bg-background">
@@ -63,7 +63,10 @@ const Gallery = () => {
               delay={index * 0.15}
               className={index === 0 ? "md:col-span-2 lg:col-span-2" : ""}
             >
-              <div className="relative overflow-hidden rounded-xl group h-full">
+              <div 
+                className="relative overflow-hidden rounded-xl group h-full cursor-pointer"
+                onClick={() => setActiveItem(item)}
+              >
                 {item.type === "image" ? (
                   <img
                     src={item.src}
@@ -71,10 +74,7 @@ const Gallery = () => {
                     className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div 
-                    className="relative cursor-pointer h-64 md:h-80"
-                    onClick={() => setActiveVideo(item.src)}
-                  >
+                  <div className="relative h-64 md:h-80">
                     <video
                       src={item.src}
                       muted
@@ -101,27 +101,37 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Video Modal */}
-      {activeVideo && (
+      {/* Popup Modal for Images and Videos */}
+      {activeItem && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
-          onClick={() => setActiveVideo(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm p-4"
+          onClick={() => setActiveItem(null)}
         >
-          <div className="relative w-full max-w-4xl mx-4">
+          <div className="relative w-full max-w-5xl">
             <button
-              onClick={() => setActiveVideo(null)}
-              className="absolute -top-12 right-0 text-foreground hover:text-primary transition-colors"
+              onClick={() => setActiveItem(null)}
+              className="absolute -top-12 right-0 text-foreground hover:text-primary transition-colors z-10"
             >
               <X className="w-8 h-8" />
             </button>
-            <video
-              autoPlay
-              controls
-              className="w-full rounded-xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <source src={activeVideo} type="video/mp4" />
-            </video>
+            {activeItem.type === "image" ? (
+              <img
+                src={activeItem.src}
+                alt={activeItem.altKey}
+                className="w-full max-h-[80vh] object-contain rounded-xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+            ) : (
+              <video
+                autoPlay
+                controls
+                className="w-full max-h-[80vh] rounded-xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <source src={activeItem.src} type="video/mp4" />
+              </video>
+            )}
+            <p className="text-center text-foreground font-medium mt-4">{activeItem.altKey}</p>
           </div>
         </div>
       )}
