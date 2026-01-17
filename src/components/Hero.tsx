@@ -3,7 +3,9 @@ import { Phone, MessageCircle, Clock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.png";
-import heroVideo from "@/assets/hero-video.mp4";
+import taxiFleet from "@/assets/taxi-fleet.png";
+import carPicture from "@/assets/car-picture.jpg";
+import wheelchairAccessible from "@/assets/wheelchair-accessible.jpg";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -16,19 +18,33 @@ const Hero = () => {
     }
   };
 
+  const heroImages = [taxiFleet, carPicture, wheelchairAccessible];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video with Overlay */}
+      {/* Background Image Slideshow with Overlay */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        <div className="relative w-full h-full">
+          {heroImages.map((img, index) => (
+            <motion.img
+              key={index}
+              src={img}
+              alt={`Taxi ${index + 1}`}
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0, 1, 1, 0],
+              }}
+              transition={{
+                duration: 12,
+                delay: index * 4,
+                repeat: Infinity,
+                repeatDelay: (heroImages.length - 1) * 4,
+                times: [0, 0.1, 0.9, 1]
+              }}
+            />
+          ))}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
       </div>

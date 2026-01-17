@@ -4,32 +4,41 @@ import { Plane, Moon, Info } from "lucide-react";
 
 interface PriceRoute {
   location: string;
+  postalCodes: string[];
   price: number;
 }
 
 const priceRoutes: PriceRoute[] = [
-  { location: "Friedberg", price: 70 },
-  { location: "Bad Nauheim", price: 75 },
-  { location: "Wöllstadt", price: 70 },
-  { location: "Rosbach", price: 63 },
-  { location: "Rodheim", price: 63 },
-  { location: "Karben", price: 75 },
-  { location: "Niddatal", price: 80 },
-  { location: "Reichelsheim", price: 85 },
-  { location: "Wölfersheim", price: 85 },
-  { location: "Rockenberg", price: 90 },
-  { location: "Florstadt", price: 90 },
-  { location: "Echzell", price: 90 },
-  { location: "Butzbach", price: 95 },
-  { location: "Ranstadt", price: 100 },
-  { location: "Münzenberg", price: 100 },
-  { location: "Altenstadt", price: 100 },
+  { location: "Friedberg", postalCodes: ["61169"], price: 70 },
+  { location: "Bad Nauheim", postalCodes: ["61231"], price: 75 },
+  { location: "Wöllstadt", postalCodes: ["61206"], price: 70 },
+  { location: "Rosbach", postalCodes: ["61191"], price: 63 },
+  { location: "Rodheim", postalCodes: ["35447"], price: 63 },
+  { location: "Karben", postalCodes: ["61184"], price: 75 },
+  { location: "Niddatal", postalCodes: ["61194"], price: 80 },
+  { location: "Reichelsheim", postalCodes: ["61203"], price: 85 },
+  { location: "Wölfersheim", postalCodes: ["61200"], price: 85 },
+  { location: "Rockenberg", postalCodes: ["35519"], price: 90 },
+  { location: "Florstadt", postalCodes: ["61197"], price: 90 },
+  { location: "Echzell", postalCodes: ["61209"], price: 90 },
+  { location: "Butzbach", postalCodes: ["35510"], price: 95 },
+  { location: "Ranstadt", postalCodes: ["63691"], price: 100 },
+  { location: "Münzenberg", postalCodes: ["35516"], price: 100 },
+  { location: "Altenstadt", postalCodes: ["63674"], price: 100 },
 ];
 
-export const getAirportPrice = (location: string): number | null => {
+export const getAirportPrice = (address: string): number | null => {
+  // First try to match by postal code (more reliable)
+  const postalCodeMatch = address.match(/\b(\d{5})\b/);
+  if (postalCodeMatch) {
+    const postalCode = postalCodeMatch[1];
+    const route = priceRoutes.find(r => r.postalCodes.includes(postalCode));
+    if (route) return route.price;
+  }
+  
+  // Fallback to city name matching if no postal code found
   const route = priceRoutes.find(r => 
-    r.location.toLowerCase() === location.toLowerCase() ||
-    location.toLowerCase().includes(r.location.toLowerCase())
+    address.toLowerCase().includes(r.location.toLowerCase())
   );
   return route?.price || null;
 };

@@ -127,9 +127,22 @@ const Footer = () => {
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} MiniTAXI Royal. {t("footer.rights")}</p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <span>🇩🇪 DE</span>
           </div>
+        </div>
+        
+        {/* Developer Credit */}
+        <div className="mt-4 text-center text-xs text-muted-foreground/70">
+          <p>
+            Made by{" "}
+            <a 
+              href="mailto:kamranali130893@gmail.com" 
+              className="hover:text-primary transition-colors"
+            >
+              Kamran Ali
+            </a>
+          </p>
         </div>
       </div>
 
