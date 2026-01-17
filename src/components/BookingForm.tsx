@@ -51,6 +51,8 @@ const BookingForm = () => {
   const personOptions = ["1", "2", "3", "4", "5", "6", "7", "8"];
   const bagOptions = ["0", "1", "2", "3", "4", "5", "6+"];
 
+  const FRANKFURT_AIRPORT_ADDRESS = "Frankfurt Airport (FRA), Frankfurt am Main, Germany";
+
   const taxiCategories = [
     { value: "normal", label: t("booking.categoryNormal"), icon: Car },
     { value: "rollstuhl", label: t("booking.categoryRollstuhl"), icon: Accessibility },
@@ -65,6 +67,18 @@ const BookingForm = () => {
 
   // Calculate airport price if applicable
   const airportPrice = taxiCategory === "flughafen" ? getAirportPrice(pickup) : null;
+
+  // Handle taxi category change
+  const handleTaxiCategoryChange = (value: string) => {
+    setTaxiCategory(value);
+    // Auto-fill Frankfurt Airport as destination for Flughafen category
+    if (value === "flughafen") {
+      setDestination(FRANKFURT_AIRPORT_ADDRESS);
+    } else if (taxiCategory === "flughafen" && destination === FRANKFURT_AIRPORT_ADDRESS) {
+      // Clear destination if switching away from Flughafen and destination was auto-filled
+      setDestination("");
+    }
+  };
 
   const generateMapsLink = (address: string) => {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -152,7 +166,7 @@ Vielen Dank!`;
                       <button
                         key={category.value}
                         type="button"
-                        onClick={() => setTaxiCategory(category.value)}
+                        onClick={() => handleTaxiCategoryChange(category.value)}
                         className={cn(
                           "flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200",
                           taxiCategory === category.value
