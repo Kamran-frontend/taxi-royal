@@ -1,10 +1,9 @@
-import { useState, useRef, useEffect } from "react";
-import { Star, ExternalLink, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import { useState, useRef } from "react";
+import { Star, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "@/components/AnimatedSection";
 import { motion, AnimatePresence } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
 
 interface Review {
   id: number;
@@ -19,131 +18,198 @@ const Reviews = () => {
   const { t, language } = useLanguage();
   const [visibleCount, setVisibleCount] = useState(6);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [overallRating, setOverallRating] = useState<number>(4.9);
-  const [totalReviews, setTotalReviews] = useState<number>(169);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Replace with your actual Google Place ID
-  // You can find this by searching for your business on Google Maps and looking at the URL
-  const PLACE_ID = "ChIJN1t_tDeuEmsRUsoyG83frY4"; // Example - replace with actual
-
-  // Fallback reviews in case API fails
-  const fallbackReviews: Review[] = [
+  // Real reviews from Google Places (from PDF)
+  const reviews: Review[] = [
     {
       id: 1,
-      name: "Maria S.",
+      name: "Anastasia Sharvadze",
       rating: 5,
-      text: language === "de" 
-        ? "Sehr zuverlässig, pünktlich und freundlich. Immer wieder gerne!" 
-        : "Very reliable, punctual and friendly. Happy to come back!",
+      text: "Sehr netter Fahrer, kommt immer pünktlich und die Fahrten sind auch sehr entspannt. Kann ich nur weiterempfehlen",
+      date: language === "de" ? "vor 1 Woche" : "1 week ago",
+      avatar: "A",
+    },
+    {
+      id: 2,
+      name: "Michael Längsfeld",
+      rating: 5,
+      text: "Ich kann dieses Taxiunternehmen nur empfehlen! Zuverlässig, pünktlich und freundlich! Auch die Abholung vom Flughafen klappt immer perfekt. Weiter so!",
       date: language === "de" ? "vor 2 Wochen" : "2 weeks ago",
       avatar: "M",
     },
     {
-      id: 2,
-      name: "Thomas K.",
-      rating: 5,
-      text: language === "de" 
-        ? "Bester Taxi-Service in Friedberg! Schnelle Antwort auf WhatsApp und super Fahrer." 
-        : "Best taxi service in Friedberg! Quick WhatsApp response and great drivers.",
-      date: language === "de" ? "vor 1 Monat" : "1 month ago",
-      avatar: "T",
-    },
-    {
       id: 3,
-      name: "Anna M.",
+      name: "Monique Fischer",
       rating: 5,
-      text: language === "de" 
-        ? "Toller Service zum Flughafen. Pünktlich, sauber und professionell. Absolut empfehlenswert!" 
-        : "Great airport service. Punctual, clean and professional. Highly recommended!",
-      date: language === "de" ? "vor 1 Monat" : "1 month ago",
-      avatar: "A",
+      text: "Super nette Fahrer, immer pünktlich sehr zu empfehlen.",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "M",
     },
     {
       id: 4,
-      name: "Peter H.",
+      name: "Nils Markus",
       rating: 5,
-      text: language === "de" 
-        ? "Habe zum ersten Mal MiniTAXI Royal genutzt und bin begeistert. Super freundlich und pünktlich!" 
-        : "Used MiniTAXI Royal for the first time and I'm thrilled. Super friendly and punctual!",
-      date: language === "de" ? "vor 3 Wochen" : "3 weeks ago",
-      avatar: "P",
+      text: "Sehr guter Service Taxi ist schnell Vorort und auch super Preis Leistung Verhältnis",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "N",
     },
     {
       id: 5,
-      name: "Sandra L.",
-      rating: 4,
-      text: language === "de" 
-        ? "Sehr guter Service, saubere Fahrzeuge. Kann ich nur empfehlen." 
-        : "Very good service, clean vehicles. Highly recommend.",
-      date: language === "de" ? "vor 2 Monaten" : "2 months ago",
-      avatar: "S",
+      name: "Dirk Maier",
+      rating: 5,
+      text: "Top Mega Service pünktlich und sehr professionell",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "D",
     },
     {
       id: 6,
-      name: "Michael B.",
+      name: "Luqman Ahmed",
       rating: 5,
-      text: language === "de" 
-        ? "Zuverlässiger Taxiservice. Nutze ihn regelmäßig für Krankenfahrten. Immer pünktlich!" 
-        : "Reliable taxi service. Use it regularly for medical rides. Always on time!",
-      date: language === "de" ? "vor 1 Woche" : "1 week ago",
+      text: "Super Service!!! Freundlich und sehr hilfsbereit!",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "L",
+    },
+    {
+      id: 7,
+      name: "Roumaisa Omari",
+      rating: 5,
+      text: "Immer schnell und gute preis immer wieder gerne",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "R",
+    },
+    {
+      id: 8,
+      name: "Annett",
+      rating: 5,
+      text: "Sehr nette Fahrer immer pünktlich da !",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "A",
+    },
+    {
+      id: 9,
+      name: "Tilo Marquardt",
+      rating: 5,
+      text: "Sehr professionell. Pünktlich, zuverlässig, Kommunikation bestens, immer zu empfehlen",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "T",
+    },
+    {
+      id: 10,
+      name: "Faisal Azimi",
+      rating: 5,
+      text: "Wir nutzen regelmäßig, verschiedene Fahrdienste bei MiniTAXI Royal. Alle Wege werden pünktlich erledigt, zudem wird 1A kommuniziert.",
+      date: language === "de" ? "vor 5 Monaten" : "5 months ago",
+      avatar: "F",
+    },
+    {
+      id: 11,
+      name: "Davud Moshref",
+      rating: 4,
+      text: "Das war super pünktlich und ruhig",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "D",
+    },
+    {
+      id: 12,
+      name: "Michael Raible",
+      rating: 5,
+      text: "Top Service. Wir haben den Service des öfteren in Anspruch genommen und es lief immer alles zu unserer absoluten Zufriedenheit. Prompte Terminbestätigung, immer pünklich, immer höflich. Einfach Top!",
+      date: language === "de" ? "vor 10 Monaten" : "10 months ago",
       avatar: "M",
+    },
+    {
+      id: 13,
+      name: "Raqim Ahmad",
+      rating: 5,
+      text: "Top Mietwagenservice! Super schnell, extrem zuverlässig und das Preis Leistungs Verhältnis ist unschlagbar. Für mich einer der besten Anbieter absolut empfehlenswert",
+      date: language === "de" ? "vor 9 Monaten" : "9 months ago",
+      avatar: "R",
+    },
+    {
+      id: 14,
+      name: "Nayab Schneider",
+      rating: 5,
+      text: "Super Service. Das Taxi war innerhalb weniger Minuten da und hat uns zuverlässig ans Ziel gebracht. Zudem sehr sympathische Begleitung! Immer wieder gern, absolut empfehlenswert.",
+      date: language === "de" ? "vor 11 Monaten" : "11 months ago",
+      avatar: "N",
+    },
+    {
+      id: 15,
+      name: "Firas Jradi",
+      rating: 5,
+      text: "Super Service. Das Taxi war innerhalb weniger Minuten da und hat uns zuverlässig ans Ziel gebracht. Zudem sehr sympathische Begleitung! Immer wieder gern, absolut empfehlenswert.",
+      date: language === "de" ? "vor 11 Monaten" : "11 months ago",
+      avatar: "F",
+    },
+    {
+      id: 16,
+      name: "Tim Weber",
+      rating: 5,
+      text: "Excellent service, on time and secure transport for my family. Good and clear communication!",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "T",
+    },
+    {
+      id: 17,
+      name: "Ali Dorandesh",
+      rating: 5,
+      text: "Alles top",
+      date: language === "de" ? "vor 5 Tagen" : "5 days ago",
+      avatar: "A",
+    },
+    {
+      id: 18,
+      name: "Tristan V",
+      rating: 5,
+      text: "Sehr gutes Unternehmen, Top Auto. Schnell, günstig, freundlich, hilfsbereit und sehr sehr nett. Immer wieder gerne. DANKE",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "T",
+    },
+    {
+      id: 19,
+      name: "C. Rentzsch",
+      rating: 5,
+      text: "Immer pünktlich und sehr freundlich!! Autos immer sehr sauber",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "C",
+    },
+    {
+      id: 20,
+      name: "Jonas Hano",
+      rating: 5,
+      text: "Günstige Preise, nette Fahrer/in. Stets pünktlich, falls mal ein paar Minuten verspätet melden sie sich sofort. Sehr hilfsbereit.",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "J",
+    },
+    {
+      id: 21,
+      name: "DW Offizielle",
+      rating: 5,
+      text: "Top Service pünktlich, schnell, sauber immer empfehlenswert.",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "D",
+    },
+    {
+      id: 22,
+      name: "Anja Fischer",
+      rating: 5,
+      text: "Ganz tolle Menschen! Sehr kompetent, zuverlässig und gesprächig. (Man fühlt sich gleich viel wohler) Kann das Taxi Royal wärmstens weiterempfehlen! Wir fahren in Zukunft nur noch mit ihnen und freuen uns immer sehr! ✨",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "A",
+    },
+    {
+      id: 23,
+      name: "Zufriedener Kunde",
+      rating: 5,
+      text: "Besonders ist zu erwähnen, dass uns, neben der Pünktlichkeit und Sauberkeit des Fahrzeugs, die sehr freundliche und aufgeschlossene Art auffiel. Absolut empfehlenswert",
+      date: language === "de" ? "vor 1 Jahr" : "1 year ago",
+      avatar: "Z",
     },
   ];
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        const { data, error: fetchError } = await supabase.functions.invoke("google-places", {
-          body: { action: "reviews", placeId: PLACE_ID },
-        });
-
-        if (fetchError) {
-          console.error("Error fetching reviews:", fetchError);
-          setReviews(fallbackReviews);
-          setError("Using cached reviews");
-          return;
-        }
-
-        if (data.reviews && data.reviews.length > 0) {
-          const mappedReviews: Review[] = data.reviews.map((review: {
-            name: string;
-            rating: number;
-            text: string;
-            date: string;
-            avatar: string;
-            time: number;
-          }, index: number) => ({
-            id: index + 1,
-            name: review.name,
-            rating: review.rating,
-            text: review.text,
-            date: review.date,
-            avatar: review.avatar || review.name.charAt(0).toUpperCase(),
-          }));
-          setReviews(mappedReviews);
-          setOverallRating(data.overallRating || 4.9);
-          setTotalReviews(data.totalReviews || 169);
-        } else {
-          setReviews(fallbackReviews);
-        }
-      } catch (err) {
-        console.error("Failed to fetch reviews:", err);
-        setReviews(fallbackReviews);
-        setError("Using cached reviews");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, [language]);
+  const overallRating = 5.0;
+  const totalReviews = 187;
 
   const filteredReviews = reviews.filter(review => review.rating >= 4);
   const visibleReviews = filteredReviews.slice(0, visibleCount);
@@ -191,94 +257,86 @@ const Reviews = () => {
           </div>
         </AnimatedSection>
 
-        {isLoading ? (
-          <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-10 h-10 animate-spin text-primary" />
+        {/* Carousel Navigation */}
+        {filteredReviews.length > 3 && (
+          <div className="hidden md:flex justify-end mb-6 gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevSlide}
+              className="rounded-full border-border hover:bg-muted"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextSlide}
+              className="rounded-full border-border hover:bg-muted"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
           </div>
-        ) : (
-          <>
-            {/* Carousel Navigation */}
-            {filteredReviews.length > 3 && (
-              <div className="hidden md:flex justify-end mb-6 gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevSlide}
-                  className="rounded-full border-border hover:bg-muted"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextSlide}
-                  className="rounded-full border-border hover:bg-muted"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </Button>
-              </div>
-            )}
+        )}
 
-            {/* Reviews Carousel (Desktop) */}
-            <div className="hidden md:block overflow-hidden" ref={carouselRef}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.4 }}
-                  className="grid grid-cols-3 gap-6"
-                >
-                  {filteredReviews.slice(currentIndex * 3, currentIndex * 3 + 3).map((review) => (
-                    <ReviewCard key={review.id} review={review} />
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Reviews Grid (Mobile) */}
-            <div className="md:hidden grid grid-cols-1 gap-6 mb-8">
-              {visibleReviews.map((review, index) => (
-                <motion.div
-                  key={review.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <ReviewCard review={review} />
-                </motion.div>
+        {/* Reviews Carousel (Desktop) */}
+        <div className="hidden md:block overflow-hidden" ref={carouselRef}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4 }}
+              className="grid grid-cols-3 gap-6"
+            >
+              {filteredReviews.slice(currentIndex * 3, currentIndex * 3 + 3).map((review) => (
+                <ReviewCard key={review.id} review={review} />
               ))}
-            </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-            {/* Load More Button (Mobile) */}
-            {hasMore && (
-              <div className="md:hidden text-center mb-12">
-                <Button
-                  onClick={loadMore}
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8"
-                >
-                  {t("reviews.loadMore")}
-                </Button>
-              </div>
-            )}
+        {/* Reviews Grid (Mobile) */}
+        <div className="md:hidden grid grid-cols-1 gap-6 mb-8">
+          {visibleReviews.map((review, index) => (
+            <motion.div
+              key={review.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <ReviewCard review={review} />
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Carousel Dots */}
-            {filteredReviews.length > 3 && (
-              <div className="hidden md:flex justify-center gap-2 mt-8 mb-12">
-                {[...Array(Math.ceil(filteredReviews.length / 3))].map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentIndex(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
-          </>
+        {/* Load More Button (Mobile) */}
+        {hasMore && (
+          <div className="md:hidden text-center mb-12">
+            <Button
+              onClick={loadMore}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8"
+            >
+              {t("reviews.loadMore")}
+            </Button>
+          </div>
+        )}
+
+        {/* Carousel Dots */}
+        {filteredReviews.length > 3 && (
+          <div className="hidden md:flex justify-center gap-2 mt-8 mb-12">
+            {[...Array(Math.ceil(filteredReviews.length / 3))].map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                }`}
+              />
+            ))}
+          </div>
         )}
 
         {/* Google Reviews Link */}

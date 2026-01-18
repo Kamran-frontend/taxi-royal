@@ -10,6 +10,7 @@ const Header = () => {
 
   const navLinks = [
     { href: "#services", label: t("nav.services") },
+    { href: "#pricing", label: t("nav.pricing") },
     { href: "#gallery", label: t("nav.vehicles") },
     { href: "#reviews", label: t("nav.reviews") },
     { href: "#booking", label: t("nav.booking") },
