@@ -109,7 +109,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">{t("contact.hours")}</h4>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground whitespace-pre-line">
                       {t("contact.hoursValue")}
                     </p>
                   </div>

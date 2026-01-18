@@ -17,6 +17,7 @@ const translations = {
     "nav.contact": "Kontakt",
     "nav.booking": "Buchen",
     "nav.callNow": "Jetzt anrufen",
+    "nav.pricing": "Festpreise",
 
     // Hero
     "hero.tagline": "Fair. Schnell. Zuverlässig. Freundlich.",
@@ -107,7 +108,7 @@ const translations = {
     "contact.area": "Einsatzgebiet",
     "contact.areaValue": "Friedberg, Bad Nauheim, Butzbach und Umgebung",
     "contact.hours": "Erreichbarkeit",
-    "contact.hoursValue": "24 Stunden / 7 Tage die Woche",
+    "contact.hoursValue": "Mo - Fr: 07:00 - 01:00\nSa & So: 24h",
 
     // Footer
     "footer.tagline": "Ihr zuverlässiger Taxi-Service in Friedberg und Umgebung.",
@@ -195,7 +196,7 @@ const translations = {
     "datenschutz.right5": "Widerspruch gegen die Verarbeitung",
     "datenschutz.right6": "Datenübertragbarkeit",
     "datenschutz.hosting": "5. Hosting",
-    "datenschutz.hostingText": "Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.",
+    "datenschutz.hostingText": "Diese Website wird bei Namecheap gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern von Namecheap in den USA gespeichert. Namecheap ist nach dem EU-US Data Privacy Framework zertifiziert.",
     "datenschutz.contactTitle": "6. Kontakt",
     "datenschutz.contactText": "Bei Fragen zum Datenschutz erreichen Sie uns unter:",
   },
@@ -207,6 +208,7 @@ const translations = {
     "nav.contact": "Contact",
     "nav.booking": "Book Now",
     "nav.callNow": "Call Now",
+    "nav.pricing": "Fixed Prices",
 
     // Hero
     "hero.tagline": "Fair. Fast. Reliable. Friendly.",
@@ -297,7 +299,7 @@ const translations = {
     "contact.area": "Service Area",
     "contact.areaValue": "Friedberg, Bad Nauheim, Butzbach and surroundings",
     "contact.hours": "Availability",
-    "contact.hoursValue": "24 hours / 7 days a week",
+    "contact.hoursValue": "Mon - Fri: 07:00 - 01:00\nSat & Sun: 24h",
 
     // Footer
     "footer.tagline": "Your reliable taxi service in Friedberg and surrounding areas.",
@@ -385,7 +387,7 @@ const translations = {
     "datenschutz.right5": "Object to processing",
     "datenschutz.right6": "Data portability",
     "datenschutz.hosting": "5. Hosting",
-    "datenschutz.hostingText": "This website is hosted externally. The personal data collected on this website is stored on the hoster's servers.",
+    "datenschutz.hostingText": "This website is hosted by Namecheap. Personal data collected on this website is stored on Namecheap servers in the USA. Namecheap is certified under the EU-US Data Privacy Framework.",
     "datenschutz.contactTitle": "6. Contact",
     "datenschutz.contactText": "If you have any questions about data protection, you can reach us at:",
   },

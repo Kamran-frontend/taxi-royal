@@ -129,6 +129,85 @@ Vielen Dank!`;
       const whatsappUrl = `https://wa.me/491711670001?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
     } else {
+      // HTML formatted email
+      const htmlBody = `
+<html>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+  <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    <h2 style="color: #c9a227; border-bottom: 2px solid #c9a227; padding-bottom: 10px;">🚕 Taxi Buchungsanfrage</h2>
+    
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="padding: 8px 0; font-weight: bold; width: 40%;">Kategorie:</td>
+        <td style="padding: 8px 0;">${taxiCategories.find(c => c.value === taxiCategory)?.label || "Normal"}</td>
+      </tr>
+      ${taxiCategory === "rollstuhl" ? `
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Rollstuhl-Typ:</td>
+        <td style="padding: 8px 0;">${rollstuhlType === "sitzend" ? "Sitzend" : "Mit Tragestuhl"}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-weight: bold;">KV-Genehmigung:</td>
+        <td style="padding: 8px 0;">${kvApproval === "ja" ? "Ja" : "Nein"}</td>
+      </tr>
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Zuzahlungsbefreit:</td>
+        <td style="padding: 8px 0;">${paymentExempt === "ja" ? "Ja" : "Nein"}</td>
+      </tr>
+      ` : ""}
+      ${taxiCategory === "flughafen" && airportPrice ? `
+      <tr style="background-color: #fff8e1;">
+        <td style="padding: 8px 0; font-weight: bold;">Festpreis:</td>
+        <td style="padding: 8px 0; color: #c9a227; font-weight: bold;">${airportPrice},- €</td>
+      </tr>
+      ` : ""}
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Name:</td>
+        <td style="padding: 8px 0;">${name.trim()}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-weight: bold;">Telefon:</td>
+        <td style="padding: 8px 0;">${phone.trim()}</td>
+      </tr>
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Abholort:</td>
+        <td style="padding: 8px 0;">${pickup.trim()}<br><a href="${pickupMapsLink}" style="color: #c9a227;">📍 In Maps öffnen</a></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-weight: bold;">Ziel:</td>
+        <td style="padding: 8px 0;">${destination.trim()}<br><a href="${destinationMapsLink}" style="color: #c9a227;">📍 In Maps öffnen</a></td>
+      </tr>
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Datum:</td>
+        <td style="padding: 8px 0;">${formattedDate}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-weight: bold;">Uhrzeit:</td>
+        <td style="padding: 8px 0;">${time} Uhr</td>
+      </tr>
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Personen:</td>
+        <td style="padding: 8px 0;">${persons}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-weight: bold;">Gepäck:</td>
+        <td style="padding: 8px 0;">${bags}</td>
+      </tr>
+      ${notes.trim() ? `
+      <tr style="background-color: #f9f9f9;">
+        <td style="padding: 8px 0; font-weight: bold;">Anmerkungen:</td>
+        <td style="padding: 8px 0;">${notes.trim()}</td>
+      </tr>
+      ` : ""}
+    </table>
+    
+    <p style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; color: #666; font-size: 14px;">
+      Vielen Dank für Ihre Buchungsanfrage!
+    </p>
+  </div>
+</body>
+</html>`;
+      
       const emailSubject = encodeURIComponent("Taxi Buchungsanfrage - MiniTAXI Royal");
       const emailBody = encodeURIComponent(message);
       const emailUrl = `mailto:kamranalifrmrbw@gmail.com?subject=${emailSubject}&body=${emailBody}`;
