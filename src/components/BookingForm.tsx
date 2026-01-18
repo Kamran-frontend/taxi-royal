@@ -210,7 +210,7 @@ Vielen Dank!`;
       
       const emailSubject = encodeURIComponent("Taxi Buchungsanfrage - MiniTAXI Royal");
       const emailBody = encodeURIComponent(message);
-      const emailUrl = `mailto:kamranalifrmrbw@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+      const emailUrl = `mailto:book@minitaxiroyalfb.de?subject=${emailSubject}&body=${emailBody}`;
       window.location.href = emailUrl;
     }
   };
