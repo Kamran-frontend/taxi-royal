@@ -1,75 +1,101 @@
-# Welcome to your Lovable project
+# 🚖 MiniTAXI Royal – Website Project
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This repository contains the source code for the **MiniTAXI Royal** website.
 
+---
 
+## 🛠️ How can I edit this project?
 
-## How can I edit this code?
+You can edit and maintain this project using the following methods.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+### ✅ Use Your Preferred IDE (Recommended)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Make sure you have **Node.js** and **npm** installed.
+(Recommended: install via nvm)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+#### Steps:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Step 2: Go to the project folder
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The website will start with **auto-reload** and a local preview.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### ✏️ Edit Files Directly on GitHub
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Open the repository on GitHub
+2. Navigate to the file you want to edit
+3. Click the **Edit (✏️)** button
+4. Save and commit your changes
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+### 💻 Use GitHub Codespaces
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Open the repository
+2. Click **Code → Codespaces**
+3. Create a new Codespace
+4. Edit files directly in the browser
+5. Commit and push changes
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## ⚙️ Technologies Used
 
-## Can I connect a custom domain to my Lovable project?
+This project is built with modern, fast, and reliable tools:
 
-Yes, you can!
+* **Vite**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **shadcn/ui**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🚀 How to Deploy This Project
+
+You can deploy this project using any modern hosting platform that supports static or React builds, for example:
+
+* Vercel
+* Netlify
+* Cloudflare Pages
+* cPanel (via build & upload)
+
+Typical build command:
+
+```sh
+npm run build
+```
+
+The output will be generated in the `dist/` folder.
+
+---
+
+## 🌐 Custom Domain
+
+You can connect a custom domain (e.g. `minitaxiroyal.de`) through your hosting provider’s domain settings.
+
+Domain and hosting costs are billed **separately** by the provider.
+
+---
+
+## 📄 License & Ownership
+
+This project is created for **MiniTAXI Royal**.
+All branding, content, and design belong to the client.
