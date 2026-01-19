@@ -121,28 +121,48 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Media Links */}
-        <div className="flex justify-center gap-4 mb-8">
-          <a
-            href="https://www.instagram.com/minitaxiroyalfb"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white hover:opacity-90 transition-opacity"
-          >
-            <Instagram className="w-5 h-5" />
-            <span className="text-sm font-medium">Instagram</span>
-          </a>
-          <a
-            href="https://www.tiktok.com/@minitaxiroyalfb"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-black text-white border border-white/20 hover:bg-white/10 transition-colors"
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-            <span className="text-sm font-medium">TikTok</span>
-          </a>
+        {/* Social Media Section */}
+        <div className="mt-12 mb-8">
+          <div className="text-center mb-6">
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-2">
+              Folgen Sie uns
+            </h4>
+            <p className="text-muted-foreground text-sm">@minitaxiroyalfb</p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/minitaxiroyalfb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-3 w-full sm:w-auto justify-center px-6 py-3 rounded-2xl bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
+              <Instagram className="w-6 h-6 relative z-10" />
+              <div className="relative z-10">
+                <span className="block text-sm font-bold">Instagram</span>
+                <span className="block text-xs opacity-80">@minitaxiroyalfb</span>
+              </div>
+            </a>
+            
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@minitaxiroyalfb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-3 w-full sm:w-auto justify-center px-6 py-3 rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white border border-white/10 shadow-lg hover:shadow-xl hover:scale-105 hover:border-primary/50 transition-all duration-300"
+            >
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-400 via-pink-500 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              <svg className="w-6 h-6 relative z-10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+              <div className="relative z-10">
+                <span className="block text-sm font-bold">TikTok</span>
+                <span className="block text-xs opacity-80">@minitaxiroyalfb</span>
+              </div>
+            </a>
+          </div>
         </div>
 
         {/* Divider */}
