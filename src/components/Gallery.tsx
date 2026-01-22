@@ -72,6 +72,9 @@ const Gallery = () => {
                     src={item.src}
                     alt={item.altKey}
                     className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    width="689"
+                    height="320"
                   />
                 ) : (
                   <div className="relative h-64 md:h-80">
@@ -81,10 +84,13 @@ const Gallery = () => {
                       playsInline
                       preload="metadata"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                      aria-label={item.altKey}
+                    >
+                      <track kind="captions" src="" label="Deutsch" />
+                    </video>
                     <div className="absolute inset-0 flex items-center justify-center bg-background/30 group-hover:bg-background/40 transition-colors">
                       <div className="w-16 h-16 rounded-full gold-gradient flex items-center justify-center transition-transform group-hover:scale-110">
-                        <Play className="w-8 h-8 text-primary-foreground ml-1" />
+                        <Play className="w-8 h-8 text-primary-foreground ml-1" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
@@ -111,8 +117,9 @@ const Gallery = () => {
             <button
               onClick={() => setActiveItem(null)}
               className="absolute -top-12 right-0 text-foreground hover:text-primary transition-colors z-10"
+              aria-label="Schließen"
             >
-              <X className="w-8 h-8" />
+              <X className="w-8 h-8" aria-hidden="true" />
             </button>
             {activeItem.type === "image" ? (
               <img

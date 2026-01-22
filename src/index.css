@@ -42,8 +42,8 @@
 
     --radius: 0.75rem;
 
-    /* WhatsApp green */
-    --whatsapp: 142 70% 45%;
+    /* WhatsApp green - darker for better contrast */
+    --whatsapp: 142 60% 32%;
     --whatsapp-foreground: 0 0% 100%;
 
     /* Gold gradient tokens */

@@ -9,22 +9,22 @@ interface PriceRoute {
 }
 
 const priceRoutes: PriceRoute[] = [
-  { location: "Friedberg", postalCodes: ["61169"], price: 70 },
-  { location: "Bad Nauheim", postalCodes: ["61231"], price: 75 },
-  { location: "Wöllstadt", postalCodes: ["61206"], price: 70 },
+  { location: "Friedberg", postalCodes: ["61169"], price: 67 },
+  { location: "Bad Nauheim", postalCodes: ["61231"], price: 69 },
+  { location: "Wöllstadt", postalCodes: ["61206"], price: 69 },
   { location: "Rosbach", postalCodes: ["61191"], price: 63 },
-  { location: "Rodheim", postalCodes: ["35447"], price: 63 },
+  { location: "Rodheim", postalCodes: ["35447"], price: 65 },
   { location: "Karben", postalCodes: ["61184"], price: 75 },
-  { location: "Niddatal", postalCodes: ["61194"], price: 80 },
-  { location: "Reichelsheim", postalCodes: ["61203"], price: 85 },
+  { location: "Niddatal", postalCodes: ["61194"], price: 78 },
+  { location: "Reichelsheim", postalCodes: ["61203"], price: 78 },
   { location: "Wölfersheim", postalCodes: ["61200"], price: 85 },
-  { location: "Rockenberg", postalCodes: ["35519"], price: 90 },
-  { location: "Florstadt", postalCodes: ["61197"], price: 90 },
-  { location: "Echzell", postalCodes: ["61209"], price: 90 },
+  { location: "Rockenberg", postalCodes: ["35519"], price: 89 },
+  { location: "Florstadt", postalCodes: ["61197"], price: 89 },
+  { location: "Echzell", postalCodes: ["61209"], price: 89 },
   { location: "Butzbach", postalCodes: ["35510"], price: 95 },
-  { location: "Ranstadt", postalCodes: ["63691"], price: 100 },
-  { location: "Münzenberg", postalCodes: ["35516"], price: 100 },
-  { location: "Altenstadt", postalCodes: ["63674"], price: 100 },
+  { location: "Ranstadt", postalCodes: ["63691"], price: 97 },
+  { location: "Münzenberg", postalCodes: ["35516"], price: 97 },
+  { location: "Altenstadt", postalCodes: ["63674"], price: 97 },
 ];
 
 export const getAirportPrice = (address: string): number | null => {
