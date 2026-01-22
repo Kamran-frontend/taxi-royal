@@ -265,6 +265,7 @@ const Reviews = () => {
               size="icon"
               onClick={prevSlide}
               className="rounded-full border-border hover:bg-muted"
+              aria-label="Vorherige Bewertungen"
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
@@ -273,6 +274,7 @@ const Reviews = () => {
               size="icon"
               onClick={nextSlide}
               className="rounded-full border-border hover:bg-muted"
+              aria-label="Nächste Bewertungen"
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
@@ -326,13 +328,14 @@ const Reviews = () => {
 
         {/* Carousel Dots */}
         {filteredReviews.length > 3 && (
-          <div className="hidden md:flex justify-center gap-2 mt-8 mb-12">
+          <div className="hidden md:flex justify-center gap-3 mt-8 mb-12">
             {[...Array(Math.ceil(filteredReviews.length / 3))].map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                aria-label={`Seite ${i + 1} anzeigen`}
+                className={`min-w-[24px] h-6 rounded-full transition-all duration-300 ${
+                  i === currentIndex ? "bg-primary w-8" : "bg-muted-foreground/30"
                 }`}
               />
             ))}

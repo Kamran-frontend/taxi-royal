@@ -40,8 +40,11 @@ const Hero = () => {
         >
           <img
             src={logo}
-            alt="MiniTAXI Royal Logo"
+            alt="MiniTAXI Royal - Ihr Taxi-Service in Friedberg"
             className="h-28 md:h-36 w-auto object-contain drop-shadow-2xl"
+            fetchPriority="high"
+            width="294"
+            height="196"
           />
         </motion.div>
 
