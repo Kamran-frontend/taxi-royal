@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://taxi-royal.lovable.app/sitemap.xml
+Sitemap: https://minitaxiroyalfb.de/sitemap.xml
