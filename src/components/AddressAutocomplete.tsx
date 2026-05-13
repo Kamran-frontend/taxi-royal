@@ -27,7 +27,7 @@ const AddressAutocomplete = ({
   const [predictions, setPredictions] = useState<Prediction[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const debounceRef = useRef<NodeJS.Timeout>();
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,8 +41,10 @@ const AddressAutocomplete = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const failedRef = useRef(false);
+
   const fetchPredictions = async (input: string) => {
-    if (input.length < 3) {
+    if (input.length < 3 || failedRef.current) {
       setPredictions([]);
       return;
     }
@@ -54,15 +56,19 @@ const AddressAutocomplete = ({
       });
 
       if (error) {
-        console.error("Autocomplete error:", error);
+        console.warn("Autocomplete unavailable:", error.message || error);
         setPredictions([]);
+        setShowSuggestions(false);
+        failedRef.current = true;
         return;
       }
 
-      setPredictions(data.predictions || []);
+      setPredictions(data?.predictions || []);
     } catch (err) {
-      console.error("Failed to fetch predictions:", err);
+      console.warn("Autocomplete unavailable, falling back to plain input.");
       setPredictions([]);
+      setShowSuggestions(false);
+      failedRef.current = true;
     } finally {
       setIsLoading(false);
     }
