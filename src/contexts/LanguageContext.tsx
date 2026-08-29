@@ -425,7 +425,42 @@ const translations = {
     "datenschutz.hostingText": "This website is hosted by Namecheap. Personal data collected on this website is stored on Namecheap servers in the USA. Namecheap is certified under the EU-US Data Privacy Framework.",
     "datenschutz.contactTitle": "6. Contact",
     "datenschutz.contactText": "If you have any questions about data protection, you can reach us at:",
+
+    // CTA
+    "cta.title": "Request your ride now",
+    "cta.subtitle": "Call us, message us on WhatsApp or book online – we reply right away.",
+    "cta.callNow": "Call",
+    "cta.bookNow": "Book",
+    "cta.whatsapp": "WhatsApp",
+
+    // Trust
+    "trust.title": "Why MiniTAXI Royal?",
+    "trust.subtitle": "An owner-run company from Friedberg – personally reachable, reliable and fairly priced.",
+    "trust.drivers": "Experienced, vetted drivers",
+    "trust.licensed": "Licensed operator",
+    "trust.reliable": "Punctual & reliable",
+    "trust.fixedPrice": "Fixed prices, no surprises",
+    "trust.flightTracking": "Flight tracking included",
+    "trust.childSeat": "Free child seats",
+    "trust.payment": "Cash, PayPal & bank transfer",
+    "trust.corporate": "Corporate clients & invoices",
+    "trust.wheelchair": "Wheelchair-accessible vehicle",
+
+    // Hub / navigation labels
+    "hub.services": "Our services",
+    "hub.cities": "Taxi in your town",
+    "hub.routes": "Popular long-distance routes",
+    "hub.airports": "Other airports",
+    "hub.faq": "Frequently asked questions",
+    "hub.faqSubtitle": "Answers to the questions we hear most often.",
+    "hub.allFaq": "See all questions",
+    "hub.blog": "Guides",
+    "hub.readMore": "Read more",
+    "hub.highlights": "At a glance",
+    "hub.backHome": "Back to home",
+    "hub.relatedRoutes": "Other routes",
   },
+
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
