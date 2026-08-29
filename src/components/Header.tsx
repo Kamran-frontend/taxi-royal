@@ -29,7 +29,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3" aria-label="MiniTAXI Royal Startseite">
+          <Link to="/" className="flex items-center gap-3" aria-label="MiniTAXI Royal Startseite">
             <img
               src={logo}
               alt=""
@@ -41,20 +41,21 @@ const Header = () => {
             <span className="hidden sm:block font-serif text-xl gold-text font-bold">
               MiniTAXI Royal
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                to={link.href}
+                className="text-muted-foreground hover:text-primary transition-colors font-medium text-sm"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
+
 
           {/* Language Toggle & CTA */}
           <div className="hidden md:flex items-center gap-3">
