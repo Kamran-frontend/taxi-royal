@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Phone, Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,13 +10,15 @@ const Header = () => {
   const { language, setLanguage, t } = useLanguage();
 
   const navLinks = [
-    { href: "#services", label: t("nav.services") },
-    { href: "#airport-pricing", label: t("nav.pricing") },
-    { href: "#gallery", label: t("nav.vehicles") },
-    { href: "#reviews", label: t("nav.reviews") },
-    { href: "#booking", label: t("nav.booking") },
-    { href: "#contact", label: t("nav.contact") },
+    { href: "/#services", label: t("nav.services") },
+    { href: "/flughafentransfer-frankfurt", label: t("nav.pricing") },
+    { href: "/fernfahrten", label: "Fernfahrten" },
+    { href: "/rollstuhltaxi", label: "Rollstuhltaxi" },
+    { href: "/#reviews", label: t("nav.reviews") },
+    { href: "/faq", label: "FAQ" },
+    { href: "/#booking", label: t("nav.booking") },
   ];
+
 
   const toggleLanguage = () => {
     setLanguage(language === "de" ? "en" : "de");
