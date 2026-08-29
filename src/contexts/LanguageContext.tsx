@@ -199,8 +199,43 @@ const translations = {
     "datenschutz.hostingText": "Diese Website wird bei Namecheap gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern von Namecheap in den USA gespeichert. Namecheap ist nach dem EU-US Data Privacy Framework zertifiziert.",
     "datenschutz.contactTitle": "6. Kontakt",
     "datenschutz.contactText": "Bei Fragen zum Datenschutz erreichen Sie uns unter:",
+
+    // CTA
+    "cta.title": "Jetzt Fahrt anfragen",
+    "cta.subtitle": "Rufen Sie an, schreiben Sie per WhatsApp oder buchen Sie online – wir melden uns umgehend.",
+    "cta.callNow": "Anrufen",
+    "cta.bookNow": "Buchen",
+    "cta.whatsapp": "WhatsApp",
+
+    // Trust
+    "trust.title": "Warum MiniTAXI Royal?",
+    "trust.subtitle": "Ein inhabergeführtes Unternehmen aus Friedberg – persönlich erreichbar, verlässlich und fair kalkuliert.",
+    "trust.drivers": "Erfahrene, geprüfte Fahrer",
+    "trust.licensed": "Konzessioniertes Unternehmen",
+    "trust.reliable": "Pünktlich & zuverlässig",
+    "trust.fixedPrice": "Festpreise ohne Überraschung",
+    "trust.flightTracking": "Flugüberwachung inklusive",
+    "trust.childSeat": "Kindersitze kostenlos",
+    "trust.payment": "Bar, PayPal & Überweisung",
+    "trust.corporate": "Firmenkunden & Rechnung",
+    "trust.wheelchair": "Rollstuhlgerechtes Fahrzeug",
+
+    // Hub / navigation labels
+    "hub.services": "Unsere Leistungen",
+    "hub.cities": "Taxi in Ihrer Stadt",
+    "hub.routes": "Beliebte Fernstrecken",
+    "hub.airports": "Weitere Flughäfen",
+    "hub.faq": "Häufige Fragen",
+    "hub.faqSubtitle": "Antworten auf die Fragen, die uns am häufigsten gestellt werden.",
+    "hub.allFaq": "Alle Fragen ansehen",
+    "hub.blog": "Ratgeber",
+    "hub.readMore": "Weiterlesen",
+    "hub.highlights": "Auf einen Blick",
+    "hub.backHome": "Zur Startseite",
+    "hub.relatedRoutes": "Weitere Strecken",
   },
   en: {
+
     // Header
     "nav.services": "Services",
     "nav.vehicles": "Vehicles",
