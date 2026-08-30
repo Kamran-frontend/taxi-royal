@@ -2,7 +2,10 @@ import { Phone, MapPin, Clock, Mail, MessageCircle, Instagram } from "lucide-rea
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import { cityPages } from "@/data/cities";
+import { longDistanceRoutes } from "@/data/longDistance";
 import logo from "@/assets/logo.png";
+
 
 const Footer = () => {
   const { t } = useLanguage();
