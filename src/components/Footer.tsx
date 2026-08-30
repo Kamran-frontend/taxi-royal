@@ -121,6 +121,46 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* SEO / site links */}
+        <nav className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8" aria-label="Weitere Seiten">
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Leistungen</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/flughafentransfer-frankfurt" className="hover:text-primary transition-colors">Flughafentransfer Frankfurt</Link></li>
+              <li><Link to="/fernfahrten" className="hover:text-primary transition-colors">Fernfahrten europaweit</Link></li>
+              <li><Link to="/rollstuhltaxi" className="hover:text-primary transition-colors">Rollstuhltaxi & Krankenfahrten</Link></li>
+              <li><Link to="/faq" className="hover:text-primary transition-colors">Häufige Fragen</Link></li>
+              <li><Link to="/ratgeber" className="hover:text-primary transition-colors">Ratgeber</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Taxi vor Ort</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {cityPages.map((c) => (
+                <li key={c.slug}>
+                  <Link to={`/taxi/${c.slug}`} className="hover:text-primary transition-colors">
+                    Taxi {c.city}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Beliebte Strecken</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {longDistanceRoutes.slice(0, 8).map((r) => (
+                <li key={r.slug}>
+                  <Link to={`/fernfahrten/${r.slug}`} className="hover:text-primary transition-colors">
+                    Taxi Friedberg – {r.city}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+
+
         {/* Social Media Section */}
         <div className="mt-12 mb-8">
           <div className="text-center mb-6">
