@@ -94,15 +94,16 @@ const Header = () => {
           <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="text-foreground hover:text-primary transition-colors font-medium py-2"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
+
               <div className="flex items-center gap-3 pt-4 border-t border-border">
                 <Button
                   variant="outline"
