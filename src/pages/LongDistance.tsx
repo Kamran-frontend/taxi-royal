@@ -37,7 +37,8 @@ const sections: ContentSection[] = [
       "Limousine oder Van bis 8 Personen",
       "Hin- und Rückfahrt kombinierbar",
       "Rechnung für Firmen möglich",
-      "24/7 auf Vorbestellung",
+      "Rollstuhlgerechte Fernfahrten auf Anfrage",
+      "Vorbestellung jederzeit auf Anfrage",
     ],
   },
 ];
@@ -63,6 +64,10 @@ const faqs: Faq[] = [
     q: "Fahren Sie auch Ziele, die hier nicht gelistet sind?",
     a: "Ja, wir fahren jedes Ziel in Deutschland und Europa. Fragen Sie einfach nach einem Angebot.",
   },
+  {
+    q: "Sind Fernfahrten mit Rollstuhl möglich?",
+    a: "Ja. Rollstuhlgerechte Fernfahrten sind mit unserem Fahrzeug mit Rampe und Rollstuhlsicherung auf Anfrage möglich. Bitte geben Sie Rollstuhltyp, Maße und Gewicht bei der Buchung an.",
+  },
 ];
 
 const LongDistance = () => {
@@ -75,7 +80,7 @@ const LongDistance = () => {
     <PageShell crumbs={crumbs}>
       <Seo
         title="Fernfahrten mit Taxi & Fahrer | Europaweit ab Friedberg"
-        description="Fernfahrten ab Friedberg, Frankfurt und der Wetterau: Paris, Amsterdam, Zürich, Wien, Prag, Brüssel, Mailand, München, Berlin. Festpreis, Tür zu Tür, 24/7."
+        description="Fernfahrten ab Friedberg, Frankfurt und der Wetterau: Paris, Amsterdam, Zürich, Wien, Prag, Brüssel, Mailand, München und Berlin. Festpreis und rollstuhlgerecht auf Anfrage."
         path={path}
         schemas={[
           localBusinessSchema(),

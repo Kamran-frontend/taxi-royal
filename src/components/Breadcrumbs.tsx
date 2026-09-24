@@ -19,7 +19,11 @@ const Breadcrumbs = ({ items }: { items: Crumb[] }) => (
                 {item.name}
               </span>
             ) : (
-              <Link to={item.path} className="hover:text-primary transition-colors flex items-center gap-1">
+              <Link
+                to={item.path}
+                onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                className="hover:text-primary transition-colors flex items-center gap-1"
+              >
                 {i === 0 && <Home className="w-3.5 h-3.5" aria-hidden="true" />}
                 {item.name}
               </Link>

@@ -20,6 +20,7 @@ const sharedComfort: ContentSection = {
   p: [
     "Unsere Fahrzeuge sind auf lange Etappen ausgelegt: klimatisierte Limousinen und Vans mit ausreichend Beinfreiheit, Ladebuchsen für Handy und Laptop, kostenlosem Trinkwasser und Platz für großes Gepäck. Auf Wunsch stellen wir Kindersitze, eine Kühlbox oder eine zusätzliche Gepäckbox bereit.",
     "Sie entscheiden über den Rhythmus der Fahrt: durchfahren, kurze Kaffeepausen oder ein längerer Stopp unterwegs. Unsere Fahrer sind ortskundig, sprechen Deutsch und Englisch und fahren vorausschauend – Sie kommen ausgeruht an, nicht abgekämpft wie nach einer Nacht im Nachtzug oder einer Umsteigeverbindung.",
+    "Rollstuhlgerechte Fernfahrten sind ebenfalls möglich. Unser Fahrzeug mit Rampe und Rollstuhlsicherung bringen wir auf Anfrage zum Einsatz; bitte nennen Sie Rollstuhltyp, Maße und Gewicht bei der Buchung.",
   ],
 };
 
@@ -40,7 +41,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     durationText: "ca. 5,5 – 6,5 Stunden",
     title: "Taxi Friedberg – Paris | Fernfahrt & Transfer zum Festpreis",
     description:
-      "Taxi und Transfer von Friedberg, Frankfurt und der Wetterau nach Paris. Tür-zu-Tür, Festpreis auf Anfrage, deutschsprachiger Fahrer, 24/7 buchbar.",
+      "Taxi und Transfer von Friedberg, Frankfurt und der Wetterau nach Paris. Tür-zu-Tür, Festpreis auf Anfrage, deutschsprachiger Fahrer, jederzeit vorbestellbar.",
     h1: "Taxi Friedberg – Paris: Tür-zu-Tür ohne Umsteigen",
     lead:
       "Rund 570 Kilometer trennen die Wetterau von der französischen Hauptstadt. Wir fahren Sie direkt von Ihrer Haustür in Friedberg, Bad Nauheim oder Frankfurt bis zu Ihrer Adresse in Paris – ohne Bahnhofsstress, ohne Gepäcklimit, ohne Umsteigen.",
@@ -89,7 +90,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
       },
       {
         q: "Fahren Sie auch nachts oder sehr früh morgens?",
-        a: "Ja, Fernfahrten sind rund um die Uhr möglich. Nachtfahrten sind auf dieser Strecke sogar oft schneller, weil weniger Verkehr herrscht.",
+        a: "Ja, Fernfahrten außerhalb der regulären Zeiten sind auf Anfrage und mit Vorbestellung möglich. Nachtfahrten sind auf dieser Strecke oft schneller, weil weniger Verkehr herrscht.",
       },
     ],
   },
@@ -101,7 +102,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     durationText: "ca. 4,5 – 5 Stunden",
     title: "Taxi Friedberg – Amsterdam | Direktfahrt in die Niederlande",
     description:
-      "Taxi und Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Amsterdam. Tür-zu-Tür-Transfer, Festpreis auf Anfrage, 24/7 verfügbar.",
+      "Taxi und Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Amsterdam. Tür-zu-Tür-Transfer, Festpreis auf Anfrage, jederzeit vorbestellbar.",
     h1: "Taxi Friedberg – Amsterdam: entspannt in die Niederlande",
     lead:
       "Rund 440 Kilometer über die A3 und A12 – wir bringen Sie ohne Umsteigen von der Wetterau nach Amsterdam, Rotterdam, Den Haag oder Utrecht.",
@@ -284,7 +285,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     durationText: "ca. 5 – 5,5 Stunden",
     title: "Taxi Friedberg – Berlin | Direktfahrt in die Hauptstadt",
     description:
-      "Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Berlin. Tür-zu-Tür-Transfer zum Festpreis, auch zum Flughafen BER, 24/7 buchbar.",
+      "Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Berlin. Tür-zu-Tür-Transfer zum Festpreis, auch zum Flughafen BER, jederzeit vorbestellbar.",
     h1: "Taxi Friedberg – Berlin: Tür zu Tür in die Hauptstadt",
     lead:
       "Über die A5, A7 und A9 bringen wir Sie in rund fünf Stunden direkt nach Berlin – zum Hotel, zum Termin, zur Klinik oder zum Flughafen BER.",
@@ -406,7 +407,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     durationText: "ca. 5 Stunden",
     title: "Taxi Friedberg – Prag | Direkttransfer nach Tschechien",
     description:
-      "Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Prag. Tür-zu-Tür-Transfer zum Festpreis, Vignette inklusive, 24/7 buchbar.",
+      "Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Prag. Tür-zu-Tür-Transfer zum Festpreis, Vignette inklusive, jederzeit vorbestellbar.",
     h1: "Taxi Friedberg – Prag: Direkttransfer nach Tschechien",
     lead:
       "Über Würzburg, Nürnberg und Pilsen bringen wir Sie in rund fünf Stunden nach Prag – ohne Umsteigen und mit Festpreis inklusive tschechischer Vignette.",

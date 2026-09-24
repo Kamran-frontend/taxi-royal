@@ -79,7 +79,7 @@ const faqs: Faq[] = [
   },
   {
     q: "Wie bezahle ich?",
-    a: "Bar, per PayPal oder per Überweisung. Auf Wunsch stellen wir eine Rechnung für die Reisekostenabrechnung aus.",
+    a: "Bar, mit Karte, per PayPal oder per Überweisung. Auf Wunsch stellen wir eine Rechnung für die Reisekostenabrechnung aus.",
   },
 ];
 
@@ -94,7 +94,7 @@ const FrankfurtAirport = () => {
     <PageShell crumbs={crumbs}>
       <Seo
         title="Flughafentransfer Frankfurt | Taxi ab Friedberg zum Festpreis"
-        description="Taxi zum Flughafen Frankfurt ab Friedberg, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung, Abholung mit Namensschild, 24/7."
+        description="Taxi zum Flughafen Frankfurt ab Friedberg, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung und jederzeitige Vorbestellung auf Anfrage."
         path={path}
         schemas={[
           localBusinessSchema(),

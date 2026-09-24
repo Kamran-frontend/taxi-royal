@@ -21,7 +21,7 @@ const translations = {
 
     // Hero
     "hero.tagline": "Fair. Schnell. Zuverlässig. Freundlich.",
-    "hero.subtitle": "Mo-Fr: 07:00-01:00 | Sa & So: 24h | Vorbestellungen jederzeit möglich!",
+    "hero.subtitle": "Mo-Fr: 07:00-00:00 | Vorbestellungen jederzeit auf Anfrage möglich!",
     "hero.eta": "In wenigen Minuten bei Ihnen",
     "hero.whatsapp": "Jetzt per WhatsApp buchen",
     "hero.location": "Friedberg & Umgebung",
@@ -36,11 +36,11 @@ const translations = {
     "services.routes": "Kurz- & Langstrecken",
     "services.routesDesc": "Flexibel für jede Entfernung",
     "services.payment": "Zahlungsarten",
-    "services.paymentDesc": "Bar, PayPal & Überweisung",
+    "services.paymentDesc": "Bar, Karte, PayPal & Überweisung",
     "services.child": "Kindersitz verfügbar",
     "services.childDesc": "Sicher unterwegs mit Familie",
-    "services.247": "24/7 Service",
-    "services.247Desc": "Rund um die Uhr erreichbar",
+    "services.247": "Jederzeit vorbestellen",
+    "services.247Desc": "Außerhalb der Zeiten auf Anfrage",
     "services.medicalTitle": "Medizinische & Spezialfahrten",
     "services.medicalSubtitle": "Wir übernehmen zuverlässig und diskret alle medizinischen Transportfahrten.",
     "services.lab": "Laborfahrten",
@@ -108,7 +108,7 @@ const translations = {
     "contact.area": "Einsatzgebiet",
     "contact.areaValue": "Friedberg, Bad Nauheim, Butzbach und Umgebung",
     "contact.hours": "Erreichbarkeit",
-    "contact.hoursValue": "Mo - Fr: 07:00 - 01:00\nSa & So: 24h",
+    "contact.hoursValue": "Mo - Fr: 07:00 - 00:00\nVorbestellung jederzeit auf Anfrage möglich",
 
     // Footer
     "footer.tagline": "Ihr zuverlässiger Taxi-Service in Friedberg und Umgebung.",
@@ -116,12 +116,13 @@ const translations = {
     "footer.legal": "Rechtliches",
     "footer.imprint": "Impressum",
     "footer.privacy": "Datenschutz",
-    "footer.available": "24/7 erreichbar",
+    "footer.available": "Mo–Fr bis 00:00 Uhr",
     "footer.rights": "Alle Rechte vorbehalten.",
     "footer.availability": "Erreichbarkeit",
-    "footer.preOrder": "Vorbestellungen jederzeit möglich!",
+    "footer.preOrder": "Vorbestellung jederzeit auf Anfrage möglich!",
     "footer.payment": "Zahlungsarten",
     "footer.cash": "Bar",
+    "footer.card": "Kartenzahlung",
     "footer.bankTransfer": "Überweisung",
 
     // Pricing
@@ -216,7 +217,7 @@ const translations = {
     "trust.fixedPrice": "Festpreise ohne Überraschung",
     "trust.flightTracking": "Flugüberwachung inklusive",
     "trust.childSeat": "Kindersitze kostenlos",
-    "trust.payment": "Bar, PayPal & Überweisung",
+    "trust.payment": "Bar, Karte, PayPal & Überweisung",
     "trust.corporate": "Firmenkunden & Rechnung",
     "trust.wheelchair": "Rollstuhlgerechtes Fahrzeug",
 
@@ -247,7 +248,7 @@ const translations = {
 
     // Hero
     "hero.tagline": "Fair. Fast. Reliable. Friendly.",
-    "hero.subtitle": "Mon-Fri: 07:00-01:00 | Sat & Sun: 24h | Pre-orders anytime!",
+    "hero.subtitle": "Mon-Fri: 07:00-00:00 | Pre-orders anytime on request!",
     "hero.eta": "Pickup in just a few minutes",
     "hero.whatsapp": "Book via WhatsApp",
     "hero.location": "Friedberg & Nearby Areas",
@@ -262,11 +263,11 @@ const translations = {
     "services.routes": "Short & Long Distances",
     "services.routesDesc": "Flexible for any distance",
     "services.payment": "Payment Options",
-    "services.paymentDesc": "Cash, PayPal & Bank Transfer",
+    "services.paymentDesc": "Cash, card, PayPal & bank transfer",
     "services.child": "Child Seat Available",
     "services.childDesc": "Travel safely with family",
-    "services.247": "24/7 Service",
-    "services.247Desc": "Available around the clock",
+    "services.247": "Pre-order anytime",
+    "services.247Desc": "Outside opening hours on request",
     "services.medicalTitle": "Medical & Special Transport Services",
     "services.medicalSubtitle": "We offer safe and reliable transport for all medical appointments.",
     "services.lab": "Laboratory Appointments",
@@ -334,7 +335,7 @@ const translations = {
     "contact.area": "Service Area",
     "contact.areaValue": "Friedberg, Bad Nauheim, Butzbach and surroundings",
     "contact.hours": "Availability",
-    "contact.hoursValue": "Mon - Fri: 07:00 - 01:00\nSat & Sun: 24h",
+    "contact.hoursValue": "Mon - Fri: 07:00 - 00:00\nPre-orders anytime on request",
 
     // Footer
     "footer.tagline": "Your reliable taxi service in Friedberg and surrounding areas.",
@@ -342,12 +343,13 @@ const translations = {
     "footer.legal": "Legal",
     "footer.imprint": "Imprint",
     "footer.privacy": "Privacy Policy",
-    "footer.available": "Available 24/7",
+    "footer.available": "Mon–Fri until midnight",
     "footer.rights": "All rights reserved.",
     "footer.availability": "Availability",
-    "footer.preOrder": "Pre-orders anytime possible!",
+    "footer.preOrder": "Pre-orders anytime on request!",
     "footer.payment": "Payment Methods",
     "footer.cash": "Cash",
+    "footer.card": "Card payment",
     "footer.bankTransfer": "Bank Transfer",
 
     // Pricing
@@ -442,7 +444,7 @@ const translations = {
     "trust.fixedPrice": "Fixed prices, no surprises",
     "trust.flightTracking": "Flight tracking included",
     "trust.childSeat": "Free child seats",
-    "trust.payment": "Cash, PayPal & bank transfer",
+    "trust.payment": "Cash, card, PayPal & bank transfer",
     "trust.corporate": "Corporate clients & invoices",
     "trust.wheelchair": "Wheelchair-accessible vehicle",
 
