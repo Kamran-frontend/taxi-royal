@@ -83,7 +83,7 @@ export const airportPages: AirportPage[] = [
     durationText: "ca. 2 – 2,5 Stunden",
     title: "Taxi Flughafen Köln/Bonn (CGN) | Transfer ab der Wetterau",
     description:
-      "Transfer zum Flughafen Köln/Bonn ab Friedberg, Bad Nauheim, Butzbach und Frankfurt. Festpreis, Flugüberwachung, 24/7 buchbar.",
+      "Transfer zum Flughafen Köln/Bonn ab Friedberg, Bad Nauheim, Butzbach und Frankfurt. Festpreis, Flugüberwachung, jederzeit vorbestellbar.",
     h1: "Flughafentransfer Köln/Bonn (CGN)",
     lead:
       "Rund 200 Kilometer über die A3 – wir bringen Sie ohne Umsteigen zum Terminal 1 oder 2 des Flughafens Köln/Bonn.",
@@ -126,7 +126,7 @@ export const airportPages: AirportPage[] = [
     durationText: "ca. 2,5 – 3 Stunden",
     title: "Taxi Flughafen Düsseldorf (DUS) | Transfer ab Friedberg",
     description:
-      "Flughafentransfer nach Düsseldorf ab Friedberg, Bad Nauheim und Frankfurt. Festpreis, Tür zu Tür, Flugüberwachung, rund um die Uhr buchbar.",
+      "Flughafentransfer nach Düsseldorf ab Friedberg, Bad Nauheim und Frankfurt. Festpreis, Tür zu Tür, Flugüberwachung, jederzeit auf Anfrage vorbestellbar.",
     h1: "Flughafentransfer Düsseldorf (DUS)",
     lead:
       "Für Interkontinentalflüge und Ferienflieger ab Düsseldorf fahren wir Sie in rund drei Stunden über die A3 direkt zum Terminal.",
@@ -169,7 +169,7 @@ export const airportPages: AirportPage[] = [
     durationText: "ca. 2,5 Stunden",
     title: "Taxi Flughafen Stuttgart (STR) | Transfer ab der Wetterau",
     description:
-      "Transfer zum Flughafen Stuttgart ab Friedberg, Bad Nauheim und Frankfurt zum Festpreis. Tür-zu-Tür, Flugüberwachung, 24/7 verfügbar.",
+      "Transfer zum Flughafen Stuttgart ab Friedberg, Bad Nauheim und Frankfurt zum Festpreis. Tür-zu-Tür, Flugüberwachung, jederzeit vorbestellbar.",
     h1: "Flughafentransfer Stuttgart (STR)",
     lead:
       "Über die A5 und A8 erreichen wir den Flughafen Stuttgart in rund zweieinhalb Stunden – bequem und ohne Umstieg.",

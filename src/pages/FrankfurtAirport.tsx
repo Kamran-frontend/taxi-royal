@@ -94,7 +94,7 @@ const FrankfurtAirport = () => {
     <PageShell crumbs={crumbs}>
       <Seo
         title="Flughafentransfer Frankfurt | Taxi ab Friedberg zum Festpreis"
-        description="Taxi zum Flughafen Frankfurt ab Friedberg, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung, Abholung mit Namensschild, 24/7."
+        description="Taxi zum Flughafen Frankfurt ab Friedberg, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung und jederzeitige Vorbestellung auf Anfrage."
         path={path}
         schemas={[
           localBusinessSchema(),
