@@ -80,8 +80,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-primary mt-1" />
                 <div>
-                  <p>Mo - Fr: 07:00 - 01:00</p>
-                  <p>Sa & So: 24h</p>
+                  <p>Mo - Fr: 07:00 - 00:00</p>
                   <p className="text-primary text-sm mt-1">{t("footer.preOrder")}</p>
                 </div>
               </li>
@@ -118,6 +117,7 @@ const Footer = () => {
             </h4>
             <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
               <span className="px-2 py-1 bg-muted rounded">💶 {t("footer.cash")}</span>
+              <span className="px-2 py-1 bg-muted rounded">💳 {t("footer.card")}</span>
               <span className="px-2 py-1 bg-muted rounded">🅿️ PayPal</span>
               <span className="px-2 py-1 bg-muted rounded">🏦 {t("footer.bankTransfer")}</span>
             </div>

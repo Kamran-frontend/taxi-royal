@@ -44,7 +44,7 @@ export const cityPages: CityPage[] = [
     city: "Friedberg",
     postalCode: "61169",
     airportPrice: 67,
-    title: "Taxi Friedberg (Hessen) | MiniTAXI Royal – 24/7 bestellen",
+    title: "Taxi Friedberg (Hessen) | MiniTAXI Royal vorbestellen",
     description:
       "Taxi in Friedberg (Hessen): Flughafentransfer ab 67 €, Krankenfahrten, Rollstuhltaxi, Fernfahrten. Jetzt per Telefon oder WhatsApp bestellen: 0171 1670001.",
     h1: "Taxi Friedberg (Hessen) – zuverlässig zu jeder Tageszeit",
@@ -88,11 +88,11 @@ export const cityPages: CityPage[] = [
       },
       {
         q: "Fahren Sie auch nachts in Friedberg?",
-        a: "Montag bis Freitag sind wir von 07:00 bis 01:00 Uhr im Einsatz, samstags und sonntags rund um die Uhr. Vorbestellungen sind jederzeit möglich, auch für Nachtfahrten unter der Woche.",
+        a: "Montag bis Freitag sind wir von 07:00 bis 00:00 Uhr im Einsatz. Vorbestellungen sind jederzeit auf Anfrage möglich, auch für Fahrten außerhalb dieser Zeiten.",
       },
       {
         q: "Kann ich mit Karte bezahlen?",
-        a: "Wir akzeptieren Bargeld, PayPal und Überweisung. Kartenzahlung bieten wir derzeit nicht an.",
+        a: "Wir akzeptieren Bargeld, Kartenzahlung, PayPal und Überweisung.",
       },
     ],
   },
@@ -379,7 +379,7 @@ export const cityPages: CityPage[] = [
       },
       {
         q: "Fahren Sie auch spätabends?",
-        a: "Montag bis Freitag bis 01:00 Uhr, am Wochenende rund um die Uhr. Vorbestellungen sind immer möglich.",
+        a: "Montag bis Freitag von 07:00 bis 00:00 Uhr. Vorbestellungen sind jederzeit auf Anfrage möglich.",
       },
       {
         q: "Können mehrere Personen zusammen fahren?",

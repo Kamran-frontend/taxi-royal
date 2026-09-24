@@ -79,7 +79,7 @@ const faqs: Faq[] = [
   },
   {
     q: "Wie bezahle ich?",
-    a: "Bar, per PayPal oder per Überweisung. Auf Wunsch stellen wir eine Rechnung für die Reisekostenabrechnung aus.",
+    a: "Bar, mit Karte, per PayPal oder per Überweisung. Auf Wunsch stellen wir eine Rechnung für die Reisekostenabrechnung aus.",
   },
 ];
 

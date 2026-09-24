@@ -15,7 +15,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Zu welchen Zeiten sind Sie erreichbar?",
-        a: "Montag bis Freitag von 07:00 bis 01:00 Uhr, samstags und sonntags rund um die Uhr. Vorbestellungen nehmen wir jederzeit entgegen, auch für Fahrten außerhalb dieser Zeiten.",
+        a: "Montag bis Freitag von 07:00 bis 00:00 Uhr. Vorbestellungen sind jederzeit auf Anfrage möglich, auch für Fahrten außerhalb dieser Zeiten.",
       },
       {
         q: "Wie weit im Voraus sollte ich buchen?",
@@ -40,7 +40,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Welche Zahlungsarten akzeptieren Sie?",
-        a: "Bargeld, PayPal und Überweisung. Kartenzahlung bieten wir derzeit nicht an.",
+        a: "Wir akzeptieren Bargeld, Kartenzahlung, PayPal und Überweisung.",
       },
       {
         q: "Gilt der Festpreis auch im Stau?",

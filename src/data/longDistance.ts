@@ -20,6 +20,7 @@ const sharedComfort: ContentSection = {
   p: [
     "Unsere Fahrzeuge sind auf lange Etappen ausgelegt: klimatisierte Limousinen und Vans mit ausreichend Beinfreiheit, Ladebuchsen für Handy und Laptop, kostenlosem Trinkwasser und Platz für großes Gepäck. Auf Wunsch stellen wir Kindersitze, eine Kühlbox oder eine zusätzliche Gepäckbox bereit.",
     "Sie entscheiden über den Rhythmus der Fahrt: durchfahren, kurze Kaffeepausen oder ein längerer Stopp unterwegs. Unsere Fahrer sind ortskundig, sprechen Deutsch und Englisch und fahren vorausschauend – Sie kommen ausgeruht an, nicht abgekämpft wie nach einer Nacht im Nachtzug oder einer Umsteigeverbindung.",
+    "Rollstuhlgerechte Fernfahrten sind ebenfalls möglich. Unser Fahrzeug mit Rampe und Rollstuhlsicherung bringen wir auf Anfrage zum Einsatz; bitte nennen Sie Rollstuhltyp, Maße und Gewicht bei der Buchung.",
   ],
 };
 

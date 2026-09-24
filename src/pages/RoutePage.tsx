@@ -65,7 +65,7 @@ const RoutePage = () => {
             {t("hub.highlights")}
           </h2>
           <ul className="grid sm:grid-cols-2 gap-2">
-            {route.highlights.map((h) => (
+            {[...route.highlights, "Rollstuhlgerechtes Fahrzeug auf Anfrage"].map((h) => (
               <li key={h} className="flex items-start gap-2 text-sm text-foreground">
                 <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
                 {h}

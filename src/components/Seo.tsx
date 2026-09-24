@@ -88,19 +88,13 @@ export const localBusinessSchema = () => ({
     "Rhein-Main-Gebiet",
   ],
   priceRange: "€€",
-  paymentAccepted: "Bar, PayPal, Überweisung",
+  paymentAccepted: "Bar, Kartenzahlung, PayPal, Überweisung",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "07:00",
-      closes: "01:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday"],
-      opens: "00:00",
-      closes: "23:59",
+      closes: "00:00",
     },
   ],
   sameAs: [

@@ -27,7 +27,7 @@ const fixedPrice: ContentSection = {
   h: "Festpreis statt Taxameter",
   p: [
     "Sie erfahren den Preis vor der Buchung und er bleibt gültig – unabhängig von Stau, Umleitung oder Uhrzeit. Der Preis gilt pro Fahrzeug inklusive Gepäck, nicht pro Person.",
-    "Bezahlen können Sie bar, per PayPal oder per Überweisung. Für Firmen stellen wir auf Wunsch eine Rechnung aus.",
+    "Bezahlen können Sie bar, mit Karte, per PayPal oder per Überweisung. Für Firmen stellen wir auf Wunsch eine Rechnung aus.",
   ],
 };
 
