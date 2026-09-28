@@ -14,23 +14,20 @@ import TrustBadges from "@/components/TrustBadges";
 import FaqAccordion from "@/components/FaqAccordion";
 import LinkGrid from "@/components/LinkGrid";
 import Seo, { faqSchema, localBusinessSchema, organizationSchema } from "@/components/Seo";
-import { allFaqs, faqGroups } from "@/data/faqs";
-import { cityPages } from "@/data/cities";
-import { longDistanceRoutes } from "@/data/longDistance";
-import { airportPages } from "@/data/airports";
-import { blogPosts } from "@/data/blog";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const homeFaqs = faqGroups.flatMap((g) => g.faqs).slice(0, 8);
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { cities, routes, airports, faqGroups, blogPosts } = useLocalizedContent();
+  const allFaqs = faqGroups.flatMap((group) => group.faqs);
+  const homeFaqs = allFaqs.slice(0, 8);
 
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="MiniTAXI Royal Friedberg – Taxi, Flughafentransfer & Krankenfahrten"
-        description="Taxi in Friedberg, Bad Nauheim & Butzbach: Flughafentransfer Frankfurt ab 63 €, Krankenfahrten, Rollstuhltaxi, Fernfahrten europaweit. Jetzt buchen: 0171 1670001."
+        title={language === "de" ? "MiniTAXI Royal Friedberg – Taxi, Flughafentransfer & Krankenfahrten" : "MiniTAXI Royal Friedberg – Taxi, Airport & Medical Rides"}
+        description={language === "de" ? "Taxi in Friedberg, Bad Nauheim & Butzbach: Flughafentransfer Frankfurt ab 63 €, Krankenfahrten, Rollstuhltaxi, Fernfahrten europaweit. Jetzt buchen: 0171 1670001." : "Taxi service in Friedberg, Bad Nauheim and Butzbach: Frankfurt Airport transfers from €63, medical rides, wheelchair taxis and European long-distance travel."}
         path="/"
         schemas={[organizationSchema(), localBusinessSchema(), faqSchema(allFaqs)]}
       />
@@ -68,35 +65,35 @@ const Index = () => {
               items={[
                 {
                   to: "/flughafentransfer-frankfurt",
-                  label: "Flughafentransfer Frankfurt",
-                  sub: "Festpreise ab 63 €, Flugüberwachung",
+                  label: language === "de" ? "Flughafentransfer Frankfurt" : "Frankfurt Airport transfer",
+                  sub: language === "de" ? "Festpreise ab 63 €, Flugüberwachung" : "Fixed prices from €63, flight tracking",
                 },
-                { to: "/fernfahrten", label: "Fernfahrten europaweit", sub: "Paris, Wien, Zürich, Mailand" },
-                { to: "/rollstuhltaxi", label: "Rollstuhltaxi & Krankenfahrten", sub: "Barrierefrei mit Rampe" },
-                { to: "/faq", label: "Häufige Fragen", sub: "Preise, Ablauf, Krankenkasse" },
-                { to: "/ratgeber", label: "Ratgeber", sub: "Tipps rund um Transfer und Fahrten" },
-                { to: "/taxi/friedberg", label: "Taxi Friedberg", sub: "Ihr Taxi vor Ort" },
+                { to: "/fernfahrten", label: language === "de" ? "Fernfahrten europaweit" : "Long-distance rides across Europe", sub: "Paris, Vienna, Zurich, Milan" },
+                { to: "/rollstuhltaxi", label: language === "de" ? "Rollstuhltaxi & Krankenfahrten" : "Wheelchair taxi & medical rides", sub: language === "de" ? "Barrierefrei mit Rampe" : "Accessible vehicle with ramp" },
+                { to: "/faq", label: language === "de" ? "Häufige Fragen" : "Frequently asked questions", sub: language === "de" ? "Preise, Ablauf, Krankenkasse" : "Prices, process and health insurance" },
+                { to: "/ratgeber", label: language === "de" ? "Ratgeber" : "Guides", sub: language === "de" ? "Tipps rund um Transfer und Fahrten" : "Tips about transfers and rides" },
+                { to: "/taxi/friedberg", label: "Taxi Friedberg", sub: language === "de" ? "Ihr Taxi vor Ort" : "Your local taxi" },
               ]}
             />
             <LinkGrid
               title={t("hub.cities")}
-              items={cityPages.map((c) => ({
+              items={cities.map((c) => ({
                 to: `/taxi/${c.slug}`,
                 label: `Taxi ${c.city}`,
-                sub: `Flughafen Frankfurt ab ${c.airportPrice} €`,
+                sub: `${language === "de" ? "Flughafen Frankfurt ab" : "Frankfurt Airport from"} ${c.airportPrice} €`,
               }))}
             />
             <LinkGrid
               title={t("hub.routes")}
-              items={longDistanceRoutes.map((r) => ({
+              items={routes.map((r) => ({
                 to: `/fernfahrten/${r.slug}`,
                 label: `Taxi Friedberg – ${r.city}`,
-                sub: `${r.country} · ca. ${r.distanceKm} km`,
+                sub: `${r.country} · ${language === "de" ? "ca." : "approx."} ${r.distanceKm} km`,
               }))}
             />
             <LinkGrid
               title={t("hub.airports")}
-              items={airportPages.map((a) => ({
+              items={airports.map((a) => ({
                 to: `/flughafentransfer/${a.slug}`,
                 label: a.airport,
                 sub: `${a.code} · ${a.durationText}`,

@@ -5,19 +5,22 @@ import Seo, { breadcrumbSchema, localBusinessSchema } from "@/components/Seo";
 import ContentSections from "@/components/ContentSections";
 import CtaBlock from "@/components/CtaBlock";
 import LinkGrid from "@/components/LinkGrid";
-import { blogPosts, getPost } from "@/data/blog";
 import { SITE } from "@/data/site";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const post = getPost(slug);
+  const { language } = useLanguage();
+  const { blogPosts } = useLocalizedContent();
+  const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) return <Navigate to="/ratgeber" replace />;
 
   const path = `/ratgeber/${post.slug}`;
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Ratgeber", path: "/ratgeber" },
+    { name: language === "de" ? "Start" : "Home", path: "/" },
+    { name: language === "de" ? "Ratgeber" : "Guides", path: "/ratgeber" },
     { name: post.title, path },
   ];
 
@@ -58,7 +61,7 @@ const BlogPost = () => {
           <span className="flex items-center gap-1">
             <CalendarDays className="w-4 h-4" aria-hidden="true" />
             <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString("de-DE", {
+              {new Date(post.date).toLocaleDateString(language === "de" ? "de-DE" : "en-GB", {
                 day: "2-digit",
                 month: "long",
                 year: "numeric",
@@ -78,7 +81,7 @@ const BlogPost = () => {
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <CtaBlock />
         <LinkGrid
-          title="Weitere Beiträge"
+          title={language === "de" ? "Weitere Beiträge" : "More articles"}
           items={blogPosts
             .filter((p) => p.slug !== post.slug)
             .slice(0, 6)

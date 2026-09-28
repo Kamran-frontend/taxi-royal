@@ -7,20 +7,21 @@ import FaqAccordion from "@/components/FaqAccordion";
 import CtaBlock from "@/components/CtaBlock";
 import TrustBadges from "@/components/TrustBadges";
 import LinkGrid from "@/components/LinkGrid";
-import { airportPages, getAirport } from "@/data/airports";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const AirportPage = () => {
   const { slug } = useParams();
-  const airport = getAirport(slug);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { airports } = useLocalizedContent();
+  const airport = airports.find((item) => item.slug === slug);
 
   if (!airport) return <Navigate to="/flughafentransfer-frankfurt" replace />;
 
   const path = `/flughafentransfer/${airport.slug}`;
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Flughafentransfer", path: "/flughafentransfer-frankfurt" },
+    { name: language === "de" ? "Start" : "Home", path: "/" },
+    { name: language === "de" ? "Flughafentransfer" : "Airport transfer", path: "/flughafentransfer-frankfurt" },
     { name: airport.airport, path },
   ];
 
@@ -52,7 +53,7 @@ const AirportPage = () => {
         <div className="flex flex-wrap gap-3 mt-6">
           <span className="glass-card rounded-full px-4 py-2 text-sm flex items-center gap-2">
             <PlaneTakeoff className="w-4 h-4 text-primary" aria-hidden="true" />
-            {airport.code} · ca. {airport.distanceKm} km
+            {airport.code} · {language === "de" ? "ca." : "approx."} {airport.distanceKm} km
           </span>
           <span className="glass-card rounded-full px-4 py-2 text-sm flex items-center gap-2">
             <Clock className="w-4 h-4 text-primary" aria-hidden="true" />
@@ -78,25 +79,25 @@ const AirportPage = () => {
 
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6">
-          <span className="gold-text">Fragen zum Transfer {airport.airport}</span>
+          <span className="gold-text">{language === "de" ? `Fragen zum Transfer ${airport.airport}` : `Questions about transfers to ${airport.airport}`}</span>
         </h2>
         <FaqAccordion faqs={airport.faqs} idPrefix={airport.slug} />
       </section>
 
       <section className="container mx-auto px-4 pb-6">
         <CtaBlock
-          title={`Transfer zum ${airport.airport} anfragen`}
-          waMessage={`Hallo MiniTAXI Royal, ich möchte einen Transfer zum ${airport.airport} anfragen.`}
+          title={language === "de" ? `Transfer zum ${airport.airport} anfragen` : `Request a transfer to ${airport.airport}`}
+          waMessage={language === "de" ? `Hallo MiniTAXI Royal, ich möchte einen Transfer zum ${airport.airport} anfragen.` : `Hello MiniTAXI Royal, I would like to request a transfer to ${airport.airport}.`}
         />
         <LinkGrid
           title={t("hub.airports")}
           items={[
             {
               to: "/flughafentransfer-frankfurt",
-              label: "Flughafentransfer Frankfurt (FRA)",
-              sub: "Festpreise ab 63 €",
+               label: language === "de" ? "Flughafentransfer Frankfurt (FRA)" : "Frankfurt Airport transfer (FRA)",
+               sub: language === "de" ? "Festpreise ab 63 €" : "Fixed prices from €63",
             },
-            ...airportPages
+            ...airports
               .filter((a) => a.slug !== airport.slug)
               .map((a) => ({
                 to: `/flughafentransfer/${a.slug}`,
