@@ -7,20 +7,21 @@ import FaqAccordion from "@/components/FaqAccordion";
 import CtaBlock from "@/components/CtaBlock";
 import TrustBadges from "@/components/TrustBadges";
 import LinkGrid from "@/components/LinkGrid";
-import { getRoute, longDistanceRoutes } from "@/data/longDistance";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const RoutePage = () => {
   const { slug } = useParams();
-  const route = getRoute(slug);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { routes } = useLocalizedContent();
+  const route = routes.find((item) => item.slug === slug);
 
   if (!route) return <Navigate to="/fernfahrten" replace />;
 
   const path = `/fernfahrten/${route.slug}`;
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Fernfahrten", path: "/fernfahrten" },
+    { name: language === "de" ? "Start" : "Home", path: "/" },
+    { name: language === "de" ? "Fernfahrten" : "Long-distance rides", path: "/fernfahrten" },
     { name: route.city, path },
   ];
 
@@ -52,7 +53,7 @@ const RoutePage = () => {
         <div className="flex flex-wrap gap-3 mt-6">
           <span className="glass-card rounded-full px-4 py-2 text-sm flex items-center gap-2">
             <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />
-            ca. {route.distanceKm} km · {route.country}
+            {language === "de" ? "ca." : "approx."} {route.distanceKm} km · {route.country}
           </span>
           <span className="glass-card rounded-full px-4 py-2 text-sm flex items-center gap-2">
             <Clock className="w-4 h-4 text-primary" aria-hidden="true" />
@@ -65,7 +66,7 @@ const RoutePage = () => {
             {t("hub.highlights")}
           </h2>
           <ul className="grid sm:grid-cols-2 gap-2">
-            {[...route.highlights, "Rollstuhlgerechtes Fahrzeug auf Anfrage"].map((h) => (
+            {[...route.highlights, language === "de" ? "Rollstuhlgerechtes Fahrzeug auf Anfrage" : "Wheelchair-accessible vehicle on request"].map((h) => (
               <li key={h} className="flex items-start gap-2 text-sm text-foreground">
                 <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
                 {h}
@@ -83,25 +84,25 @@ const RoutePage = () => {
 
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6">
-          <span className="gold-text">Häufige Fragen zur Fahrt nach {route.city}</span>
+          <span className="gold-text">{language === "de" ? `Häufige Fragen zur Fahrt nach ${route.city}` : `Frequently asked questions about travelling to ${route.city}`}</span>
         </h2>
         <FaqAccordion faqs={route.faqs} idPrefix={route.slug} />
       </section>
 
       <section className="container mx-auto px-4 pb-6">
         <CtaBlock
-          title={`Fahrt nach ${route.city} anfragen`}
-          waMessage={`Hallo MiniTAXI Royal, ich möchte ein Angebot für eine Fahrt nach ${route.city}.`}
+          title={language === "de" ? `Fahrt nach ${route.city} anfragen` : `Request a ride to ${route.city}`}
+          waMessage={language === "de" ? `Hallo MiniTAXI Royal, ich möchte ein Angebot für eine Fahrt nach ${route.city}.` : `Hello MiniTAXI Royal, I would like a quote for a ride to ${route.city}.`}
         />
         <LinkGrid
           title={t("hub.relatedRoutes")}
-          items={longDistanceRoutes
+          items={routes
             .filter((r) => r.slug !== route.slug)
             .slice(0, 6)
             .map((r) => ({
               to: `/fernfahrten/${r.slug}`,
               label: `Taxi Friedberg – ${r.city}`,
-              sub: `${r.country} · ca. ${r.distanceKm} km`,
+              sub: `${r.country} · ${language === "de" ? "ca." : "approx."} ${r.distanceKm} km`,
             }))}
         />
       </section>

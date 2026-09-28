@@ -5,20 +5,24 @@ import Seo, { breadcrumbSchema, localBusinessSchema } from "@/components/Seo";
 import CtaBlock from "@/components/CtaBlock";
 import { blogPosts } from "@/data/blog";
 import { SITE } from "@/data/site";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const path = "/ratgeber";
 
 const Blog = () => {
+  const { language, t } = useLanguage();
+  const { blogPosts } = useLocalizedContent();
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Ratgeber", path },
+    { name: language === "de" ? "Start" : "Home", path: "/" },
+    { name: language === "de" ? "Ratgeber" : "Guides", path },
   ];
 
   return (
     <PageShell crumbs={crumbs}>
       <Seo
-        title="Taxi-Ratgeber Wetterau | Tipps zu Transfer & Krankenfahrten"
-        description="Praxistipps rund um Flughafentransfer, Krankenfahrten, Rollstuhltaxi und Fernfahrten – aus dem Alltag von MiniTAXI Royal in Friedberg."
+        title={language === "de" ? "Taxi-Ratgeber Wetterau | Tipps zu Transfer & Krankenfahrten" : "Wetterau Taxi Guide | Airport, Medical & Long-distance Rides"}
+        description={language === "de" ? "Praxistipps rund um Flughafentransfer, Krankenfahrten, Rollstuhltaxi und Fernfahrten – aus dem Alltag von MiniTAXI Royal in Friedberg." : "Practical advice on airport transfers, medical rides, wheelchair taxis and long-distance rides from MiniTAXI Royal in Friedberg."}
         path={path}
         schemas={[
           localBusinessSchema(),
@@ -26,7 +30,7 @@ const Blog = () => {
           {
             "@context": "https://schema.org",
             "@type": "Blog",
-            name: "MiniTAXI Royal Ratgeber",
+            name: language === "de" ? "MiniTAXI Royal Ratgeber" : "MiniTAXI Royal Guides",
             url: `${SITE.baseUrl}${path}`,
             blogPost: blogPosts.map((p) => ({
               "@type": "BlogPosting",
@@ -40,11 +44,10 @@ const Blog = () => {
 
       <section className="container mx-auto px-4 pt-8">
         <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4">
-          <span className="gold-text">Ratgeber rund um Taxi und Transfer</span>
+          <span className="gold-text">{language === "de" ? "Ratgeber rund um Taxi und Transfer" : "Taxi and transfer guides"}</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Erfahrungswerte aus dem Alltag: Zeitplanung zum Flughafen, Krankenfahrten mit Verordnung,
-          barrierefreie Fahrten und die Frage, wann sich eine Fernfahrt wirklich lohnt.
+          {language === "de" ? "Erfahrungswerte aus dem Alltag: Zeitplanung zum Flughafen, Krankenfahrten mit Verordnung, barrierefreie Fahrten und die Frage, wann sich eine Fernfahrt wirklich lohnt." : "Practical experience covering airport timing, prescribed medical rides, accessible travel and when a long-distance ride is worthwhile."}
         </p>
       </section>
 
@@ -63,7 +66,7 @@ const Blog = () => {
                 <span className="flex items-center gap-1">
                   <CalendarDays className="w-3.5 h-3.5" aria-hidden="true" />
                   <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("de-DE", {
+                    {new Date(post.date).toLocaleDateString(language === "de" ? "de-DE" : "en-GB", {
                       day: "2-digit",
                       month: "long",
                       year: "numeric",
@@ -79,7 +82,7 @@ const Blog = () => {
                 to={`/ratgeber/${post.slug}`}
                 className="inline-flex items-center gap-1 text-sm text-primary mt-3 hover:underline"
               >
-                Weiterlesen
+                {t("hub.readMore")}
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
             </article>

@@ -7,20 +7,21 @@ import FaqAccordion from "@/components/FaqAccordion";
 import CtaBlock from "@/components/CtaBlock";
 import TrustBadges from "@/components/TrustBadges";
 import LinkGrid from "@/components/LinkGrid";
-import { cityPages, getCity } from "@/data/cities";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const CityPage = () => {
   const { slug } = useParams();
-  const city = getCity(slug);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { cities } = useLocalizedContent();
+  const city = cities.find((item) => item.slug === slug);
 
   if (!city) return <Navigate to="/" replace />;
 
   const path = `/taxi/${city.slug}`;
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Taxi vor Ort", path: "/taxi/friedberg" },
+    { name: language === "de" ? "Start" : "Home", path: "/" },
+    { name: language === "de" ? "Taxi vor Ort" : "Local taxi", path: "/taxi/friedberg" },
     { name: city.city, path },
   ];
 
@@ -56,17 +57,17 @@ const CityPage = () => {
           </span>
           <span className="glass-card rounded-full px-4 py-2 text-sm flex items-center gap-2">
             <BadgeEuro className="w-4 h-4 text-primary" aria-hidden="true" />
-            Flughafen Frankfurt: {city.airportPrice} € Festpreis
+            {language === "de" ? "Flughafen Frankfurt" : "Frankfurt Airport"}: {city.airportPrice} € {language === "de" ? "Festpreis" : "fixed price"}
           </span>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 mt-8">
           <div className="glass-card rounded-2xl p-5">
-            <h2 className="font-serif text-lg font-semibold text-foreground mb-2">Stadtteile, die wir anfahren</h2>
+            <h2 className="font-serif text-lg font-semibold text-foreground mb-2">{language === "de" ? "Stadtteile, die wir anfahren" : "Districts we serve"}</h2>
             <p className="text-sm text-muted-foreground">{city.districts.join(" · ")}</p>
           </div>
           <div className="glass-card rounded-2xl p-5">
-            <h2 className="font-serif text-lg font-semibold text-foreground mb-2">Beliebte Ziele</h2>
+            <h2 className="font-serif text-lg font-semibold text-foreground mb-2">{language === "de" ? "Beliebte Ziele" : "Popular destinations"}</h2>
             <p className="text-sm text-muted-foreground">{city.landmarks.join(" · ")}</p>
           </div>
         </div>
@@ -80,24 +81,24 @@ const CityPage = () => {
 
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6">
-          <span className="gold-text">Häufige Fragen zum Taxi in {city.city}</span>
+          <span className="gold-text">{language === "de" ? `Häufige Fragen zum Taxi in ${city.city}` : `Frequently asked questions about taxis in ${city.city}`}</span>
         </h2>
         <FaqAccordion faqs={city.faqs} idPrefix={city.slug} />
       </section>
 
       <section className="container mx-auto px-4 pb-6">
         <CtaBlock
-          title={`Taxi in ${city.city} bestellen`}
-          waMessage={`Hallo MiniTAXI Royal, ich möchte ein Taxi in ${city.city} bestellen.`}
+          title={language === "de" ? `Taxi in ${city.city} bestellen` : `Book a taxi in ${city.city}`}
+          waMessage={language === "de" ? `Hallo MiniTAXI Royal, ich möchte ein Taxi in ${city.city} bestellen.` : `Hello MiniTAXI Royal, I would like to book a taxi in ${city.city}.`}
         />
         <LinkGrid
           title={t("hub.cities")}
-          items={cityPages
+          items={cities
             .filter((c) => c.slug !== city.slug)
             .map((c) => ({
               to: `/taxi/${c.slug}`,
               label: `Taxi ${c.city}`,
-              sub: `Flughafen Frankfurt ab ${c.airportPrice} €`,
+              sub: `${language === "de" ? "Flughafen Frankfurt ab" : "Frankfurt Airport from"} ${c.airportPrice} €`,
             }))}
         />
       </section>
