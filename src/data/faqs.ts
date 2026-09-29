@@ -15,7 +15,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Zu welchen Zeiten sind Sie erreichbar?",
-        a: "Montag bis Freitag von 07:00 bis 00:00 Uhr. Vorbestellungen sind jederzeit auf Anfrage möglich, auch für Fahrten außerhalb dieser Zeiten.",
+        a: "Montag bis Sonntag von 07:00 bis 00:00 Uhr. Vorbestellungen sind jederzeit auf Anfrage möglich, auch für Fahrten außerhalb dieser Zeiten.",
       },
       {
         q: "Wie weit im Voraus sollte ich buchen?",
@@ -36,7 +36,7 @@ export const faqGroups: FaqGroup[] = [
     faqs: [
       {
         q: "Was kostet die Fahrt zum Flughafen Frankfurt?",
-        a: "Wir arbeiten mit Festpreisen je nach Startort – zum Beispiel 67 € ab Friedberg, 69 € ab Bad Nauheim, 63 € ab Rosbach und 95 € ab Butzbach. Der Preis gilt pro Fahrzeug inklusive Gepäck.",
+        a: "Wir arbeiten mit Festpreisen je nach Startort – zum Beispiel 67 € ab Friedberg und Umgebung, 69 € ab Bad Nauheim, 63 € ab Rosbach und 95 € ab Butzbach. Der Preis gilt pro Fahrzeug inklusive Gepäck.",
       },
       {
         q: "Welche Zahlungsarten akzeptieren Sie?",
@@ -115,7 +115,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Wie viele Personen passen in ein Fahrzeug?",
-        a: "In der Limousine bis zu vier Fahrgäste, im Van bis zu acht Personen inklusive Gepäck.",
+        a: "In der Limousine bis zu vier Fahrgäste, im 7-Sitzer-Van bis zu sechs Fahrgäste inklusive Gepäck.",
       },
       {
         q: "Dürfen Haustiere mitfahren?",

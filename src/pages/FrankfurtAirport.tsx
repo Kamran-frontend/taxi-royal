@@ -44,12 +44,12 @@ const sections: ContentSection[] = [
   {
     h: "Gepäck, Kindersitze und Gruppen",
     p: [
-      "Anders als bei der Bahn gibt es bei uns keine Gepäckgrenze: Koffer, Kinderwagen, Golfbag oder Skiausrüstung nehmen wir mit – wir wählen einfach das passende Fahrzeug. Für Gruppen bis acht Personen setzen wir einen Van ein.",
+      "Anders als bei der Bahn gibt es bei uns keine Gepäckgrenze: Koffer, Kinderwagen, Golfbag oder Skiausrüstung nehmen wir mit – wir wählen einfach das passende Fahrzeug. Für Gruppen bis sechs Personen setzen wir einen Van ein.",
       "Kindersitze und Sitzerhöhungen stellen wir kostenlos bereit. Bitte geben Sie Alter und Anzahl der Kinder bei der Buchung an, damit alles vorbereitet ist.",
     ],
     list: [
       "Limousine für bis zu 4 Personen",
-      "Van für bis zu 8 Personen",
+      "Van für bis zu 6 Personen",
       "Kindersitze kostenlos",
       "Rollstuhlgerechtes Fahrzeug auf Anfrage",
     ],
@@ -59,11 +59,11 @@ const sections: ContentSection[] = [
 const faqs: Faq[] = [
   {
     q: "Was kostet ein Taxi zum Flughafen Frankfurt?",
-    a: "Wir arbeiten mit Festpreisen je Startort: zum Beispiel 63 € ab Rosbach, 67 € ab Friedberg, 69 € ab Bad Nauheim, 75 € ab Karben und 95 € ab Butzbach. Der Preis gilt pro Fahrzeug inklusive Gepäck.",
+    a: "Wir arbeiten mit Festpreisen je Startort: zum Beispiel 63 € ab Rosbach, 67 € ab Friedberg und Umgebung, 69 € ab Bad Nauheim, 75 € ab Karben und 95 € ab Butzbach. Der Preis gilt pro Fahrzeug inklusive Gepäck.",
   },
   {
     q: "Wie lange dauert die Fahrt zum Flughafen Frankfurt?",
-    a: "Ab Friedberg oder Bad Nauheim je nach Verkehrslage 35 bis 55 Minuten, ab Butzbach etwas länger. Zu Stoßzeiten planen wir zusätzlichen Puffer ein.",
+    a: "Ab Friedberg und Umgebung oder Bad Nauheim je nach Verkehrslage 35 bis 55 Minuten, ab Butzbach etwas länger. Zu Stoßzeiten planen wir zusätzlichen Puffer ein.",
   },
   {
     q: "Überwachen Sie meinen Flug?",
@@ -93,8 +93,8 @@ const FrankfurtAirport = () => {
   return (
     <PageShell crumbs={crumbs}>
       <Seo
-        title="Flughafentransfer Frankfurt | Taxi ab Friedberg zum Festpreis"
-        description="Taxi zum Flughafen Frankfurt ab Friedberg, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung und jederzeitige Vorbestellung auf Anfrage."
+        title="Flughafentransfer Frankfurt | Taxi ab Friedberg und Umgebung zum Festpreis"
+        description="Taxi zum Flughafen Frankfurt ab Friedberg und Umgebung, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung und jederzeitige Vorbestellung auf Anfrage."
         path={path}
         schemas={[
           localBusinessSchema(),

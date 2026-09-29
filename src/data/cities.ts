@@ -69,7 +69,7 @@ export const cityPages: CityPage[] = [
       },
       localServices("Friedberg"),
       {
-        h: "Flughafentransfer ab Friedberg zum Festpreis",
+        h: "Flughafentransfer ab Friedberg und Umgebung zum Festpreis",
         p: [
           "Von Friedberg zum Flughafen Frankfurt berechnen wir einen Festpreis von 67 € – unabhängig von Verkehrslage und Wartezeit im Stau. Der Preis gilt für das Fahrzeug, nicht pro Person, und schließt Gepäck ein.",
           "Wir überwachen Ihre Flugnummer bei Abholungen und passen die Ankunftszeit an Verspätungen an, damit niemand unnötig wartet.",
@@ -88,7 +88,7 @@ export const cityPages: CityPage[] = [
       },
       {
         q: "Fahren Sie auch nachts in Friedberg?",
-        a: "Montag bis Freitag sind wir von 07:00 bis 00:00 Uhr im Einsatz. Vorbestellungen sind jederzeit auf Anfrage möglich, auch für Fahrten außerhalb dieser Zeiten.",
+        a: "Montag bis Sonntag sind wir von 07:00 bis 00:00 Uhr im Einsatz. Vorbestellungen sind jederzeit auf Anfrage möglich, auch für Fahrten außerhalb dieser Zeiten.",
       },
       {
         q: "Kann ich mit Karte bezahlen?",
@@ -379,11 +379,11 @@ export const cityPages: CityPage[] = [
       },
       {
         q: "Fahren Sie auch spätabends?",
-        a: "Montag bis Freitag von 07:00 bis 00:00 Uhr. Vorbestellungen sind jederzeit auf Anfrage möglich.",
+        a: "Montag bis Sonntag von 07:00 bis 00:00 Uhr. Vorbestellungen sind jederzeit auf Anfrage möglich.",
       },
       {
         q: "Können mehrere Personen zusammen fahren?",
-        a: "Ja, für Gruppen setzen wir einen Van mit bis zu acht Sitzplätzen ein.",
+        a: "Ja, für Gruppen setzen wir einen Van mit bis zu sechs Fahrgästen ein.",
       },
       {
         q: "Gibt es Kindersitze?",

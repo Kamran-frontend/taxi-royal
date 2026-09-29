@@ -86,7 +86,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
       },
       {
         q: "Können mehrere Personen mitfahren?",
-        a: "Ja. Wir setzen je nach Personen- und Gepäckzahl eine Limousine oder einen Van mit bis zu acht Sitzplätzen ein. Der Festpreis gilt für das Fahrzeug, nicht pro Person.",
+        a: "Ja. Wir setzen je nach Personen- und Gepäckzahl eine Limousine oder einen Van mit bis zu sechs Fahrgästen ein. Der Festpreis gilt für das Fahrzeug, nicht pro Person.",
       },
       {
         q: "Fahren Sie auch nachts oder sehr früh morgens?",
@@ -109,7 +109,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     highlights: [
       "Direktverbindung ohne Umsteigen in Köln oder Utrecht",
       "Kein Parkplatzproblem in der Amsterdamer Innenstadt",
-      "Vans für Gruppen bis 8 Personen",
+      "Vans für Gruppen bis 6 Personen",
       "Rückfahrt und Wartezeit planbar",
     ],
     sections: [
@@ -273,7 +273,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
       },
       {
         q: "Können wir zu acht fahren?",
-        a: "Ja, für Gruppen setzen wir einen Van mit bis zu acht Sitzplätzen ein.",
+        a: "Ja, für Gruppen setzen wir einen Van mit bis zu sechs Fahrgästen ein.",
       },
     ],
   },
@@ -456,7 +456,7 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
       },
       {
         q: "Wie viele Personen passen ins Fahrzeug?",
-        a: "Je nach Buchung eine Limousine für bis zu vier oder ein Van für bis zu acht Personen.",
+        a: "Je nach Buchung eine Limousine für bis zu vier oder ein Van für bis zu sechs Personen.",
       },
     ],
   },

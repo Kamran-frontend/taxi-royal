@@ -67,7 +67,7 @@ const BookingForm = () => {
     "23:00", "23:15", "23:30", "23:45",
   ];
 
-  const personOptions = ["1", "2", "3", "4", "5", "6", "7", "8"];
+  const personOptions = ["1", "2", "3", "4", "5", "6"];
   const bagOptions = ["0", "1", "2", "3", "4", "5", "6+"];
 
   const FRANKFURT_AIRPORT_ADDRESS = "Frankfurt Airport (FRA), Frankfurt am Main, Germany";

@@ -53,9 +53,9 @@ export const cityPagesEn: CityPage[] = [
         ]
       },
       {
-        "h": "Airport transfer from Friedberg at a fixed price",
+        "h": "Airport transfer from Friedberg and the surrounding area at a fixed price",
         "p": [
-          "From Friedberg to Frankfurt Airport we charge a fixed price of €67 - regardless of traffic conditions and waiting times in traffic jams. The price is per vehicle, not per person, and includes luggage.",
+          "From Friedberg and the surrounding area to Frankfurt Airport we charge a fixed price of €67 - regardless of traffic conditions and waiting times in traffic jams. The price is per vehicle, not per person, and includes luggage.",
           "We monitor your flight number during pickups and adjust the arrival time for delays so that no one waits unnecessarily."
         ]
       },
@@ -73,12 +73,12 @@ export const cityPagesEn: CityPage[] = [
         "a": "In the Friedberg city area, we can usually be with you within a few minutes. Call 0171 1670001 - we will immediately tell you the expected arrival time."
       },
       {
-        "q": "How much does the taxi from Friedberg to Frankfurt Airport cost?",
+        "q": "How much does the taxi from Friedberg and the surrounding area to Frankfurt Airport cost?",
         "a": "The fixed price is €67 for the entire vehicle including luggage."
       },
       {
         "q": "Do you also drive in Friedberg at night?",
-        "a": "Monday to Friday we are on duty from 7:00 a.m. to 12:00 a.m. Pre-orders are possible at any time upon request, even for trips outside these times."
+        "a": "Monday to Sunday we are on duty from 7:00 a.m. to 12:00 a.m. Pre-orders are possible at any time upon request, even for trips outside these times."
       },
       {
         "q": "Can I pay by card?",
@@ -488,7 +488,7 @@ export const cityPagesEn: CityPage[] = [
         "h": "All districts reliably connected",
         "p": [
           "In more rural districts such as Bönstadt or Kaichen, public transport runs sparsely in the evenings. We close this gap – even for trips home after events or the end of a shift.",
-          "If requested, we can drive several guests home one after the other for celebrations and club evenings; a van with eight seats can also be booked."
+          "If requested, we can drive several guests home one after the other for celebrations and club evenings; our seven-seat van can carry up to six passengers."
         ]
       },
       {
@@ -520,11 +520,11 @@ export const cityPagesEn: CityPage[] = [
       },
       {
         "q": "Do you also drive late in the evening?",
-        "a": "Monday to Friday from 7:00 a.m. to midnight. Pre-orders are possible at any time upon request."
+        "a": "Monday to Sunday from 7:00 a.m. to midnight. Pre-orders are possible at any time upon request."
       },
       {
         "q": "Can several people ride together?",
-        "a": "Yes, we use a van with up to eight seats for groups."
+        "a": "Yes, we use a van with up to six passengers for groups."
       },
       {
         "q": "Are there child seats?",
@@ -611,8 +611,8 @@ export const airportPagesEn: AirportPage[] = [
     "code": "HHN",
     "distanceKm": 150,
     "durationText": "approx. 1.5 – 2 hours",
-    "title": "Taxi Frankfurt-Hahn (HHN) | Transfer from Friedberg & Wetterau",
-    "description": "Airport transfer to Frankfurt-Hahn Airport from Friedberg, Bad Nauheim and Wetterau. Fixed price, flight monitoring, pickup with name tag.",
+    "title": "Taxi Frankfurt-Hahn (HHN) | Transfer from Friedberg and the surrounding area & Wetterau",
+    "description": "Airport transfer to Frankfurt-Hahn Airport from Friedberg and the surrounding area, Bad Nauheim and Wetterau. Fixed price, flight monitoring, pickup with name tag.",
     "h1": "Airport transfer Frankfurt-Hahn (HHN)",
     "lead": "Hunsrück Hahn Airport is difficult to reach by public transport. We will drive you directly from your front door to the terminal in around two hours.",
     "highlights": [
@@ -665,7 +665,7 @@ export const airportPagesEn: AirportPage[] = [
     "distanceKm": 200,
     "durationText": "approx. 2 – 2.5 hours",
     "title": "Taxi Cologne/Bonn Airport (CGN) | Transfer from Wetterau",
-    "description": "Transfer to Cologne/Bonn Airport from Friedberg, Bad Nauheim, Butzbach and Frankfurt. Fixed price, flight monitoring, can be pre-ordered at any time.",
+    "description": "Transfer to Cologne/Bonn Airport from Friedberg and the surrounding area, Bad Nauheim, Butzbach and Frankfurt. Fixed price, flight monitoring, can be pre-ordered at any time.",
     "h1": "Airport transfer Cologne/Bonn (CGN)",
     "lead": "Around 200 kilometers via the A3 – we will take you to Terminal 1 or 2 at Cologne/Bonn Airport without having to change trains.",
     "highlights": [
@@ -707,7 +707,7 @@ export const airportPagesEn: AirportPage[] = [
       },
       {
         "q": "Can a van be booked for groups?",
-        "a": "Yes, for up to eight people including luggage."
+        "a": "Yes, for up to six passengers including luggage."
       }
     ]
   },
@@ -717,8 +717,8 @@ export const airportPagesEn: AirportPage[] = [
     "code": "DUS",
     "distanceKm": 250,
     "durationText": "approx. 2.5 – 3 hours",
-    "title": "Taxi Düsseldorf Airport (DUS) | Transfer from Friedberg",
-    "description": "Airport transfer to Düsseldorf from Friedberg, Bad Nauheim and Frankfurt. Fixed price, door to door, flight monitoring, can be pre-ordered at any time upon request.",
+    "title": "Taxi Düsseldorf Airport (DUS) | Transfer from Friedberg and the surrounding area",
+    "description": "Airport transfer to Düsseldorf from Friedberg and the surrounding area, Bad Nauheim and Frankfurt. Fixed price, door to door, flight monitoring, can be pre-ordered at any time upon request.",
     "h1": "Airport transfer Düsseldorf (DUS)",
     "lead": "For intercontinental flights and holiday flights from Düsseldorf, we will drive you directly to the terminal in around three hours via the A3.",
     "highlights": [
@@ -771,7 +771,7 @@ export const airportPagesEn: AirportPage[] = [
     "distanceKm": 220,
     "durationText": "approx. 2.5 hours",
     "title": "Taxi Stuttgart Airport (STR) | Transfer from Wetterau",
-    "description": "Transfer to Stuttgart Airport from Friedberg, Bad Nauheim and Frankfurt at a fixed price. Door-to-door, flight monitoring, can be pre-ordered at any time.",
+    "description": "Transfer to Stuttgart Airport from Friedberg and the surrounding area, Bad Nauheim and Frankfurt at a fixed price. Door-to-door, flight monitoring, can be pre-ordered at any time.",
     "h1": "Airport transfer Stuttgart (STR)",
     "lead": "We can reach Stuttgart Airport via the A5 and A8 in around two and a half hours - comfortably and without having to change trains.",
     "highlights": [
@@ -823,8 +823,8 @@ export const airportPagesEn: AirportPage[] = [
     "code": "MUC",
     "distanceKm": 400,
     "durationText": "approx. 4 hours",
-    "title": "Taxi Munich Airport (MUC) | Transfer from Friedberg",
-    "description": "Airport transfer to Munich from Friedberg, Bad Nauheim and Frankfurt. Fixed price, direct door-to-door trip, flight monitoring included.",
+    "title": "Taxi Munich Airport (MUC) | Transfer from Friedberg and the surrounding area",
+    "description": "Airport transfer to Munich from Friedberg and the surrounding area, Bad Nauheim and Frankfurt. Fixed price, direct door-to-door trip, flight monitoring included.",
     "h1": "Airport transfer Munich (MUC)",
     "lead": "Around four hours via the A3 and A9 – we will take you directly to Terminal 1 or 2 at Munich Franz Josef Strauß Airport.",
     "highlights": [
@@ -877,7 +877,7 @@ export const airportPagesEn: AirportPage[] = [
     "distanceKm": 230,
     "durationText": "approx. 2.5 hours",
     "title": "Taxi Nuremberg Airport (NUE) | Transfer from Wetterau",
-    "description": "Transfer to Nuremberg Airport from Friedberg, Bad Nauheim, Butzbach and Frankfurt. Fixed price, door to door, bookable at any time.",
+    "description": "Transfer to Nuremberg Airport from Friedberg and the surrounding area, Bad Nauheim, Butzbach and Frankfurt. Fixed price, door to door, bookable at any time.",
     "h1": "Airport transfer Nuremberg (NUE)",
     "lead": "We can reach Nuremberg Albrecht Dürer Airport via the A3 in around two and a half hours - ideal for holiday flights and business meetings in Franconia.",
     "highlights": [
@@ -933,7 +933,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 570,
     "durationText": "approx. 5.5 – 6.5 hours",
     "title": "Taxi Friedberg – Paris | Long-distance journey & transfer at a fixed price",
-    "description": "Taxi and transfer from Friedberg, Frankfurt and the Wetterau to Paris. Door-to-door, fixed price on request, German-speaking driver, can be pre-ordered at any time.",
+    "description": "Taxi and transfer from Friedberg and the surrounding area, Frankfurt and the Wetterau to Paris. Door-to-door, fixed price on request, German-speaking driver, can be pre-ordered at any time.",
     "h1": "Taxi Friedberg – Paris: door-to-door without changing",
     "lead": "Around 570 kilometers separate the Wetterau from the French capital. We drive you directly from your front door in Friedberg, Bad Nauheim or Frankfurt to your address in Paris - without train station stress, without luggage limits, without changing trains.",
     "highlights": [
@@ -981,7 +981,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     ],
     "faqs": [
       {
-        "q": "How much does a taxi cost from Friedberg to Paris?",
+        "q": "How much does a taxi cost from Friedberg and the surrounding area to Paris?",
         "a": "We calculate long-distance journeys individually according to route, vehicle size, time and whether a return journey is desired. You will receive a binding fixed price offer via WhatsApp or email before booking - including tolls and fuel, without additional charges."
       },
       {
@@ -990,7 +990,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
       },
       {
         "q": "Can several people travel with you?",
-        "a": "Yes. Depending on the number of people and luggage, we use a limousine or a van with up to eight seats. The fixed price applies to the vehicle, not per person."
+        "a": "Yes. Depending on the number of people and luggage, we use a limousine or a van with up to six passengers. The fixed price applies to the vehicle, not per person."
       },
       {
         "q": "Do you also drive at night or very early in the morning?",
@@ -1005,13 +1005,13 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 440,
     "durationText": "approx. 4.5 – 5 hours",
     "title": "Taxi Friedberg – Amsterdam | Direct trip to the Netherlands",
-    "description": "Taxi and long-distance journey from Friedberg, Frankfurt and the Wetterau to Amsterdam. Door-to-door transfer, fixed price on request, can be pre-ordered at any time.",
+    "description": "Taxi and long-distance journey from Friedberg and the surrounding area, Frankfurt and the Wetterau to Amsterdam. Door-to-door transfer, fixed price on request, can be pre-ordered at any time.",
     "h1": "Taxi Friedberg – Amsterdam: relaxed in the Netherlands",
     "lead": "Around 440 kilometers via the A3 and A12 – we take you from Wetterau to Amsterdam, Rotterdam, The Hague or Utrecht without changing trains.",
     "highlights": [
       "Direct connection without changing in Cologne or Utrecht",
       "No parking problem in Amsterdam city center",
-      "Vans for groups of up to 8 people",
+      "Vans for groups of up to 6 passengers",
       "Return journey and waiting time can be planned"
     ],
     "sections": [
@@ -1025,7 +1025,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
       {
         "h": "The route via Cologne, Arnhem and Utrecht",
         "p": [
-          "From Friedberg take the A45 or A3 to Cologne, continue via Oberhausen and the border at Emmerich onto the Dutch A12 via Arnhem and Utrecht to Amsterdam. The route is well developed throughout and toll-free.",
+          "From Friedberg and the surrounding area take the A45 or A3 to Cologne, continue via Oberhausen and the border at Emmerich onto the Dutch A12 via Arnhem and Utrecht to Amsterdam. The route is well developed throughout and toll-free.",
           "We monitor the traffic situation in the Ruhr area, which is the most frequently congested section on this route, and, if necessary, move ahead early so that you can safely meet your appointments."
         ]
       },
@@ -1053,7 +1053,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     ],
     "faqs": [
       {
-        "q": "How much does it cost to travel from Friedberg to Amsterdam?",
+        "q": "How much does it cost to travel from Friedberg and the surrounding area to Amsterdam?",
         "a": "The price depends on vehicle size, time and return journey request. You will receive a binding fixed price offer in advance - without any hidden surcharges."
       },
       {
@@ -1077,7 +1077,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 380,
     "durationText": "approx. 4 – 4.5 hours",
     "title": "Taxi Friedberg – Zurich | Transfer to Switzerland at a fixed price",
-    "description": "Long-distance travel and taxi from Friedberg, Frankfurt and the Wetterau to Zurich, Basel or Bern. Door-to-door, fixed price offer, vignette included.",
+    "description": "Long-distance travel and taxi from Friedberg and the surrounding area, Frankfurt and the Wetterau to Zurich, Basel or Bern. Door-to-door, fixed price offer, vignette included.",
     "h1": "Taxi Friedberg – Zurich: directly to Switzerland",
     "lead": "We will take you to Zurich via the A5 and the Basel border crossing in around four hours - including a Swiss vignette and without changing trains.",
     "highlights": [
@@ -1149,7 +1149,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 400,
     "durationText": "approx. 4 hours",
     "title": "Taxi Friedberg – Munich | Long-distance journey to Bavaria at a fixed price",
-    "description": "Taxi and transfer from Friedberg, Frankfurt and the Wetterau to Munich. Direct door-to-door journey, fixed price, also to Munich Airport.",
+    "description": "Taxi and transfer from Friedberg and the surrounding area, Frankfurt and the Wetterau to Munich. Direct door-to-door journey, fixed price, also to Munich Airport.",
     "h1": "Taxi Friedberg – Munich: direct trip to Bavaria",
     "lead": "Around 400 kilometers via the A3 and A9 or via Würzburg and Nuremberg - we take you to Munich, the Riem trade fair or Franz Josef Strauss Airport without changing trains.",
     "highlights": [
@@ -1197,7 +1197,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     ],
     "faqs": [
       {
-        "q": "How long does it take to get from Friedberg to Munich?",
+        "q": "How long does it take to get from Friedberg and the surrounding area to Munich?",
         "a": "Typically around four hours of pure travel time, depending on traffic and starting address."
       },
       {
@@ -1210,7 +1210,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
       },
       {
         "q": "Can we go with eight people?",
-        "a": "Yes, we use a van with up to eight seats for groups."
+        "a": "Yes, we use a van with up to six passengers for groups."
       }
     ]
   },
@@ -1221,7 +1221,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 520,
     "durationText": "approx. 5 – 5.5 hours",
     "title": "Taxi Friedberg – Berlin | Direct journey to the capital",
-    "description": "Long-distance journey from Friedberg, Frankfurt and the Wetterau to Berlin. Door-to-door transfer at a fixed price, also to BER airport, can be pre-ordered at any time.",
+    "description": "Long-distance journey from Friedberg and the surrounding area, Frankfurt and the Wetterau to Berlin. Door-to-door transfer at a fixed price, also to BER airport, can be pre-ordered at any time.",
     "h1": "Taxi Friedberg – Berlin: Door to door in the capital",
     "lead": "We will take you directly to Berlin in around five hours via the A5, A7 and A9 - to the hotel, to an appointment, to the clinic or to BER airport.",
     "highlights": [
@@ -1293,7 +1293,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 750,
     "durationText": "approx. 7.5 – 8 hours",
     "title": "Taxi Friedberg – Vienna | Long-distance trip to Austria",
-    "description": "Taxi and transfer from Friedberg and Frankfurt to Vienna, Salzburg or Innsbruck. Fixed price on request, vignette included, door to door.",
+    "description": "Taxi and transfer from Friedberg and the surrounding area and Frankfurt to Vienna, Salzburg or Innsbruck. Fixed price on request, vignette included, door to door.",
     "h1": "Taxi Friedberg – Vienna: Long-distance trip to Austria",
     "lead": "Around 750 kilometers via Nuremberg, Passau and Linz: We will drive you to your Vienna address without changing trains - including an Austrian vignette.",
     "highlights": [
@@ -1365,7 +1365,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 470,
     "durationText": "approx. 5 hours",
     "title": "Taxi Friedberg – Prague | Direct transfer to the Czech Republic",
-    "description": "Long-distance journey from Friedberg, Frankfurt and the Wetterau to Prague. Door-to-door transfer at a fixed price, vignette included, can be pre-ordered at any time.",
+    "description": "Long-distance journey from Friedberg and the surrounding area, Frankfurt and the Wetterau to Prague. Door-to-door transfer at a fixed price, vignette included, can be pre-ordered at any time.",
     "h1": "Taxi Friedberg – Prague: Direct transfer to the Czech Republic",
     "lead": "We will take you to Prague via Würzburg, Nuremberg and Pilsen in around five hours - without changing trains and with a fixed price including a Czech vignette.",
     "highlights": [
@@ -1426,7 +1426,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
       },
       {
         "q": "How many people fit in the vehicle?",
-        "a": "Depending on the booking, a limousine for up to four people or a van for up to eight people."
+        "a": "Depending on the booking, a limousine for up to four people or a van for up to six passengers."
       }
     ]
   },
@@ -1437,7 +1437,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 400,
     "durationText": "approx. 4 – 4.5 hours",
     "title": "Taxi Friedberg – Brussels | Transfer to Belgium at a fixed price",
-    "description": "Taxi and long-distance journey from Friedberg and Frankfurt to Brussels, Antwerp or Bruges. Door-to-door, fixed price offer, ideal for EU appointments.",
+    "description": "Taxi and long-distance journey from Friedberg and the surrounding area and Frankfurt to Brussels, Antwerp or Bruges. Door-to-door, fixed price offer, ideal for EU appointments.",
     "h1": "Taxi Friedberg – Brussels: straight to the heart of Europe",
     "lead": "We reach Brussels via Cologne, Aachen and Liège in around four hours - ideal for appointments in the European Quarter, at EU institutions and at trade fairs.",
     "highlights": [
@@ -1509,7 +1509,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 250,
     "durationText": "approx. 2.5 – 3 hours",
     "title": "Taxi Friedberg – Luxembourg | Transfer at a fixed price",
-    "description": "Taxi from Friedberg, Frankfurt and the Wetterau to Luxembourg City. Door-to-door transfer, fixed price, also as a day trip with return.",
+    "description": "Taxi from Friedberg and the surrounding area, Frankfurt and the Wetterau to Luxembourg City. Door-to-door transfer, fixed price, also as a day trip with return.",
     "h1": "Taxi Friedberg – Luxembourg: short distance, great comfort",
     "lead": "Only around 250 kilometers via the A3 and A60 - Luxembourg is ideal as a day trip with a return trip on the same day.",
     "highlights": [
@@ -1581,7 +1581,7 @@ export const longDistanceRoutesEn: LongDistanceRoute[] = [
     "distanceKm": 700,
     "durationText": "approx. 7 – 8 hours",
     "title": "Taxi Friedberg – Milan | Long-distance trip to Italy",
-    "description": "Long-distance journey from Friedberg and Frankfurt to Milan, Como or the northern Italian lakes. Fixed price including vignette and toll.",
+    "description": "Long-distance journey from Friedberg and the surrounding area and Frankfurt to Milan, Como or the northern Italian lakes. Fixed price including vignette and toll.",
     "h1": "Taxi Friedberg – Milan: over the Alps to Italy",
     "lead": "Around 700 kilometers via Basel, the Gotthard and Lugano: We take you to Milan, Lake Como or Lake Maggiore without changing trains.",
     "highlights": [
@@ -1658,7 +1658,7 @@ export const faqGroupsEn: FaqGroup[] = [
       },
       {
         "q": "What times are you available?",
-        "a": "Monday to Friday from 7:00 a.m. to midnight. Pre-orders are possible at any time upon request, even for trips outside these times."
+        "a": "Monday to Sunday from 7:00 a.m. to midnight. Pre-orders are possible at any time upon request, even for trips outside these times."
       },
       {
         "q": "How far in advance should I book?",
@@ -1679,7 +1679,7 @@ export const faqGroupsEn: FaqGroup[] = [
     "faqs": [
       {
         "q": "How much does the trip to Frankfurt Airport cost?",
-        "a": "We work with fixed prices depending on the starting location - for example €67 from Friedberg, €69 from Bad Nauheim, €63 from Rosbach and €95 from Butzbach. The price is per vehicle including luggage."
+        "a": "We work with fixed prices depending on the starting location - for example €67 from Friedberg and the surrounding area, €69 from Bad Nauheim, €63 from Rosbach and €95 from Butzbach. The price is per vehicle including luggage."
       },
       {
         "q": "Which payment methods do you accept?",
@@ -1758,7 +1758,7 @@ export const faqGroupsEn: FaqGroup[] = [
       },
       {
         "q": "How many people fit in a vehicle?",
-        "a": "Up to four passengers in the limousine and up to eight people in the van including luggage."
+        "a": "Up to four passengers in the limousine and up to six passengers in the van including luggage."
       },
       {
         "q": "Are pets allowed to travel?",
@@ -1782,7 +1782,7 @@ export const blogPostsEn: BlogPost[] = [
     "slug": "wie-frueh-zum-flughafen-frankfurt",
     "title": "How early should you leave for Frankfurt Airport?",
     "metaTitle": "How early to Frankfurt Airport? Schedule from Wetterau",
-    "description": "How much advance time do you need from Friedberg, Bad Nauheim or Butzbach to Frankfurt Airport? Practical values ​​for travel time, check-in and security check.",
+    "description": "How much advance time do you need from Friedberg and the surrounding area, Bad Nauheim or Butzbach to Frankfurt Airport? Practical values ​​for travel time, check-in and security check.",
     "date": "2026-01-15",
     "readingTime": "5 Min.",
     "category": "Airport transfer",
@@ -1791,7 +1791,7 @@ export const blogPostsEn: BlogPost[] = [
       {
         "h": "The basic calculation: travel time plus airport time",
         "p": [
-          "Calculate in two blocks. Block one is the travel time: from Friedberg or Bad Nauheim it is 35 to 55 minutes depending on the time of day, from Butzbach it is more like 45 to 65 minutes. Block two is the time at the airport itself.",
+          "Calculate in two blocks. Block one is the travel time: from Friedberg and the surrounding area or Bad Nauheim it is 35 to 55 minutes depending on the time of day, from Butzbach it is more like 45 to 65 minutes. Block two is the time at the airport itself.",
           "For intra-European flights we plan to arrive at the terminal two hours before departure, and for intercontinental flights three hours. If you only travel with hand luggage and have checked in online, you can reduce your European flights to 90 minutes - but only if it is not a holiday season."
         ]
       },
@@ -1805,7 +1805,7 @@ export const blogPostsEn: BlogPost[] = [
       {
         "h": "Sample schedules",
         "p": [
-          "Flight at 6:20 a.m. from Terminal 1, departure from Friedberg: 3:45 a.m. Flight to New York at 11:00 a.m., departure from Bad Nauheim: 7:15 a.m. Flight at 7:30 p.m. within Europe, departure from Butzbach: 4:00 p.m."
+          "Flight at 6:20 a.m. from Terminal 1, departure from Friedberg and the surrounding area: 3:45 a.m. Flight to New York at 11:00 a.m., departure from Bad Nauheim: 7:15 a.m. Flight at 7:30 p.m. within Europe, departure from Butzbach: 4:00 p.m."
         ],
         "list": [
           "Within Europe without checked baggage: 2 hours before departure at the terminal",
@@ -1991,7 +1991,7 @@ export const blogPostsEn: BlogPost[] = [
         ],
         "list": [
           "1–2 Personen, kurzfristig: Flug oder Bahn oft günstiger",
-          "3–8 Personen: Direktfahrt meist konkurrenzfähig",
+          "3–6 Personen: Direktfahrt meist konkurrenzfähig",
           "Lots of luggage or equipment: direct travel has a clear advantage",
           "Night journey or early arrival necessary: ​​direct journey is the most flexible"
         ]
@@ -2012,7 +2012,7 @@ export const blogPostsEn: BlogPost[] = [
     "date": "2026-02-25",
     "readingTime": "4 Min.",
     "category": "Security",
-    "lead": "A trip home costs less than a fine - and significantly less than an accident. With a little planning, the return journey from Friedberg, Bad Nauheim or Butzbach can be arranged at any time.",
+    "lead": "A trip home costs less than a fine - and significantly less than an accident. With a little planning, the return journey from Friedberg and the surrounding area, Bad Nauheim or Butzbach can be arranged at any time.",
     "sections": [
       {
         "h": "Residual alcohol is regularly underestimated",
@@ -2029,7 +2029,7 @@ export const blogPostsEn: BlogPost[] = [
       {
         "h": "How to plan your return journey",
         "p": [
-          "Arrange the pick-up time on the outward journey or the afternoon before. For groups, book a van with up to eight seats; This is usually cheaper per person than several individual trips. We are on duty around the clock on weekends."
+          "Arrange the pick-up time on the outward journey or the afternoon before. For groups, book a van with up to six passengers; This is usually cheaper per person than several individual trips. We are on duty around the clock on weekends."
         ]
       }
     ]

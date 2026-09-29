@@ -18,23 +18,23 @@ const galleryItems: GalleryItem[] = [
   {
     type: "image",
     src: taxiFleet,
-    altKey: "MiniTAXI Royal Fahrzeugflotte",
+    altKey: "gallery.fleetAlt",
   },
   {
     type: "image",
     src: carPicture,
-    altKey: "MiniTAXI Royal Hauptfahrzeug",
+    altKey: "gallery.mainCarAlt",
   },
   {
     type: "video",
     src: heroVideo,
-    altKey: "MiniTAXI Royal Video",
+    altKey: "gallery.videoAlt",
     thumbnail: carPicture,
   },
   {
     type: "image",
     src: wheelchairAccessible,
-    altKey: "Rollstuhlgerechtes Taxi",
+    altKey: "gallery.wheelchairAlt",
   },
 ];
 
@@ -70,7 +70,7 @@ const Gallery = () => {
                 {item.type === "image" ? (
                   <img
                     src={item.src}
-                    alt={item.altKey}
+                    alt={t(item.altKey)}
                     className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                     width="689"
@@ -84,7 +84,7 @@ const Gallery = () => {
                       playsInline
                       preload="metadata"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      aria-label={item.altKey}
+                      aria-label={t(item.altKey)}
                     >
                       <track kind="captions" src="" label="Deutsch" />
                     </video>
@@ -97,7 +97,7 @@ const Gallery = () => {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-foreground font-medium">{item.altKey}</p>
+                  <p className="text-foreground font-medium">{t(item.altKey)}</p>
                 </div>
                 {/* Gold border on hover */}
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-xl transition-all duration-300" />
@@ -117,14 +117,14 @@ const Gallery = () => {
             <button
               onClick={() => setActiveItem(null)}
               className="absolute -top-12 right-0 text-foreground hover:text-primary transition-colors z-10"
-              aria-label="Schließen"
+              aria-label={t("gallery.close")}
             >
               <X className="w-8 h-8" aria-hidden="true" />
             </button>
             {activeItem.type === "image" ? (
               <img
                 src={activeItem.src}
-                alt={activeItem.altKey}
+                alt={t(activeItem.altKey)}
                 className="w-full max-h-[80vh] object-contain rounded-xl"
                 onClick={(e) => e.stopPropagation()}
               />
@@ -138,7 +138,7 @@ const Gallery = () => {
                 <source src={activeItem.src} type="video/mp4" />
               </video>
             )}
-            <p className="text-center text-foreground font-medium mt-4">{activeItem.altKey}</p>
+            <p className="text-center text-foreground font-medium mt-4">{t(activeItem.altKey)}</p>
           </div>
         </div>
       )}

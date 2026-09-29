@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { SITE } from "@/data/site";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SeoProps {
   title: string;
@@ -21,6 +22,7 @@ const Seo = ({
   type = "website",
   noindex = false,
 }: SeoProps) => {
+  const { language } = useLanguage();
   const url = `${SITE.baseUrl}${path}`;
 
   return (
@@ -35,7 +37,7 @@ const Seo = ({
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
       <meta property="og:image" content={image} />
-      <meta property="og:locale" content="de_DE" />
+      <meta property="og:locale" content={language === "de" ? "de_DE" : "en_GB"} />
       <meta property="og:site_name" content={SITE.name} />
 
       <meta name="twitter:card" content="summary_large_image" />
