@@ -21,7 +21,7 @@ const translations = {
 
     // Hero
     "hero.tagline": "Fair. Schnell. Zuverlässig. Freundlich.",
-    "hero.subtitle": "Mo-Fr: 07:00-00:00 | Vorbestellungen jederzeit auf Anfrage möglich!",
+    "hero.subtitle": "Mo-So: 07:00-00:00 | Vorbestellungen jederzeit auf Anfrage möglich!",
     "hero.eta": "In wenigen Minuten bei Ihnen",
     "hero.whatsapp": "Jetzt per WhatsApp buchen",
     "hero.location": "Friedberg & Umgebung",
@@ -108,7 +108,7 @@ const translations = {
     "contact.area": "Einsatzgebiet",
     "contact.areaValue": "Friedberg, Bad Nauheim, Butzbach und Umgebung",
     "contact.hours": "Erreichbarkeit",
-    "contact.hoursValue": "Mo - Fr: 07:00 - 00:00\nVorbestellung jederzeit auf Anfrage möglich",
+    "contact.hoursValue": "Mo - So: 07:00 - 00:00\nVorbestellung jederzeit auf Anfrage möglich",
 
     // Footer
     "footer.tagline": "Ihr zuverlässiger Taxi-Service in Friedberg und Umgebung.",
@@ -116,7 +116,7 @@ const translations = {
     "footer.legal": "Rechtliches",
     "footer.imprint": "Impressum",
     "footer.privacy": "Datenschutz",
-    "footer.available": "Mo–Fr bis 00:00 Uhr",
+    "footer.available": "Mo–So bis 00:00 Uhr",
     "footer.rights": "Alle Rechte vorbehalten.",
     "footer.availability": "Erreichbarkeit",
     "footer.preOrder": "Vorbestellung jederzeit auf Anfrage möglich!",
@@ -248,7 +248,7 @@ const translations = {
 
     // Hero
     "hero.tagline": "Fair. Fast. Reliable. Friendly.",
-    "hero.subtitle": "Mon-Fri: 07:00-00:00 | Pre-orders anytime on request!",
+    "hero.subtitle": "Mon-Sun: 07:00-00:00 | Pre-orders anytime on request!",
     "hero.eta": "Pickup in just a few minutes",
     "hero.whatsapp": "Book via WhatsApp",
     "hero.location": "Friedberg & Nearby Areas",
@@ -335,7 +335,7 @@ const translations = {
     "contact.area": "Service Area",
     "contact.areaValue": "Friedberg, Bad Nauheim, Butzbach and surroundings",
     "contact.hours": "Availability",
-    "contact.hoursValue": "Mon - Fri: 07:00 - 00:00\nPre-orders anytime on request",
+    "contact.hoursValue": "Mon - Sun: 07:00 - 00:00\nPre-orders anytime on request",
 
     // Footer
     "footer.tagline": "Your reliable taxi service in Friedberg and surrounding areas.",
@@ -343,7 +343,7 @@ const translations = {
     "footer.legal": "Legal",
     "footer.imprint": "Imprint",
     "footer.privacy": "Privacy Policy",
-    "footer.available": "Mon–Fri until midnight",
+    "footer.available": "Mon–Sun until midnight",
     "footer.rights": "All rights reserved.",
     "footer.availability": "Availability",
     "footer.preOrder": "Pre-orders anytime on request!",
@@ -437,7 +437,7 @@ const translations = {
 
     // Trust
     "trust.title": "Why MiniTAXI Royal?",
-    "trust.subtitle": "An owner-run company from Friedberg – personally reachable, reliable and fairly priced.",
+    "trust.subtitle": "An owner-run company from Friedberg and the surrounding area – personally reachable, reliable and fairly priced.",
     "trust.drivers": "Experienced, vetted drivers",
     "trust.licensed": "Licensed operator",
     "trust.reliable": "Punctual & reliable",

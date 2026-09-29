@@ -34,7 +34,7 @@ const sections: ContentSection[] = [
     list: [
       "Tür-zu-Tür ohne Umsteigen",
       "Verbindlicher Festpreis vorab",
-      "Limousine oder Van bis 8 Personen",
+      "Limousine oder Van bis 6 Personen",
       "Hin- und Rückfahrt kombinierbar",
       "Rechnung für Firmen möglich",
       "Rollstuhlgerechte Fernfahrten auf Anfrage",
@@ -58,7 +58,7 @@ const faqs: Faq[] = [
   },
   {
     q: "Wie viele Personen können mitfahren?",
-    a: "In der Limousine bis zu vier, im Van bis zu acht Personen inklusive Gepäck.",
+    a: "In der Limousine bis zu vier, im Van bis zu sechs Personen inklusive Gepäck.",
   },
   {
     q: "Fahren Sie auch Ziele, die hier nicht gelistet sind?",
@@ -79,15 +79,15 @@ const LongDistance = () => {
   return (
     <PageShell crumbs={crumbs}>
       <Seo
-        title="Fernfahrten mit Taxi & Fahrer | Europaweit ab Friedberg"
-        description="Fernfahrten ab Friedberg, Frankfurt und der Wetterau: Paris, Amsterdam, Zürich, Wien, Prag, Brüssel, Mailand, München und Berlin. Festpreis und rollstuhlgerecht auf Anfrage."
+        title="Fernfahrten mit Taxi & Fahrer | Europaweit ab Friedberg und Umgebung"
+        description="Fernfahrten ab Friedberg und Umgebung, Frankfurt und der Wetterau: Paris, Amsterdam, Zürich, Wien, Prag, Brüssel, Mailand, München und Berlin. Festpreis und rollstuhlgerecht auf Anfrage."
         path={path}
         schemas={[
           localBusinessSchema(),
           serviceSchema({
             name: "Fernfahrten und Langstreckentransfer",
             description:
-              "Langstreckenfahrten mit Fahrer ab Friedberg und Frankfurt in ganz Deutschland und Europa zum Festpreis.",
+              "Langstreckenfahrten mit Fahrer ab Friedberg und Umgebung und Frankfurt in ganz Deutschland und Europa zum Festpreis.",
             path,
             areaServed: ["Deutschland", "Frankreich", "Niederlande", "Schweiz", "Österreich", "Tschechien", "Belgien", "Italien"],
           }),
@@ -98,7 +98,7 @@ const LongDistance = () => {
 
       <section className="container mx-auto px-4 pt-8">
         <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4">
-          <span className="gold-text">Fernfahrten ab Friedberg – deutschland- und europaweit</span>
+          <span className="gold-text">Fernfahrten ab Friedberg und Umgebung – deutschland- und europaweit</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
           Direkt, ohne Umsteigen und zum verbindlichen Festpreis: Wir bringen Sie von der Wetterau in

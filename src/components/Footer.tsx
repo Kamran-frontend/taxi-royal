@@ -80,7 +80,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-primary mt-1" />
                 <div>
-                  <p>Mo - Fr: 07:00 - 00:00</p>
+                  <p>Mo - So: 07:00 - 00:00</p>
                   <p className="text-primary text-sm mt-1">{t("footer.preOrder")}</p>
                 </div>
               </li>

@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     title: "Wie früh sollte man zum Flughafen Frankfurt aufbrechen?",
     metaTitle: "Wie früh zum Flughafen Frankfurt? Zeitplan aus der Wetterau",
     description:
-      "Wie viel Vorlauf brauchen Sie ab Friedberg, Bad Nauheim oder Butzbach zum Flughafen Frankfurt? Praxiswerte für Fahrzeit, Check-in und Sicherheitskontrolle.",
+      "Wie viel Vorlauf brauchen Sie ab Friedberg und Umgebung, Bad Nauheim oder Butzbach zum Flughafen Frankfurt? Praxiswerte für Fahrzeit, Check-in und Sicherheitskontrolle.",
     date: "2026-01-15",
     readingTime: "5 Min.",
     category: "Flughafentransfer",
@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
       {
         h: "Die Grundrechnung: Fahrzeit plus Flughafenzeit",
         p: [
-          "Rechnen Sie in zwei Blöcken. Block eins ist die Fahrzeit: Ab Friedberg oder Bad Nauheim sind es je nach Tageszeit 35 bis 55 Minuten, ab Butzbach eher 45 bis 65 Minuten. Block zwei ist die Zeit am Flughafen selbst.",
+          "Rechnen Sie in zwei Blöcken. Block eins ist die Fahrzeit: Ab Friedberg und Umgebung oder Bad Nauheim sind es je nach Tageszeit 35 bis 55 Minuten, ab Butzbach eher 45 bis 65 Minuten. Block zwei ist die Zeit am Flughafen selbst.",
           "Für innereuropäische Flüge planen wir zwei Stunden vor Abflug am Terminal, für Interkontinentalflüge drei Stunden. Wer nur mit Handgepäck reist und online eingecheckt hat, kann bei Europaflügen auf 90 Minuten reduzieren – aber nur, wenn keine Ferienzeit ist.",
         ],
       },
@@ -238,7 +238,7 @@ export const blogPosts: BlogPost[] = [
         ],
         list: [
           "1–2 Personen, kurzfristig: Flug oder Bahn oft günstiger",
-          "3–8 Personen: Direktfahrt meist konkurrenzfähig",
+          "3–6 Personen: Direktfahrt meist konkurrenzfähig",
           "Viel Gepäck oder Ausrüstung: Direktfahrt klar im Vorteil",
           "Nachtfahrt oder frühe Ankunft nötig: Direktfahrt am flexibelsten",
         ],
