@@ -278,7 +278,7 @@ export const blogPosts: BlogPost[] = [
       {
         h: "So planen Sie die Rückfahrt",
         p: [
-          "Vereinbaren Sie die Abholzeit schon bei der Hinfahrt oder am Nachmittag davor. Für Gruppen buchen Sie einen Van mit bis zu acht Plätzen; das ist pro Person meist günstiger als mehrere Einzelfahrten. Am Wochenende sind wir rund um die Uhr im Einsatz.",
+          "Vereinbaren Sie die Abholzeit schon bei der Hinfahrt oder am Nachmittag davor. Für Gruppen buchen Sie unseren 7-Sitzer-Van mit Platz für bis zu sechs Fahrgäste; das ist pro Person meist günstiger als mehrere Einzelfahrten. Wir sind Montag bis Sonntag von 07:00 bis 00:00 Uhr im Einsatz; Vorbestellungen sind jederzeit auf Anfrage möglich.",
         ],
       },
     ],

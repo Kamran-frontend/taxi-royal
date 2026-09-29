@@ -488,7 +488,7 @@ export const cityPagesEn: CityPage[] = [
         "h": "All districts reliably connected",
         "p": [
           "In more rural districts such as Bönstadt or Kaichen, public transport runs sparsely in the evenings. We close this gap – even for trips home after events or the end of a shift.",
-          "If requested, we can drive several guests home one after the other for celebrations and club evenings; a van with eight seats can also be booked."
+          "If requested, we can drive several guests home one after the other for celebrations and club evenings; our seven-seat van can carry up to six passengers."
         ]
       },
       {

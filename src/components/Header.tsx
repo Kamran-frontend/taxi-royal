@@ -12,8 +12,8 @@ const Header = () => {
   const navLinks = [
     { href: "/#services", label: t("nav.services") },
     { href: "/flughafentransfer-frankfurt", label: t("nav.pricing") },
-    { href: "/fernfahrten", label: "Fernfahrten" },
-    { href: "/rollstuhltaxi", label: "Rollstuhltaxi" },
+    { href: "/fernfahrten", label: t("nav.longDistance") },
+    { href: "/rollstuhltaxi", label: t("nav.wheelchair") },
     { href: "/#reviews", label: t("nav.reviews") },
     { href: "/faq", label: "FAQ" },
     { href: "/#booking", label: t("nav.booking") },
@@ -29,7 +29,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3" aria-label="MiniTAXI Royal Startseite">
+          <Link to="/" className="flex items-center gap-3" aria-label={language === "de" ? "MiniTAXI Royal Startseite" : "MiniTAXI Royal home"}>
             <img
               src={logo}
               alt=""
@@ -83,7 +83,7 @@ const Header = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2 text-foreground"
-            aria-label="Menü öffnen"
+            aria-label={t("nav.openMenu")}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

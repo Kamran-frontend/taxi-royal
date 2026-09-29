@@ -4,7 +4,7 @@ import AnimatedSection, { AnimatedItem } from "@/components/AnimatedSection";
 import wheelchairAccessible from "@/assets/wheelchair-accessible.jpg";
 
 const Services = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const services = [
     {
@@ -137,7 +137,7 @@ const Services = () => {
               <div className="relative h-48 md:h-auto md:col-span-2">
                 <img
                   src={wheelchairAccessible}
-                  alt="Rollstuhlgerechtes Taxi"
+                  alt={language === "de" ? "Rollstuhlgerechtes Taxi" : "Wheelchair-accessible taxi"}
                   className="w-full h-full object-cover"
                 />
               </div>

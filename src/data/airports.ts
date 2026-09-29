@@ -114,7 +114,7 @@ export const airportPages: AirportPage[] = [
       },
       {
         q: "Ist ein Van für Gruppen buchbar?",
-        a: "Ja, für bis zu sechs Personen inklusive Gepäck.",
+        a: "Ja, unser 7-Sitzer-Van bietet Platz für bis zu sechs Fahrgäste inklusive Gepäck.",
       },
     ],
   },

@@ -6,7 +6,7 @@ import logo from "@/assets/logo.png";
 import taxiFleet from "@/assets/taxi-fleet.png";
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const phoneNumber = "tel:+491711670001";
 
   const scrollToBooking = () => {
@@ -40,7 +40,7 @@ const Hero = () => {
         >
           <img
             src={logo}
-            alt="MiniTAXI Royal - Ihr Taxi-Service in Friedberg"
+            alt={language === "de" ? "MiniTAXI Royal – Ihr Taxi-Service in Friedberg und Umgebung" : "MiniTAXI Royal – your taxi service in Friedberg and the surrounding area"}
             className="h-28 md:h-36 w-auto object-contain drop-shadow-2xl"
             fetchPriority="high"
             width="294"

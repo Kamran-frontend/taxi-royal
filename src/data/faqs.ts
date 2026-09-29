@@ -115,7 +115,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Wie viele Personen passen in ein Fahrzeug?",
-        a: "In der Limousine bis zu vier Fahrgäste, im Van bis zu sechs Personen inklusive Gepäck.",
+        a: "In der Limousine bis zu vier Fahrgäste, im 7-Sitzer-Van bis zu sechs Fahrgäste inklusive Gepäck.",
       },
       {
         q: "Dürfen Haustiere mitfahren?",

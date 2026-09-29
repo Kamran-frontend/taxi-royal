@@ -8,7 +8,7 @@ import logo from "@/assets/logo.png";
 
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-card border-t border-border">
@@ -80,7 +80,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-primary mt-1" />
                 <div>
-                  <p>Mo - So: 07:00 - 00:00</p>
+                  <p>{language === "de" ? "Mo - So: 07:00 - 00:00" : "Mon - Sun: 07:00 - 00:00"}</p>
                   <p className="text-primary text-sm mt-1">{t("footer.preOrder")}</p>
                 </div>
               </li>
@@ -125,19 +125,19 @@ const Footer = () => {
         </div>
 
         {/* SEO / site links */}
-        <nav className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8" aria-label="Weitere Seiten">
+        <nav className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8" aria-label={language === "de" ? "Weitere Seiten" : "More pages"}>
           <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Leistungen</h4>
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">{t("footer.services")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/flughafentransfer-frankfurt" className="hover:text-primary transition-colors">Flughafentransfer Frankfurt</Link></li>
-              <li><Link to="/fernfahrten" className="hover:text-primary transition-colors">Fernfahrten europaweit</Link></li>
-              <li><Link to="/rollstuhltaxi" className="hover:text-primary transition-colors">Rollstuhltaxi & Krankenfahrten</Link></li>
-              <li><Link to="/faq" className="hover:text-primary transition-colors">Häufige Fragen</Link></li>
-              <li><Link to="/ratgeber" className="hover:text-primary transition-colors">Ratgeber</Link></li>
+              <li><Link to="/flughafentransfer-frankfurt" className="hover:text-primary transition-colors">{language === "de" ? "Flughafentransfer Frankfurt" : "Frankfurt Airport transfer"}</Link></li>
+              <li><Link to="/fernfahrten" className="hover:text-primary transition-colors">{language === "de" ? "Fernfahrten europaweit" : "Long-distance rides across Europe"}</Link></li>
+              <li><Link to="/rollstuhltaxi" className="hover:text-primary transition-colors">{language === "de" ? "Rollstuhltaxi & Krankenfahrten" : "Wheelchair taxi & medical rides"}</Link></li>
+              <li><Link to="/faq" className="hover:text-primary transition-colors">{language === "de" ? "Häufige Fragen" : "Frequently asked questions"}</Link></li>
+              <li><Link to="/ratgeber" className="hover:text-primary transition-colors">{language === "de" ? "Ratgeber" : "Guides"}</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Taxi vor Ort</h4>
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">{t("footer.localTaxi")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               {cityPages.map((c) => (
                 <li key={c.slug}>
@@ -149,12 +149,12 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">Beliebte Strecken</h4>
+            <h4 className="font-serif text-lg font-semibold text-foreground mb-3">{t("footer.popularRoutes")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               {longDistanceRoutes.slice(0, 8).map((r) => (
                 <li key={r.slug}>
                   <Link to={`/fernfahrten/${r.slug}`} className="hover:text-primary transition-colors">
-                    Taxi Friedberg – {r.city}
+                    {language === "de" ? "Taxi Friedberg und Umgebung" : "Taxi Friedberg and surrounding area"} – {r.city}
                   </Link>
                 </li>
               ))}
@@ -168,7 +168,7 @@ const Footer = () => {
         <div className="mt-12 mb-8">
           <div className="text-center mb-6">
             <h4 className="font-serif text-lg font-semibold text-foreground mb-2">
-              Folgen Sie uns
+               {t("footer.follow")}
             </h4>
             <p className="text-muted-foreground text-sm">@minitaxiroyalfb</p>
           </div>
