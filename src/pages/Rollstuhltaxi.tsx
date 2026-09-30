@@ -6,7 +6,6 @@ import CtaBlock from "@/components/CtaBlock";
 import TrustBadges from "@/components/TrustBadges";
 import LinkGrid from "@/components/LinkGrid";
 import wheelchairAccessible from "@/assets/wheelchair-accessible.jpg";
-import { cityPages } from "@/data/cities";
 import type { ContentSection, Faq } from "@/data/types";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocalizedContent } from "@/hooks/useLocalizedContent";

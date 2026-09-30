@@ -9,6 +9,7 @@ import { airportPages } from "@/data/airports";
 import { cityPages } from "@/data/cities";
 import type { ContentSection, Faq } from "@/data/types";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const path = "/flughafentransfer-frankfurt";
 
@@ -83,61 +84,79 @@ const faqs: Faq[] = [
   },
 ];
 
+const sectionsEn: ContentSection[] = [
+  { h: "Frankfurt Airport transfers from the Wetterau at a fixed price", p: ["Frankfurt Airport is Germany's largest aviation hub and can be reached from Friedberg, Bad Nauheim, Butzbach and the wider Wetterau in around 40 to 60 minutes. We take you door-to-door to your departure terminal without changes or parking searches.", "Your price is fixed before departure, applies to the whole vehicle including luggage and remains unchanged in traffic jams."] },
+  { h: "Terminals 1, 2 and 3", p: ["We take you directly to the correct terminal entrance. Tell us your airline and flight number so we can select the most convenient access point and save you a long walk with luggage.", "Terminal 3 has a completely separate approach in the south of the airport. We also drop you directly at its departure frontage."] },
+  { h: "Pickup with flight tracking and name sign", p: ["For airport pickups, we monitor your flight number and adjust the arrival time to the actual landing. If your flight is delayed, we wait accordingly without charging for the flight delay.", "On request, your driver meets you with a name sign in arrivals and helps with luggage to the vehicle. This Meet & Greet service is ideal for first-time visitors."] },
+  { h: "Early flights, night arrivals and business travel", p: ["Many intercontinental flights depart between 06:00 and 07:00, requiring a night-time pickup. With a pre-booking, we arrive at the agreed time, including at 03:30.", "Business travellers benefit from a discreet, quiet and punctual service, invoices on request and recurring journeys with a fixed contact person."] },
+  { h: "Luggage, child seats and groups", p: ["Suitcases, pushchairs, golf bags and ski equipment are welcome; we select the suitable vehicle for your luggage. Our seven-seat van carries up to six passengers.", "Child seats and booster seats are provided free of charge. Please tell us the children's ages and number when booking."], list: ["Saloon for up to 4 passengers", "Seven-seat van for up to 6 passengers", "Free child seats", "Wheelchair-accessible vehicle on request"] },
+];
+
+const faqsEn: Faq[] = [
+  { q: "How much is a taxi to Frankfurt Airport?", a: "We offer fixed prices by pickup location, for example €63 from Rosbach, €67 from Friedberg and the surrounding area, €69 from Bad Nauheim, €75 from Karben and €95 from Butzbach. The price covers the vehicle and luggage." },
+  { q: "How long does the journey to Frankfurt Airport take?", a: "Allow around 35 to 55 minutes from Friedberg and the surrounding area or Bad Nauheim, depending on traffic, and slightly longer from Butzbach. We add extra time during peak hours." },
+  { q: "Do you track my flight?", a: "Yes. Give us your flight number and we adjust the pickup to the actual landing time. Flight delays are not charged as waiting time." },
+  { q: "Will you drop me directly at my terminal?", a: "Yes. We use the departure frontage for your terminal. Please provide the airline and flight number." },
+  { q: "Do you drive to the airport at night?", a: "Yes. Night-time departures can be arranged anytime by pre-booking and on request." },
+  { q: "How can I pay?", a: "By cash, card, PayPal or bank transfer. We can also issue an invoice for expenses." },
+];
+
 const FrankfurtAirport = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { airports, cities } = useLocalizedContent();
+  const de = language === "de";
+  const pageSections = de ? sections : sectionsEn;
+  const pageFaqs = de ? faqs : faqsEn;
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Flughafentransfer Frankfurt", path },
+    { name: de ? "Start" : "Home", path: "/" },
+    { name: de ? "Flughafentransfer Frankfurt" : "Frankfurt Airport transfer", path },
   ];
 
   return (
     <PageShell crumbs={crumbs}>
       <Seo
-        title="Flughafentransfer Frankfurt | Taxi ab Friedberg und Umgebung zum Festpreis"
-        description="Taxi zum Flughafen Frankfurt ab Friedberg und Umgebung, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung und jederzeitige Vorbestellung auf Anfrage."
+        title={de ? "Flughafentransfer Frankfurt | Taxi ab Friedberg und Umgebung zum Festpreis" : "Frankfurt Airport Transfer | Fixed-price Taxi from Friedberg and Nearby"}
+        description={de ? "Taxi zum Flughafen Frankfurt ab Friedberg und Umgebung, Bad Nauheim, Butzbach und der Wetterau. Festpreise ab 63 €, Flugüberwachung und jederzeitige Vorbestellung auf Anfrage." : "Taxi to Frankfurt Airport from Friedberg and the surrounding area, Bad Nauheim, Butzbach and the Wetterau. Fixed prices from €63 with flight tracking."}
         path={path}
         schemas={[
           localBusinessSchema(),
           serviceSchema({
-            name: "Flughafentransfer Frankfurt",
-            description:
-              "Taxi- und Mietwagentransfer zum Flughafen Frankfurt aus Friedberg und der Wetterau zum Festpreis, inklusive Flugüberwachung und Meet & Greet.",
+            name: de ? "Flughafentransfer Frankfurt" : "Frankfurt Airport transfer",
+            description: de ? "Taxi- und Mietwagentransfer zum Flughafen Frankfurt aus Friedberg und der Wetterau zum Festpreis, inklusive Flugüberwachung und Meet & Greet." : "Fixed-price taxi and private-hire transfer to Frankfurt Airport from Friedberg and the Wetterau, including flight tracking and Meet & Greet.",
             path,
             areaServed: ["Friedberg", "Bad Nauheim", "Butzbach", "Wetterau", "Frankfurt am Main"],
           }),
           breadcrumbSchema(crumbs),
-          faqSchema(faqs),
+          faqSchema(pageFaqs),
         ]}
       />
 
       <section className="container mx-auto px-4 pt-8">
         <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4">
-          <span className="gold-text">Flughafentransfer Frankfurt – Festpreis ab 63 €</span>
+          <span className="gold-text">{de ? "Flughafentransfer Frankfurt – Festpreis ab 63 €" : "Frankfurt Airport transfer – fixed prices from €63"}</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Pünktlich zum Terminal, ohne Parkplatzsuche und ohne Taxameter-Überraschung: Wir fahren Sie
-          aus Friedberg, Bad Nauheim, Butzbach und der gesamten Wetterau zum Flughafen Frankfurt –
-          und holen Sie dort wieder ab.
+          {de ? "Pünktlich zum Terminal, ohne Parkplatzsuche und ohne Taxameter-Überraschung: Wir fahren Sie aus Friedberg, Bad Nauheim, Butzbach und der gesamten Wetterau zum Flughafen Frankfurt – und holen Sie dort wieder ab." : "Reach your terminal on time without parking searches or meter surprises. We drive from Friedberg, Bad Nauheim, Butzbach and across the Wetterau to Frankfurt Airport and collect you again."}
         </p>
       </section>
 
       {/* Preistabelle */}
       <section className="container mx-auto px-4 py-10" aria-labelledby="preise">
         <h2 id="preise" className="font-serif text-2xl md:text-3xl font-bold mb-6">
-          <span className="gold-text">Festpreise zum Flughafen Frankfurt</span>
+          <span className="gold-text">{de ? "Festpreise zum Flughafen Frankfurt" : "Fixed prices to Frankfurt Airport"}</span>
         </h2>
         <div className="glass-card rounded-2xl overflow-hidden">
           <table className="w-full text-left">
-            <caption className="sr-only">Festpreise zum Flughafen Frankfurt nach Startort</caption>
+            <caption className="sr-only">{de ? "Festpreise zum Flughafen Frankfurt nach Startort" : "Fixed prices to Frankfurt Airport by pickup location"}</caption>
             <thead>
               <tr className="border-b border-border">
-                <th scope="col" className="p-4 text-sm font-semibold text-foreground">Startort</th>
-                <th scope="col" className="p-4 text-sm font-semibold text-foreground">PLZ</th>
-                <th scope="col" className="p-4 text-sm font-semibold text-foreground text-right">Festpreis</th>
+                <th scope="col" className="p-4 text-sm font-semibold text-foreground">{de ? "Startort" : "Pickup"}</th>
+                <th scope="col" className="p-4 text-sm font-semibold text-foreground">{de ? "PLZ" : "Postcode"}</th>
+                <th scope="col" className="p-4 text-sm font-semibold text-foreground text-right">{de ? "Festpreis" : "Fixed price"}</th>
               </tr>
             </thead>
             <tbody>
-              {cityPages.map((c) => (
+              {cities.map((c) => (
                 <tr key={c.slug} className="border-b border-border/50 last:border-0">
                   <td className="p-4 text-sm text-foreground">{c.city}</td>
                   <td className="p-4 text-sm text-muted-foreground">{c.postalCode}</td>
@@ -148,31 +167,31 @@ const FrankfurtAirport = () => {
           </table>
         </div>
         <p className="text-sm text-muted-foreground mt-3">
-          Weitere Orte der Wetterau auf Anfrage. Preise gelten pro Fahrzeug inklusive Gepäck.
+          {de ? "Weitere Orte der Wetterau auf Anfrage. Preise gelten pro Fahrzeug inklusive Gepäck." : "Other Wetterau pickup locations are available on request. Prices apply per vehicle and include luggage."}
         </p>
       </section>
 
       <section className="container mx-auto px-4 py-6 max-w-4xl">
-        <ContentSections sections={sections} />
+        <ContentSections sections={pageSections} />
       </section>
 
       <TrustBadges />
 
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6">
-          <span className="gold-text">Häufige Fragen zum Flughafentransfer</span>
+          <span className="gold-text">{de ? "Häufige Fragen zum Flughafentransfer" : "Frequently asked questions about airport transfers"}</span>
         </h2>
-        <FaqAccordion faqs={faqs} idPrefix="fra" />
+        <FaqAccordion faqs={pageFaqs} idPrefix="fra" />
       </section>
 
       <section className="container mx-auto px-4 pb-6">
         <CtaBlock
-          title="Flughafentransfer buchen"
-          waMessage="Hallo MiniTAXI Royal, ich möchte einen Flughafentransfer nach Frankfurt buchen."
+          title={de ? "Flughafentransfer buchen" : "Book an airport transfer"}
+          waMessage={de ? "Hallo MiniTAXI Royal, ich möchte einen Flughafentransfer nach Frankfurt buchen." : "Hello MiniTAXI Royal, I would like to book a transfer to Frankfurt Airport."}
         />
         <LinkGrid
           title={t("hub.airports")}
-          items={airportPages.map((a) => ({
+          items={airports.map((a) => ({
             to: `/flughafentransfer/${a.slug}`,
             label: a.airport,
             sub: `${a.code} · ${a.durationText}`,
@@ -180,10 +199,10 @@ const FrankfurtAirport = () => {
         />
         <LinkGrid
           title={t("hub.cities")}
-          items={cityPages.map((c) => ({
+          items={cities.map((c) => ({
             to: `/taxi/${c.slug}`,
             label: `Taxi ${c.city}`,
-            sub: `Flughafen ab ${c.airportPrice} €`,
+            sub: `${de ? "Flughafen ab" : "Airport from"} ${c.airportPrice} €`,
           }))}
         />
       </section>

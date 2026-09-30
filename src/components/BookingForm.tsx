@@ -110,39 +110,42 @@ const BookingForm = () => {
     
     // Build category-specific info
     let categoryInfo = "";
+    const yes = t("booking.yes");
+    const no = t("booking.no");
+    const wheelchairType = rollstuhlType === "sitzend" ? t("booking.rollstuhlSitzend") : t("booking.rollstuhlTragestuhl");
     if (taxiCategory === "rollstuhl") {
       categoryInfo = `
-*Rollstuhl-Details:*
-→ Typ: ${rollstuhlType === "sitzend" ? "Sitzend" : "Mit Tragestuhl"}
-→ KV-Genehmigung: ${kvApproval === "ja" ? "Ja" : "Nein"}
-→ Zuzahlungsbefreit: ${paymentExempt === "ja" ? "Ja" : "Nein"}`;
+*${t("booking.messageWheelchairDetails")}:*
+→ ${t("booking.messageType")}: ${wheelchairType}
+→ ${t("booking.messageApproval")}: ${kvApproval === "ja" ? yes : no}
+→ ${t("booking.messageExempt")}: ${paymentExempt === "ja" ? yes : no}`;
     } else if (taxiCategory === "flughafen" && airportPrice) {
       categoryInfo = `
-*Flughafen-Details:*
-→ Festpreis: ${airportPrice},- €`;
+*${t("booking.messageAirportDetails")}:*
+→ ${t("booking.fixedPrice")}: ${airportPrice},- €`;
     }
 
     const pickupMapsLink = generateMapsLink(pickup.trim());
     const destinationMapsLink = generateMapsLink(destination.trim());
     
-    const message = `Hallo, ich möchte ein Taxi buchen:
+    const message = `${t("booking.messageGreeting")}
 
-→ *Kategorie:* ${taxiCategories.find(c => c.value === taxiCategory)?.label || "Normal"}
+→ *${t("booking.messageCategory")}:* ${taxiCategories.find(c => c.value === taxiCategory)?.label || t("booking.categoryNormal")}
 ${categoryInfo}
 
-→ *Name:* ${name.trim()}
-→ *Telefon:* ${phone.trim()}
-→ *Abholort:* ${pickup.trim()}
+→ *${t("booking.name")}:* ${name.trim()}
+→ *${t("booking.phone")}:* ${phone.trim()}
+→ *${t("booking.messagePickup")}:* ${pickup.trim()}
    📍 Maps: ${pickupMapsLink}
-→ *Ziel:* ${destination.trim()}
+→ *${t("booking.messageDestination")}:* ${destination.trim()}
    📍 Maps: ${destinationMapsLink}
-→ *Datum:* ${formattedDate}
-→ *Uhrzeit:* ${time}
-→ *Personen:* ${persons}
-→ *Gepäck:* ${bags}
-${notes.trim() ? `→ *Anmerkungen:* ${notes.trim()}` : ""}
+→ *${t("booking.messageDate")}:* ${formattedDate}
+→ *${t("booking.messageTime")}:* ${time}
+→ *${t("booking.messagePersons")}:* ${persons}
+→ *${t("booking.messageBags")}:* ${bags}
+${notes.trim() ? `→ *${t("booking.messageNotes")}:* ${notes.trim()}` : ""}
 
-Vielen Dank!`;
+${t("booking.messageThanks")}`;
     
     if (bookingMethod === "whatsapp") {
       const whatsappUrl = `https://wa.me/491711670001?text=${encodeURIComponent(message)}`;
@@ -227,7 +230,7 @@ Vielen Dank!`;
 </body>
 </html>`;
       
-      const emailSubject = encodeURIComponent("Taxi Buchungsanfrage - MiniTAXI Royal");
+      const emailSubject = encodeURIComponent(t("booking.emailSubject"));
       const emailBody = encodeURIComponent(message);
       const emailUrl = `mailto:book@minitaxiroyalfb.de?subject=${emailSubject}&body=${emailBody}`;
       window.location.href = emailUrl;
@@ -463,7 +466,7 @@ Vielen Dank!`;
                     <SelectContent>
                       {timeSlots.map((slot) => (
                         <SelectItem key={slot} value={slot}>
-                          {slot} Uhr
+                          {slot}{language === "de" ? " Uhr" : ""}
                         </SelectItem>
                       ))}
                     </SelectContent>
