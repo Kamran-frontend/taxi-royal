@@ -87,7 +87,7 @@ const Index = () => {
               title={t("hub.routes")}
               items={routes.map((r) => ({
                 to: `/fernfahrten/${r.slug}`,
-                label: `Taxi Friedberg – ${r.city}`,
+                label: `${language === "de" ? "Taxi Friedberg und Umgebung" : "Taxi Friedberg and surrounding area"} – ${r.city}`,
                 sub: `${r.country} · ${language === "de" ? "ca." : "approx."} ${r.distanceKm} km`,
               }))}
             />

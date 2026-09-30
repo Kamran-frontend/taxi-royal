@@ -34,7 +34,7 @@ const RoutePage = () => {
         schemas={[
           localBusinessSchema(),
           serviceSchema({
-            name: `Taxi & Transfer Friedberg – ${route.city}`,
+            name: `${language === "de" ? "Taxi & Transfer Friedberg und Umgebung" : "Taxi & transfer Friedberg and surrounding area"} – ${route.city}`,
             description: route.description,
             path,
             areaServed: ["Friedberg", "Frankfurt am Main", route.city, route.country],
@@ -101,7 +101,7 @@ const RoutePage = () => {
             .slice(0, 6)
             .map((r) => ({
               to: `/fernfahrten/${r.slug}`,
-              label: `Taxi Friedberg – ${r.city}`,
+              label: `${language === "de" ? "Taxi Friedberg und Umgebung" : "Taxi Friedberg and surrounding area"} – ${r.city}`,
               sub: `${r.country} · ${language === "de" ? "ca." : "approx."} ${r.distanceKm} km`,
             }))}
         />

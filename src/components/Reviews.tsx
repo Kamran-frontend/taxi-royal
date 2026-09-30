@@ -265,7 +265,7 @@ const Reviews = () => {
               size="icon"
               onClick={prevSlide}
               className="rounded-full border-border hover:bg-muted"
-              aria-label="Vorherige Bewertungen"
+              aria-label={language === "de" ? "Vorherige Bewertungen" : "Previous reviews"}
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
@@ -274,7 +274,7 @@ const Reviews = () => {
               size="icon"
               onClick={nextSlide}
               className="rounded-full border-border hover:bg-muted"
-              aria-label="Nächste Bewertungen"
+              aria-label={language === "de" ? "Nächste Bewertungen" : "Next reviews"}
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
@@ -293,7 +293,7 @@ const Reviews = () => {
               className="grid grid-cols-3 gap-6"
             >
               {filteredReviews.slice(currentIndex * 3, currentIndex * 3 + 3).map((review) => (
-                <ReviewCard key={review.id} review={review} />
+                <ReviewCard key={review.id} review={review} language={language} />
               ))}
             </motion.div>
           </AnimatePresence>
@@ -308,7 +308,7 @@ const Reviews = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <ReviewCard review={review} />
+              <ReviewCard review={review} language={language} />
             </motion.div>
           ))}
         </div>
@@ -333,7 +333,7 @@ const Reviews = () => {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                aria-label={`Seite ${i + 1} anzeigen`}
+                aria-label={language === "de" ? `Seite ${i + 1} anzeigen` : `Show page ${i + 1}`}
                 className={`min-w-[24px] h-6 rounded-full transition-all duration-300 ${
                   i === currentIndex ? "bg-primary w-8" : "bg-muted-foreground/30"
                 }`}
@@ -365,7 +365,7 @@ const Reviews = () => {
   );
 };
 
-const ReviewCard = ({ review }: { review: Review }) => {
+const ReviewCard = ({ review, language }: { review: Review; language: "de" | "en" }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const avatarDisplay = typeof review.avatar === 'string' && review.avatar.startsWith('http') 
     ? null 
@@ -419,7 +419,7 @@ const ReviewCard = ({ review }: { review: Review }) => {
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-primary text-sm font-medium mt-2 hover:underline"
           >
-            {isExpanded ? 'Show less' : 'Read more'}
+            {isExpanded ? (language === "de" ? "Weniger anzeigen" : "Show less") : (language === "de" ? "Weiterlesen" : "Read more")}
           </button>
         )}
       </div>

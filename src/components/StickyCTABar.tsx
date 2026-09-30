@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
  * Stays visible while scrolling on small screens.
  */
 const StickyCTABar = ({ bookingHref = "/#booking" }: { bookingHref?: string }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/95 backdrop-blur-md pb-[env(safe-area-inset-bottom)]">
@@ -21,7 +21,7 @@ const StickyCTABar = ({ bookingHref = "/#booking" }: { bookingHref?: string }) =
           {t("cta.callNow")}
         </a>
         <a
-          href={waLink("Hallo MiniTAXI Royal, ich möchte eine Fahrt anfragen.")}
+          href={waLink(language === "de" ? "Hallo MiniTAXI Royal, ich möchte eine Fahrt anfragen." : "Hello MiniTAXI Royal, I would like to request a ride.")}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center gap-1 py-3 text-xs font-medium text-whatsapp-foreground bg-whatsapp hover:opacity-90 transition-opacity"

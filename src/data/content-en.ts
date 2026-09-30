@@ -1990,8 +1990,8 @@ export const blogPostsEn: BlogPost[] = [
           "The fixed price for a long-distance trip applies to the vehicle, not per person. From three to four passengers onwards, the price per head is significantly closer to that of flexible train or flight tickets - with more comfort and no additional costs for suitcases, sports luggage or strollers."
         ],
         "list": [
-          "1–2 Personen, kurzfristig: Flug oder Bahn oft günstiger",
-          "3–6 Personen: Direktfahrt meist konkurrenzfähig",
+          "1–2 passengers at short notice: flying or rail is often cheaper",
+          "3–6 passengers: a direct ride is often competitive",
           "Lots of luggage or equipment: direct travel has a clear advantage",
           "Night journey or early arrival necessary: ​​direct journey is the most flexible"
         ]
@@ -2029,7 +2029,7 @@ export const blogPostsEn: BlogPost[] = [
       {
         "h": "How to plan your return journey",
         "p": [
-          "Arrange the pick-up time on the outward journey or the afternoon before. For groups, book a van with up to six passengers; This is usually cheaper per person than several individual trips. We are on duty around the clock on weekends."
+          "Arrange the pickup time on the outward journey or the afternoon before. For groups, book our seven-seat van for up to six passengers; this is usually cheaper per person than several individual rides. We operate Monday to Sunday from 07:00 to 00:00, with pre-orders available anytime on request."
         ]
       }
     ]
