@@ -8,6 +8,8 @@ import LinkGrid from "@/components/LinkGrid";
 import wheelchairAccessible from "@/assets/wheelchair-accessible.jpg";
 import { cityPages } from "@/data/cities";
 import type { ContentSection, Faq } from "@/data/types";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 
 const path = "/rollstuhltaxi";
 
@@ -76,43 +78,62 @@ const faqs: Faq[] = [
   },
 ];
 
+const sectionsEn: ContentSection[] = [
+  { h: "Accessible travel in Friedberg and the Wetterau", p: ["Mobility should never depend on the vehicle. Our wheelchair-accessible vehicle has a sturdy ramp and a four-point restraint system that secures the wheelchair safely. You remain seated in your own wheelchair throughout the journey.", "Our drivers are trained to use the ramp and restraint system and assist at the door, in lifts and through to clinic or practice reception."] },
+  { h: "Journeys we provide", p: ["We frequently provide rides to doctors, clinics, dialysis, chemotherapy, radiotherapy, rehabilitation and follow-up appointments. We also support everyday mobility for family visits, shopping, worship, club meetings, hairdresser appointments and outings."], list: ["Dialysis and therapy rides", "Clinic and rehabilitation transport", "Doctor and specialist appointments", "Family visits and celebrations", "Shopping and public-office visits", "Accessible airport transfers"] },
+  { h: "Information to provide when booking", p: ["Please tell us the wheelchair type, approximate weight and dimensions, whether a companion is travelling and whether there are steps or a lift at the pickup address.", "As only part of our fleet is adapted, we recommend booking at least 24 hours ahead. Regular appointments can be arranged with a fixed schedule and, where possible, the same driver."] },
+  { h: "Medical rides and cost coverage", p: ["Many medically necessary rides may be covered by your health insurer when you have a doctor's transport prescription. Outpatient treatment may also require prior approval, with exceptions for certain recurring treatments such as dialysis or oncology.", "We understand the process and are happy to advise you without obligation. Bring the prescription with you and we will clarify the remaining steps together."] },
+];
+
+const faqsEn: Faq[] = [
+  { q: "Can I remain seated in my wheelchair?", a: "Yes. The wheelchair enters via a ramp and is secured with a four-point restraint system; you are additionally protected by lap and shoulder belts." },
+  { q: "Can you carry electric wheelchairs?", a: "Usually, yes. Please provide the weight and dimensions when booking so we can confirm suitability." },
+  { q: "How early should I book?", a: "We recommend at least 24 hours' notice because only part of our fleet is wheelchair accessible." },
+  { q: "Can a companion travel with me?", a: "Yes, usually at no extra charge. Please mention this when booking so we can plan the space." },
+  { q: "Will my health insurer cover the cost?", a: "Often, for medically necessary journeys. A doctor's prescription and, depending on the treatment, insurer approval may be required. We are happy to advise you." },
+  { q: "Do drivers help me get in and out?", a: "Of course. On request, we accompany you from your door to reception and back again." },
+];
+
 const Rollstuhltaxi = () => {
+  const { language } = useLanguage();
+  const { cities } = useLocalizedContent();
+  const de = language === "de";
+  const pageSections = de ? sections : sectionsEn;
+  const pageFaqs = de ? faqs : faqsEn;
   const crumbs = [
-    { name: "Start", path: "/" },
-    { name: "Rollstuhltaxi", path },
+    { name: de ? "Start" : "Home", path: "/" },
+    { name: de ? "Rollstuhltaxi" : "Wheelchair taxi", path },
   ];
 
   return (
     <PageShell crumbs={crumbs}>
       <Seo
-        title="Rollstuhltaxi Friedberg & Wetterau | Barrierefreie Fahrten"
-        description="Rollstuhlgerechtes Taxi mit Rampe in Friedberg, Bad Nauheim und der Wetterau: Krankenfahrten, Dialyse, Reha und Alltagsfahrten. Jetzt buchen: 0171 1670001."
+        title={de ? "Rollstuhltaxi Friedberg & Wetterau | Barrierefreie Fahrten" : "Wheelchair Taxi Friedberg & Wetterau | Accessible Rides"}
+        description={de ? "Rollstuhlgerechtes Taxi mit Rampe in Friedberg, Bad Nauheim und der Wetterau: Krankenfahrten, Dialyse, Reha und Alltagsfahrten. Jetzt buchen: 0171 1670001." : "Wheelchair-accessible taxi with ramp in Friedberg, Bad Nauheim and the Wetterau for medical appointments, dialysis, rehabilitation and everyday journeys."}
         path={path}
         schemas={[
           localBusinessSchema(),
           serviceSchema({
-            name: "Rollstuhltaxi und barrierefreie Krankenfahrten",
-            description:
-              "Barrierefreier Fahrdienst mit Rampe und Rollstuhlsicherung für Friedberg, Bad Nauheim, Butzbach und die Wetterau.",
+            name: de ? "Rollstuhltaxi und barrierefreie Krankenfahrten" : "Wheelchair taxi and accessible medical rides",
+            description: de ? "Barrierefreier Fahrdienst mit Rampe und Rollstuhlsicherung für Friedberg, Bad Nauheim, Butzbach und die Wetterau." : "Accessible transport with a ramp and wheelchair restraints for Friedberg, Bad Nauheim, Butzbach and the Wetterau.",
             path,
             areaServed: ["Friedberg", "Bad Nauheim", "Butzbach", "Wetterau", "Frankfurt am Main"],
           }),
           breadcrumbSchema(crumbs),
-          faqSchema(faqs),
+          faqSchema(pageFaqs),
         ]}
       />
 
       <section className="container mx-auto px-4 pt-8">
         <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4">
-          <span className="gold-text">Rollstuhltaxi Friedberg – barrierefrei und sicher</span>
+          <span className="gold-text">{de ? "Rollstuhltaxi Friedberg – barrierefrei und sicher" : "Wheelchair taxi Friedberg – accessible and safe"}</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Mit Rampe, Rollstuhlsicherung und geschulten Fahrern bringen wir Sie zu Arztterminen, zur
-          Dialyse, zur Reha – oder einfach dorthin, wo Sie hinmöchten.
+          {de ? "Mit Rampe, Rollstuhlsicherung und geschulten Fahrern bringen wir Sie zu Arztterminen, zur Dialyse, zur Reha – oder einfach dorthin, wo Sie hinmöchten." : "With a ramp, wheelchair restraints and trained drivers, we take you to medical appointments, dialysis, rehabilitation or wherever you need to go."}
         </p>
         <img
           src={wheelchairAccessible}
-          alt="Rollstuhlgerechtes Taxi von MiniTAXI Royal mit Auffahrrampe"
+          alt={de ? "Rollstuhlgerechtes Taxi von MiniTAXI Royal mit Auffahrrampe" : "MiniTAXI Royal wheelchair-accessible taxi with ramp"}
           className="mt-8 w-full max-w-3xl rounded-2xl object-cover"
           loading="lazy"
           width="1024"
@@ -121,29 +142,29 @@ const Rollstuhltaxi = () => {
       </section>
 
       <section className="container mx-auto px-4 py-12 max-w-4xl">
-        <ContentSections sections={sections} />
+        <ContentSections sections={pageSections} />
       </section>
 
       <TrustBadges />
 
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6">
-          <span className="gold-text">Häufige Fragen zum Rollstuhltaxi</span>
+          <span className="gold-text">{de ? "Häufige Fragen zum Rollstuhltaxi" : "Frequently asked questions about wheelchair taxis"}</span>
         </h2>
-        <FaqAccordion faqs={faqs} idPrefix="wheel" />
+        <FaqAccordion faqs={pageFaqs} idPrefix="wheel" />
       </section>
 
       <section className="container mx-auto px-4 pb-6">
         <CtaBlock
-          title="Barrierefreie Fahrt anfragen"
-          waMessage="Hallo MiniTAXI Royal, ich benötige ein rollstuhlgerechtes Fahrzeug."
+          title={de ? "Barrierefreie Fahrt anfragen" : "Request an accessible ride"}
+          waMessage={de ? "Hallo MiniTAXI Royal, ich benötige ein rollstuhlgerechtes Fahrzeug." : "Hello MiniTAXI Royal, I need a wheelchair-accessible vehicle."}
         />
         <LinkGrid
-          title="Rollstuhltaxi in Ihrer Stadt"
-          items={cityPages.map((c) => ({
+          title={de ? "Rollstuhltaxi in Ihrer Stadt" : "Wheelchair taxis in your town"}
+          items={cities.map((c) => ({
             to: `/taxi/${c.slug}`,
             label: `Taxi ${c.city}`,
-            sub: "Barrierefreie Fahrten auf Vorbestellung",
+            sub: de ? "Barrierefreie Fahrten auf Vorbestellung" : "Accessible rides by pre-booking",
           }))}
         />
       </section>
