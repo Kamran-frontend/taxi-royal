@@ -39,10 +39,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Frankreich",
     distanceKm: 570,
     durationText: "ca. 5,5 – 6,5 Stunden",
-    title: "Taxi Friedberg – Paris | Fernfahrt & Transfer zum Festpreis",
+    title: "Taxi Friedberg und Umgebung – Paris | Fernfahrt & Transfer zum Festpreis",
     description:
       "Taxi und Transfer von Friedberg, Frankfurt und der Wetterau nach Paris. Tür-zu-Tür, Festpreis auf Anfrage, deutschsprachiger Fahrer, jederzeit vorbestellbar.",
-    h1: "Taxi Friedberg – Paris: Tür-zu-Tür ohne Umsteigen",
+    h1: "Taxi Friedberg und Umgebung – Paris: Tür-zu-Tür ohne Umsteigen",
     lead:
       "Rund 570 Kilometer trennen die Wetterau von der französischen Hauptstadt. Wir fahren Sie direkt von Ihrer Haustür in Friedberg, Bad Nauheim oder Frankfurt bis zu Ihrer Adresse in Paris – ohne Bahnhofsstress, ohne Gepäcklimit, ohne Umsteigen.",
     highlights: [
@@ -100,10 +100,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Niederlande",
     distanceKm: 440,
     durationText: "ca. 4,5 – 5 Stunden",
-    title: "Taxi Friedberg – Amsterdam | Direktfahrt in die Niederlande",
+    title: "Taxi Friedberg und Umgebung – Amsterdam | Direktfahrt in die Niederlande",
     description:
       "Taxi und Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Amsterdam. Tür-zu-Tür-Transfer, Festpreis auf Anfrage, jederzeit vorbestellbar.",
-    h1: "Taxi Friedberg – Amsterdam: entspannt in die Niederlande",
+    h1: "Taxi Friedberg und Umgebung – Amsterdam: entspannt in die Niederlande",
     lead:
       "Rund 440 Kilometer über die A3 und A12 – wir bringen Sie ohne Umsteigen von der Wetterau nach Amsterdam, Rotterdam, Den Haag oder Utrecht.",
     highlights: [
@@ -161,10 +161,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Schweiz",
     distanceKm: 380,
     durationText: "ca. 4 – 4,5 Stunden",
-    title: "Taxi Friedberg – Zürich | Transfer in die Schweiz zum Festpreis",
+    title: "Taxi Friedberg und Umgebung – Zürich | Transfer in die Schweiz zum Festpreis",
     description:
       "Fernfahrt und Taxi von Friedberg, Frankfurt und der Wetterau nach Zürich, Basel oder Bern. Tür-zu-Tür, Festpreisangebot, Vignette inklusive.",
-    h1: "Taxi Friedberg – Zürich: direkt in die Schweiz",
+    h1: "Taxi Friedberg und Umgebung – Zürich: direkt in die Schweiz",
     lead:
       "Über die A5 und den Grenzübergang Basel bringen wir Sie in rund vier Stunden nach Zürich – inklusive Schweizer Vignette und ohne Umsteigen.",
     highlights: [
@@ -222,10 +222,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Deutschland",
     distanceKm: 400,
     durationText: "ca. 4 Stunden",
-    title: "Taxi Friedberg – München | Fernfahrt nach Bayern zum Festpreis",
+    title: "Taxi Friedberg und Umgebung – München | Fernfahrt nach Bayern zum Festpreis",
     description:
       "Taxi und Transfer von Friedberg, Frankfurt und der Wetterau nach München. Direktfahrt Tür zu Tür, Festpreis, auch zum Flughafen München.",
-    h1: "Taxi Friedberg – München: Direktfahrt nach Bayern",
+    h1: "Taxi Friedberg und Umgebung – München: Direktfahrt nach Bayern",
     lead:
       "Rund 400 Kilometer über die A3 und A9 oder über Würzburg und Nürnberg – wir bringen Sie ohne Umsteigen nach München, zur Messe Riem oder zum Flughafen Franz Josef Strauß.",
     highlights: [
@@ -283,10 +283,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Deutschland",
     distanceKm: 520,
     durationText: "ca. 5 – 5,5 Stunden",
-    title: "Taxi Friedberg – Berlin | Direktfahrt in die Hauptstadt",
+    title: "Taxi Friedberg und Umgebung – Berlin | Direktfahrt in die Hauptstadt",
     description:
       "Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Berlin. Tür-zu-Tür-Transfer zum Festpreis, auch zum Flughafen BER, jederzeit vorbestellbar.",
-    h1: "Taxi Friedberg – Berlin: Tür zu Tür in die Hauptstadt",
+    h1: "Taxi Friedberg und Umgebung – Berlin: Tür zu Tür in die Hauptstadt",
     lead:
       "Über die A5, A7 und A9 bringen wir Sie in rund fünf Stunden direkt nach Berlin – zum Hotel, zum Termin, zur Klinik oder zum Flughafen BER.",
     highlights: [
@@ -344,10 +344,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Österreich",
     distanceKm: 750,
     durationText: "ca. 7,5 – 8 Stunden",
-    title: "Taxi Friedberg – Wien | Fernfahrt nach Österreich",
+    title: "Taxi Friedberg und Umgebung – Wien | Fernfahrt nach Österreich",
     description:
       "Taxi und Transfer von Friedberg und Frankfurt nach Wien, Salzburg oder Innsbruck. Festpreis auf Anfrage, Vignette inklusive, Tür zu Tür.",
-    h1: "Taxi Friedberg – Wien: Fernfahrt nach Österreich",
+    h1: "Taxi Friedberg und Umgebung – Wien: Fernfahrt nach Österreich",
     lead:
       "Rund 750 Kilometer über Nürnberg, Passau und Linz: Wir fahren Sie ohne Umsteigen bis vor Ihre Wiener Adresse – inklusive österreichischer Vignette.",
     highlights: [
@@ -405,10 +405,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Tschechien",
     distanceKm: 470,
     durationText: "ca. 5 Stunden",
-    title: "Taxi Friedberg – Prag | Direkttransfer nach Tschechien",
+    title: "Taxi Friedberg und Umgebung – Prag | Direkttransfer nach Tschechien",
     description:
       "Fernfahrt von Friedberg, Frankfurt und der Wetterau nach Prag. Tür-zu-Tür-Transfer zum Festpreis, Vignette inklusive, jederzeit vorbestellbar.",
-    h1: "Taxi Friedberg – Prag: Direkttransfer nach Tschechien",
+    h1: "Taxi Friedberg und Umgebung – Prag: Direkttransfer nach Tschechien",
     lead:
       "Über Würzburg, Nürnberg und Pilsen bringen wir Sie in rund fünf Stunden nach Prag – ohne Umsteigen und mit Festpreis inklusive tschechischer Vignette.",
     highlights: [
@@ -466,10 +466,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Belgien",
     distanceKm: 400,
     durationText: "ca. 4 – 4,5 Stunden",
-    title: "Taxi Friedberg – Brüssel | Transfer nach Belgien zum Festpreis",
+    title: "Taxi Friedberg und Umgebung – Brüssel | Transfer nach Belgien zum Festpreis",
     description:
       "Taxi und Fernfahrt von Friedberg und Frankfurt nach Brüssel, Antwerpen oder Brügge. Tür-zu-Tür, Festpreisangebot, ideal für EU-Termine.",
-    h1: "Taxi Friedberg – Brüssel: direkt ins Herz Europas",
+    h1: "Taxi Friedberg und Umgebung – Brüssel: direkt ins Herz Europas",
     lead:
       "Über Köln, Aachen und Lüttich erreichen wir Brüssel in rund vier Stunden – ideal für Termine im Europaviertel, bei EU-Institutionen und auf Fachmessen.",
     highlights: [
@@ -527,10 +527,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Luxemburg",
     distanceKm: 250,
     durationText: "ca. 2,5 – 3 Stunden",
-    title: "Taxi Friedberg – Luxemburg | Transfer zum Festpreis",
+    title: "Taxi Friedberg und Umgebung – Luxemburg | Transfer zum Festpreis",
     description:
       "Taxi von Friedberg, Frankfurt und der Wetterau nach Luxemburg-Stadt. Tür-zu-Tür-Transfer, Festpreis, auch als Tagesfahrt mit Rückfahrt.",
-    h1: "Taxi Friedberg – Luxemburg: kurze Strecke, großer Komfort",
+    h1: "Taxi Friedberg und Umgebung – Luxemburg: kurze Strecke, großer Komfort",
     lead:
       "Nur rund 250 Kilometer über die A3 und A60 – Luxemburg eignet sich hervorragend als Tagesfahrt mit Hin- und Rückfahrt am selben Tag.",
     highlights: [
@@ -588,10 +588,10 @@ export const longDistanceRoutes: LongDistanceRoute[] = [
     country: "Italien",
     distanceKm: 700,
     durationText: "ca. 7 – 8 Stunden",
-    title: "Taxi Friedberg – Mailand | Fernfahrt nach Italien",
+    title: "Taxi Friedberg und Umgebung – Mailand | Fernfahrt nach Italien",
     description:
       "Fernfahrt von Friedberg und Frankfurt nach Mailand, Como oder an die oberitalienischen Seen. Festpreis inklusive Vignette und Maut.",
-    h1: "Taxi Friedberg – Mailand: über die Alpen nach Italien",
+    h1: "Taxi Friedberg und Umgebung – Mailand: über die Alpen nach Italien",
     lead:
       "Rund 700 Kilometer über Basel, den Gotthard und Lugano: Wir bringen Sie ohne Umsteigen nach Mailand, an den Comer See oder den Lago Maggiore.",
     highlights: [
