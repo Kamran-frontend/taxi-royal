@@ -11,7 +11,7 @@ interface CtaBlockProps {
 }
 
 const CtaBlock = ({ title, subtitle, waMessage }: CtaBlockProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="glass-card rounded-2xl p-6 md:p-10 text-center">
@@ -34,7 +34,7 @@ const CtaBlock = ({ title, subtitle, waMessage }: CtaBlockProps) => {
           className="bg-whatsapp hover:bg-whatsapp/90 text-whatsapp-foreground rounded-full"
         >
           <a
-            href={waLink(waMessage ?? "Hallo MiniTAXI Royal, ich möchte ein Angebot für eine Fahrt.")}
+            href={waLink(waMessage ?? (language === "de" ? "Hallo MiniTAXI Royal, ich möchte ein Angebot für eine Fahrt." : "Hello MiniTAXI Royal, I would like a quote for a ride."))}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Complete remaining English translations across public pages and shared sections
-- [ ] Replace Friedberg-only origin wording with Friedberg and surrounding area
-- [ ] Change operating days to Monday through Sunday everywhere
-- [ ] Correct group capacity to a 7-seat van / up to 7 passengers
+- [x] Complete remaining English translations across public pages and shared sections
+- [x] Replace Friedberg-only origin wording with Friedberg and surrounding area
+- [x] Change operating days to Monday through Sunday everywhere
+- [x] Correct group capacity to a 7-seat van / up to 6 passengers
 - [ ] Verify German and English pages, build status, and central booking flow
