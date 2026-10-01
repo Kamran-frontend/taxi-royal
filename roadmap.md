@@ -5,3 +5,4 @@
 - [x] Change operating days to Monday through Sunday everywhere
 - [x] Correct group capacity to a 7-seat van / up to 6 passengers
 - [x] Verify German and English pages, build status, and central booking flow
+- [x] Re-audit every page, component, and search-engine listing for Monday–Sunday hours
